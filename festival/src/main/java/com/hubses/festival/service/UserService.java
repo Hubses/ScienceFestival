@@ -15,12 +15,12 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public Optional<User> getUserByUsername(String username){
+    public Optional<User> getUserByUsername(String username) {
         return Optional.ofNullable(userRepository.findOneByUsername(username));
     }
 
     @PostConstruct
-    public void init(){
+    public void init() {
         User admin = new User();
         admin.setUsername("admin");
         admin.setPassword("admin");
@@ -32,7 +32,5 @@ public class UserService {
         user.setPassword("user");
         user.setRole(Role.USER);
         userRepository.save(user);
-
-        System.out.println(userRepository.findAll());
     }
 }

@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class FestivalApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(FestivalApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(FestivalApplication.class, args);
+    }
 }

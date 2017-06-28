@@ -1,6 +1,5 @@
 package com.hubses.festival.dto;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

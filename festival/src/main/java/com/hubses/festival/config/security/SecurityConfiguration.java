@@ -12,16 +12,17 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     private CustomUserDetailService customUserDetailService;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeRequests()
-                .antMatchers("/**/*.html","/**/*.css","/**/*.js").permitAll()
+                .antMatchers("/").permitAll()
+                .antMatchers("/**/*.html", "/**/*.css", "/**/*.js").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .httpBasic().realmName("Science")
                 .and()
                 .logout().logoutUrl("/logout")
-
         ;
     }
 
