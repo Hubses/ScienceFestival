@@ -72,6 +72,8 @@ public class UserService {
         User user = new User();
         user.setUsername("user");
         user.setPassword("user");
+        user.setName("Vasya");
+        user.setPassword("Pupkin");
         user.setRole(Role.USER);
         userRepository.save(user);
     }
