@@ -18,7 +18,7 @@ public class CustomUserDetailService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String s) {
 
-        return userService.getUserByUsername(s).map(user ->
+        return userService.getCustomerByUsername(s).map(user ->
                 UserAuthDTO.builder()
                         .username(user.getUsername())
                         .password(user.getPassword())
