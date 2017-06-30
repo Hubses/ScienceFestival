@@ -43,19 +43,53 @@ public class UserService {
                         .password(customerDTO.getPassword())
                         .name(customerDTO.getName())
                         .surname(customerDTO.getSurname())
+                        .role(Role.USER)
                         .build()
         ));
     }
 
     public Optional<User> updateCustomer(CustomerDTO customerDTO, long id) {
-        return userRepository.findOneById(id).map(user ->
+        return userRepository.findOneById(id).map(user -> {
+                    if (customerDTO.getRole() == null) {
+                        customerDTO.setRole(user.getRole().toString());
+                    }
+                    return userRepository.save(User.builder()
+                            .id(id)
+                            .username(customerDTO.getUsername())
+                            .password(customerDTO.getPassword())
+                            .name(customerDTO.getName())
+                            .surname(customerDTO.getSurname())
+                            .role(Role.valueOf(customerDTO.getRole()))
+                            .build()
+                    );
+                }
+        );
+    }
+
+    public Optional<Iterable<User>> getAllUsers() {
+        return userRepository.findAllByRole(Role.USER).map(users -> users);
+    }
+
+    public Optional<User> getUserById(long id) {
+        return userRepository.findOneByIdAndRole(id, Role.USER).map(user -> user);
+    }
+
+    public Optional<User> deleteUserById(long id) {
+        return userRepository.findOneByIdAndRole(id, Role.USER).map(user -> {
+            userRepository.delete(user);
+            return user;
+        });
+    }
+
+    public Optional<User> updateUser(CustomerDTO customerDTO, long id) {
+        return userRepository.findOneByIdAndRole(id, Role.USER).map(user ->
                 userRepository.save(User.builder()
                         .id(id)
                         .username(customerDTO.getUsername())
                         .password(customerDTO.getPassword())
                         .name(customerDTO.getName())
                         .surname(customerDTO.getSurname())
-                        .role(Role.valueOf(customerDTO.getRole()))
+                        .role(Role.USER)
                         .build()
                 )
         );
@@ -73,10 +107,9 @@ public class UserService {
         user.setUsername("user");
         user.setPassword("user");
         user.setName("Vasya");
-        user.setPassword("Pupkin");
+        user.setSurname("Pupkin");
         user.setRole(Role.USER);
         userRepository.save(user);
     }
-
 
 }
