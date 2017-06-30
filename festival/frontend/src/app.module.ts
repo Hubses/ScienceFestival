@@ -3,13 +3,13 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { NewsRepository } from '../store/news';
+import { StoreModule } from '@ngrx/store';
 
-import { ApplicationStoreModule, ApplicationEffects } from '../store';
-import { newsReducer } from "../store/news/";
+import { AppComponent } from './app/app.component';
 
-import { AppComponent } from './app.component';
-import { StoreModule } from "@ngrx/store";
+import { NewsRepository } from './store/news';
+import { newsReducer } from './store/news/';
+import { ApplicationStoreModule, ApplicationEffects } from './store';
 
 @NgModule({
   declarations: [
