@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { AppComponent } from './app/app.component';
 
@@ -21,6 +22,9 @@ import { ApplicationStoreModule, ApplicationEffects } from './store';
     HttpModule,
     ...ApplicationEffects,
     StoreModule.provideStore({ newsReducer }),
+    StoreDevtoolsModule.instrumentOnlyWithExtension({
+      maxAge: 5
+    })
   ],
   providers: [NewsRepository],
   bootstrap: [AppComponent]
