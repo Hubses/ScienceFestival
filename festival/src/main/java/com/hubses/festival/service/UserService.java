@@ -95,6 +95,89 @@ public class UserService {
         );
     }
 
+    public Optional<Iterable<User>> getAllJury() {
+        return userRepository.findAllByRole(Role.JURY).map(jury -> jury);
+    }
+
+    public Optional<User> getJuryById(long id) {
+        return userRepository.findOneByIdAndRole(id, Role.JURY).map(jury -> jury);
+    }
+
+    public Optional<User> deleteJuryById(long id) {
+        return userRepository.findOneByIdAndRole(id, Role.JURY).map(jury -> {
+            userRepository.delete(jury);
+            return jury;
+        });
+    }
+
+    public Optional<User> createJury(CustomerDTO customerDTO) {
+        return Optional.of(userRepository.save(
+                User.builder()
+                        .username(customerDTO.getUsername())
+                        .password(customerDTO.getPassword())
+                        .name(customerDTO.getName())
+                        .surname(customerDTO.getSurname())
+                        .role(Role.JURY)
+                        .build()
+        ));
+    }
+
+    public Optional<User> updateJury(CustomerDTO customerDTO, long id) {
+        return userRepository.findOneByIdAndRole(id, Role.JURY).map(jury ->
+                userRepository.save(User.builder()
+                        .id(id)
+                        .username(customerDTO.getUsername())
+                        .password(customerDTO.getPassword())
+                        .name(customerDTO.getName())
+                        .surname(customerDTO.getSurname())
+                        .role(Role.JURY)
+                        .build()
+                )
+        );
+    }
+
+    public Optional<Iterable<User>> getAllCommittee() {
+        return userRepository.findAllByRole(Role.ORGANISING_COMMITTEE).map(committee -> committee);
+    }
+
+    public Optional<User> getCommitteeById(long id) {
+        return userRepository.findOneByIdAndRole(id, Role.ORGANISING_COMMITTEE).map(committee -> committee);
+    }
+
+    public Optional<User> deleteCommitteeById(long id) {
+        return userRepository.findOneByIdAndRole(id, Role.ORGANISING_COMMITTEE).map(committee -> {
+            userRepository.delete(committee);
+            return committee;
+        });
+    }
+
+    public Optional<User> createCommittee(CustomerDTO customerDTO) {
+        return Optional.of(userRepository.save(
+                User.builder()
+                        .username(customerDTO.getUsername())
+                        .password(customerDTO.getPassword())
+                        .name(customerDTO.getName())
+                        .surname(customerDTO.getSurname())
+                        .role(Role.ORGANISING_COMMITTEE)
+                        .build()
+        ));
+    }
+
+    public Optional<User> updateCommittee(CustomerDTO customerDTO, long id) {
+        return userRepository.findOneByIdAndRole(id, Role.ORGANISING_COMMITTEE).map(committee ->
+                userRepository.save(User.builder()
+                        .id(id)
+                        .username(customerDTO.getUsername())
+                        .password(customerDTO.getPassword())
+                        .name(customerDTO.getName())
+                        .surname(customerDTO.getSurname())
+                        .role(Role.ORGANISING_COMMITTEE)
+                        .build()
+                )
+        );
+    }
+
+
     @PostConstruct
     public void init() {
         User admin = new User();
@@ -110,6 +193,22 @@ public class UserService {
         user.setSurname("Pupkin");
         user.setRole(Role.USER);
         userRepository.save(user);
+
+        User jury = new User();
+        jury.setUsername("jury");
+        jury.setPassword("jury");
+        jury.setName("Vasya2");
+        jury.setSurname("Pupkin2");
+        jury.setRole(Role.JURY);
+        userRepository.save(jury);
+
+        User orgCom = new User();
+        orgCom.setUsername("org");
+        orgCom.setPassword("org");
+        orgCom.setName("Vasya3");
+        orgCom.setSurname("Pupkin3");
+        orgCom.setRole(Role.ORGANISING_COMMITTEE);
+        userRepository.save(orgCom);
     }
 
 }
