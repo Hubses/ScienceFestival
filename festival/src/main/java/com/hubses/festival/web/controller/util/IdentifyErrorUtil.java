@@ -1,12 +1,7 @@
 package com.hubses.festival.web.controller.util;
 
-import org.springframework.context.annotation.Lazy;
-import org.springframework.stereotype.Component;
-
 import javax.servlet.http.HttpServletRequest;
 
-@Lazy
-@Component
 public final class IdentifyErrorUtil {
     private static final int BAD_REQUEST_CODE = 400;
     private static final int UNAUTHORIZED_CODE = 401;
