@@ -18,13 +18,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.csrf().disable().authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers("/**/*.html", "/**/*.css", "/**/*.js").permitAll()
-                .antMatchers("/**/customers/**","/**/users/**","/**/jury/**","/**/committee/**").hasAuthority("ADMIN")
+                .antMatchers("/**/customers/**", "/**/users/**", "/**/jury/**", "/**/committee/**").hasAuthority("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .httpBasic().realmName("Science")
                 .and()
-                .logout().logoutUrl("/logout")
-        ;
+                .logout().logoutUrl("/logout");
     }
 
     @Override
@@ -32,4 +31,5 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         auth.userDetailsService(customUserDetailService);
     }
+
 }
