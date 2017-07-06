@@ -36,4 +36,4 @@ export const newsReducer = (state: State = initialState, { type, payload }: Acti
         default:
             return state;
     }
-}
+};

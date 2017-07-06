@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 
 import { Observable } from 'rxjs';
 
-import { getNewsAction } from '../store/news/';
+import { getNewsAction } from '../../../store/news/';
 
 
 @Component({
