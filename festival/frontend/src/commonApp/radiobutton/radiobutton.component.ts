@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'sf-common-input',
+    selector: 'sf-common-radio',
     templateUrl: './input.component.html'
 })
-export class InputComponent { }
+export class RadioButtonComponent { }

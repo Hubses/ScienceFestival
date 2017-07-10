@@ -6,6 +6,7 @@ import { MaterialModule } from '@angular/material';
 
 
 import { InputComponent } from './input/input.component';
+import {  } from "./spinner/spinner.component";
 
 @NgModule({
     imports: [
