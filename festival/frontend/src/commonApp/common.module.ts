@@ -2,6 +2,7 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { CommonModule } from '@angular/common';
+import { MaterialModule } from '@angular/material';
 
 
 import { InputComponent } from './input/input.component';
@@ -10,6 +11,7 @@ import { InputComponent } from './input/input.component';
     imports: [
         BrowserModule,
         HttpModule,
+        MaterialModule
     ],
     declarations: [InputComponent],
     providers: [/* TODO: Providers go here */],
