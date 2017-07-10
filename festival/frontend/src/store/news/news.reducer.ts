@@ -10,7 +10,7 @@ const initialState: State = {
     entity: null
 };
 
-export const newsReducer = (state: State = initialState, { type, payload }: Action): State => {
+const newsReducer = (state: State = initialState, { type, payload }: Action): State => {
     switch (type) {
         case NEWS_ACTION_TYPES.GET:
             return Object.assign({}, state, {
@@ -37,3 +37,4 @@ export const newsReducer = (state: State = initialState, { type, payload }: Acti
             return state;
     }
 };
+export default newsReducer;

@@ -1,1 +1,11 @@
-<input type="text"> 123
+<md-card>
+    <md-toolbar *ngIf="header">
+        {{header}}
+    </md-toolbar>
+    <md-card-content>
+        <ng-content></ng-content>
+    </md-card-content>
+    <md-toolbar *ngIf="footer">
+        {{footer}}
+    </md-toolbar>
+</md-card>

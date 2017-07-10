@@ -3,11 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import {
     InputComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    TabGroupComponent,
+    SafePipe,
+    FormComponent
 } from './';
 
 
@@ -15,17 +19,23 @@ import {
     imports: [
         BrowserModule,
         HttpModule,
-        MaterialModule
+        MaterialModule,
+        BrowserAnimationsModule
     ],
     declarations: [
         InputComponent,
-        SpinnerComponent
+        SpinnerComponent,
+        TabGroupComponent,
+        SafePipe,
+        FormComponent
     ],
     providers: [/* TODO: Providers go here */],
     exports: [
         MaterialModule,
         InputComponent,
-        SpinnerComponent
+        SpinnerComponent,
+        TabGroupComponent,
+        FormComponent
     ]
 })
 export class SFCommonModule {

@@ -1,0 +1,4 @@
+<md-tab-group *ngFor="let tab of tabs;trackBy: trackById;">
+    <md-tab label="{{tab.title}}" [innerHTML] = "tab.content | safe: 'html'">
+    </md-tab>
+</md-tab-group>
