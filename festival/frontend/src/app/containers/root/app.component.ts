@@ -24,15 +24,12 @@ export class AppComponent implements OnInit {
       content: '<div> 123 </div>'
     }
   ]
-  // public dropdownOptions: sf.common.DropdownOptions = {
-  //   placeholder: '123',
-  //   values: [
-  //     '1230',
-  //     '456'
-  //   ],
-  //   selectedValue: '1230'
-  // }
+  public dropdownOptions = {
+    placeholder: 'qwe',
+    values: ['123', '456']
+  }
 
+  public dropdownSelect: number | string;
 
   constructor(private store: Store<sf.store.NewsStore>) { }
 

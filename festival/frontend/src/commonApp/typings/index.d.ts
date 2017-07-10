@@ -21,6 +21,6 @@ declare namespace sf.common {
     interface DropdownOptions {
         placeholder: string;
         values: string[] | number[];
-        selectedValue?: string | number;
+        selectedValue: string | number;
     }
 }

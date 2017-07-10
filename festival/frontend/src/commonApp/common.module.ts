@@ -1,4 +1,4 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
+import { NgModule, ModuleWithProviders, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { CommonModule } from '@angular/common';
@@ -42,7 +42,8 @@ import {
         FormComponent,
         CardComponent,
         DropdownComponent
-    ]
+    ],
+    schemas: [NO_ERRORS_SCHEMA]
 })
 export class SFCommonModule {
     static forRoot(): ModuleWithProviders {
