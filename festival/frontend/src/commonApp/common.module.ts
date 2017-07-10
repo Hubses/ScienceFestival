@@ -28,7 +28,7 @@ import {
         SpinnerComponent,
         TabGroupComponent,
         FormComponent,
-        TabComponent
+        TabComponent,
         CardComponent
     ],
     providers: [/* TODO: Providers go here */],
