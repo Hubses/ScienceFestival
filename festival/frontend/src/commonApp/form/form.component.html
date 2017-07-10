@@ -1,11 +1,13 @@
-<md-card>
-    <md-toolbar *ngIf="header">
-        {{header}}
-    </md-toolbar>
-    <md-card-content>
-        <ng-content></ng-content>
-    </md-card-content>
-    <md-toolbar *ngIf="footer">
-        {{footer}}
-    </md-toolbar>
-</md-card>
+<form>
+    <md-card>
+        <md-toolbar>
+            <ng-content select="form-header"></ng-content>
+        </md-toolbar>
+        <md-card-content>
+            <ng-content select="form-body"></ng-content>
+        </md-card-content>
+        <md-toolbar>
+            <ng-content select="form-footer"></ng-content>
+        </md-toolbar>
+    </md-card>
+</form>

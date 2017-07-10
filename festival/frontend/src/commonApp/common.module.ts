@@ -12,7 +12,8 @@ import {
     TabGroupComponent,
     TabComponent,
     FormComponent,
-    CardComponent
+    CardComponent,
+    DropdownComponent
 } from './';
 
 
@@ -29,7 +30,8 @@ import {
         TabGroupComponent,
         FormComponent,
         TabComponent,
-        CardComponent
+        CardComponent,
+        DropdownComponent
     ],
     providers: [/* TODO: Providers go here */],
     exports: [
@@ -38,7 +40,8 @@ import {
         SpinnerComponent,
         TabGroupComponent,
         FormComponent,
-        CardComponent
+        CardComponent,
+        DropdownComponent
     ]
 })
 export class SFCommonModule {

@@ -9,7 +9,22 @@
 
 <sf-common-input></sf-common-input>
 <sf-common-spinner></sf-common-spinner>
-<sf-common-tabs [tabs]="tabs"></sf-common-tabs>
-<!--<sf-common-form [header]="form.header" [footer]="">
-  <div class="temp">12456</div>
-</sf-common-form>-->
+<sf-common-form>
+  <form-header>
+    <div class="temp">12456</div>
+  </form-header>
+  <form-body>
+    <div class="temp">12456789</div>
+  </form-body>
+  <form-footer>
+    <div class="temp">124567890</div>
+  </form-footer>
+</sf-common-form>
+
+<sf-common-tabs [tabs]="tabs">
+  <!--<sf-tab-body>
+    {{tabs[0].content | json}}
+  </sf-tab-body>-->
+</sf-common-tabs>
+
+<!--<sf-common-dropdown [dropdownOptions]="dropdownOptions"></sf-common-dropdown>-->
