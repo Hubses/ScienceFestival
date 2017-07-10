@@ -1,6 +1,5 @@
 <md-tab-group *ngFor="let tab of tabs;">
     <md-tab label="{{tab.title}}">
-        <!--<ng-content select="sf-tab-body"></ng-content>-->
         <div [innerHTML]="tab.content">
         </div>
     </md-tab>

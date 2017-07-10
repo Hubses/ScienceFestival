@@ -23,4 +23,7 @@ declare namespace sf.common {
         values: string[] | number[];
         selectedValue: string | number;
     }
+    interface menuOptions {
+        
+    }
 }

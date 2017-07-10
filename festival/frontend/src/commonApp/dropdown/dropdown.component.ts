@@ -6,7 +6,6 @@ import { Component, Input, EventEmitter, Output, OnInit } from '@angular/core';
 })
 export class DropdownComponent implements OnInit {
 
-
     @Input() public dropdownOptions: sf.common.DropdownOptions;
 
     public selectedValue: string;

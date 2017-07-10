@@ -2,6 +2,7 @@ import { NgModule, ModuleWithProviders, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -13,7 +14,9 @@ import {
     TabComponent,
     FormComponent,
     CardComponent,
-    DropdownComponent
+    DropdownComponent,
+    MenuComponent,
+    SidenavComponent
 } from './';
 
 
@@ -21,6 +24,7 @@ import {
     imports: [
         BrowserModule,
         HttpModule,
+        FormsModule,
         MaterialModule,
         BrowserAnimationsModule,
     ],
@@ -31,7 +35,9 @@ import {
         FormComponent,
         TabComponent,
         CardComponent,
-        DropdownComponent
+        DropdownComponent,
+        MenuComponent,
+        SidenavComponent
     ],
     providers: [/* TODO: Providers go here */],
     exports: [
@@ -41,7 +47,9 @@ import {
         TabGroupComponent,
         FormComponent,
         CardComponent,
-        DropdownComponent
+        DropdownComponent,
+        MenuComponent,
+        SidenavComponent
     ],
     schemas: [NO_ERRORS_SCHEMA]
 })

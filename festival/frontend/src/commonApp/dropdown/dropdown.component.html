@@ -1,8 +1,11 @@
 <div *ngIf="dropdownOptions">
   <md-select placeholder="{{dropdownOptions.placeholder}}" [(ngModel)]="selectedValue">
-    <md-option *ngFor="let value of dropdownOptions.values; let i = index" [value]="value" [selected]="i == 0">
+    <md-option *ngFor="let value of dropdownOptions.values; let i = index" [value]="value">
       {{value}}
     </md-option>
   </md-select>
-  {{selectedValue}}
+  <div>
+    {{selectedValue}}
+  </div>
+
 </div>
