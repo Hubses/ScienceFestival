@@ -7,7 +7,11 @@ import { MaterialModule } from '@angular/material';
 
 import {
     InputComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    ButtonComponent,
+    RadioButtonComponent,
+    CheckboxComponent,
+    IconComponent
 } from './';
 
 
@@ -16,16 +20,28 @@ import {
         BrowserModule,
         HttpModule,
         MaterialModule
+        
     ],
     declarations: [
         InputComponent,
-        SpinnerComponent
+        SpinnerComponent,
+         ButtonComponent,
+         InputComponent,
+         RadioButtonComponent,
+         CheckboxComponent,
+         IconComponent
+    
     ],
     providers: [/* TODO: Providers go here */],
     exports: [
         MaterialModule,
         InputComponent,
-        SpinnerComponent
+        SpinnerComponent,
+         ButtonComponent,
+         InputComponent,
+         RadioButtonComponent,
+         CheckboxComponent,
+         IconComponent
     ]
 })
 export class SFCommonModule {

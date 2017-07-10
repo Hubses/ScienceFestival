@@ -12,3 +12,4 @@ export * from './radiobutton';
 export * from './spinner';
 export * from './tab';
 export * from './table';
+export * from './button';

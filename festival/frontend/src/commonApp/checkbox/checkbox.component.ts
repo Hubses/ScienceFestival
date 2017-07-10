@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component,Input } from '@angular/core';
 
 @Component({
     selector: 'sf-common-checkbox',
     templateUrl: './checkbox.component.html'
 })
-export class CheckboxComponent { }
+export class CheckboxComponent {
+    @Input() public nameCheckBox: string;
+ }
