@@ -1,6 +1,5 @@
 import { Component, Input, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { Pipe } from '@angular/core';
-import { DomSanitizer, SafeHtml, SafeStyle, SafeScript, SafeUrl, SafeResourceUrl } from '@angular/platform-browser';
 
 
 @Component({
@@ -9,15 +8,17 @@ import { DomSanitizer, SafeHtml, SafeStyle, SafeScript, SafeUrl, SafeResourceUrl
 })
 export class TabGroupComponent implements OnInit, AfterViewInit {
 
-    @Input() public tabs: sf.common.Tab[];
 
-    constructor(private _sanitizer: DomSanitizer) { }
+    @Input() public tabs: sf.common.Tab[];
+    @ViewChild('tabContent') public tabContentRef: ElementRef;
+
+    constructor() { }
 
     ngOnInit(): void {
         console.log(this.tabs);
     }
-
     ngAfterViewInit(): void {
+        // this.tabContentRef.nativeElement.innerHTML = this.tabs[0].content;
     }
 
     public trackById(index: number, tab: sf.common.Tab): number {

@@ -10,7 +10,7 @@ import {
     InputComponent,
     SpinnerComponent,
     TabGroupComponent,
-    SafePipe,
+    TabComponent,
     FormComponent
 } from './';
 
@@ -26,8 +26,8 @@ import {
         InputComponent,
         SpinnerComponent,
         TabGroupComponent,
-        SafePipe,
-        FormComponent
+        FormComponent,
+        TabComponent
     ],
     providers: [/* TODO: Providers go here */],
     exports: [
@@ -35,7 +35,8 @@ import {
         InputComponent,
         SpinnerComponent,
         TabGroupComponent,
-        FormComponent
+        FormComponent,
+        TabComponent
     ]
 })
 export class SFCommonModule {
