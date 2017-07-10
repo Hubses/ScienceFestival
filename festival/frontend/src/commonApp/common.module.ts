@@ -5,8 +5,11 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@angular/material';
 
 
-import { InputComponent } from './input/input.component';
-import {  } from "./spinner/spinner.component";
+import {
+    InputComponent,
+    SpinnerComponent
+} from './';
+
 
 @NgModule({
     imports: [
@@ -14,9 +17,15 @@ import {  } from "./spinner/spinner.component";
         HttpModule,
         MaterialModule
     ],
-    declarations: [InputComponent],
+    declarations: [
+        InputComponent,
+        SpinnerComponent
+    ],
     providers: [/* TODO: Providers go here */],
-    exports: [InputComponent]
+    exports: [
+        InputComponent,
+        SpinnerComponent
+    ]
 })
 export class SFCommonModule {
     static forRoot(): ModuleWithProviders {
