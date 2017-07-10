@@ -11,7 +11,8 @@ import {
     SpinnerComponent,
     TabGroupComponent,
     SafePipe,
-    FormComponent
+    FormComponent,
+    CardComponent
 } from './';
 
 
@@ -20,14 +21,15 @@ import {
         BrowserModule,
         HttpModule,
         MaterialModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
     ],
     declarations: [
         InputComponent,
         SpinnerComponent,
         TabGroupComponent,
         SafePipe,
-        FormComponent
+        FormComponent,
+        CardComponent
     ],
     providers: [/* TODO: Providers go here */],
     exports: [
@@ -35,7 +37,8 @@ import {
         InputComponent,
         SpinnerComponent,
         TabGroupComponent,
-        FormComponent
+        FormComponent,
+        CardComponent
     ]
 })
 export class SFCommonModule {
