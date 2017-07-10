@@ -12,7 +12,7 @@ import { NewsRepository } from './store/news';
 import { newsReducer } from './store/news/';
 import { ApplicationStoreModule, ApplicationEffects } from './store';
 
-import { TestModule } from './common/app.module';
+import { SFCommonModule } from './commonApp/common.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,7 @@ import { TestModule } from './common/app.module';
     StoreDevtoolsModule.instrumentOnlyWithExtension({
       maxAge: 5
     }),
-    TestModule.forRoot()
+    SFCommonModule.forRoot()
   ],
   providers: [NewsRepository],
   bootstrap: [AppComponent]

@@ -23,6 +23,7 @@ import {
     ],
     providers: [/* TODO: Providers go here */],
     exports: [
+        MaterialModule,
         InputComponent,
         SpinnerComponent
     ]
