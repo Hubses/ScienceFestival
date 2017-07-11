@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component,Input } from '@angular/core';
 
 @Component({
     selector: 'sf-common-icon',
     templateUrl: './icon.component.html'
 })
-export class IconComponent { }
+export class IconComponent {
+    @Input() public type: string;
+}

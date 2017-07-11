@@ -1,4 +1,4 @@
-import { Component,Input } from '@angular/core';
+import { Component,Input,EventEmitter,Output } from '@angular/core';
 
 @Component({
     selector: 'sf-common-button',
@@ -6,4 +6,8 @@ import { Component,Input } from '@angular/core';
 })
 export class ButtonComponent {
 @Input() public label: string;
+@Output() onChanged = new EventEmitter<boolean>();
+change(increased){
+    this.onChanged.emit(increased);
+}
 }   

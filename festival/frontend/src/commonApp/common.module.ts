@@ -15,6 +15,7 @@ import {
     RadioButtonComponent,
     CheckboxComponent,
     IconComponent,
+    InputNumbComponent,
 =======
     TabGroupComponent,
     TabComponent,
@@ -48,6 +49,7 @@ import {
          RadioButtonComponent,
          CheckboxComponent,
          IconComponent,
+         InputNumbComponent,
     
 =======
         TabGroupComponent,
@@ -70,6 +72,7 @@ import {
          RadioButtonComponent,
          CheckboxComponent,
          IconComponent,
+         InputNumbComponent,
 =======
         TabGroupComponent,
         FormComponent,
