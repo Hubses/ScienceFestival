@@ -1,1 +1,11 @@
-<input type="text"> 123
+<div *ngIf="dropdownOptions">
+  <md-select placeholder="{{dropdownOptions.placeholder}}" [(ngModel)]="selectedValue">
+    <md-option *ngFor="let value of dropdownOptions.values; let i = index" [value]="value">
+      {{value}}
+    </md-option>
+  </md-select>
+  <div>
+    {{selectedValue}}
+  </div>
+
+</div>

@@ -1,7 +1,8 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
+import { NgModule, ModuleWithProviders, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -13,12 +14,15 @@ import {
     ButtonComponent,
     RadioButtonComponent,
     CheckboxComponent,
-    IconComponent
+    IconComponent,
 =======
     TabGroupComponent,
     TabComponent,
     FormComponent,
-    CardComponent
+    CardComponent,
+    DropdownComponent,
+    MenuComponent,
+    SidenavComponent
 >>>>>>> 52b79dcf24b6e9cb0cc55ae71889ce68c5e03822
 } from './';
 
@@ -27,7 +31,7 @@ import {
     imports: [
         BrowserModule,
         HttpModule,
-<<<<<<< HEAD
+        FormsModule,
         MaterialModule
         
 =======
@@ -43,13 +47,16 @@ import {
          InputComponent,
          RadioButtonComponent,
          CheckboxComponent,
-         IconComponent
+         IconComponent,
     
 =======
         TabGroupComponent,
         FormComponent,
         TabComponent,
-        CardComponent
+        CardComponent,
+        DropdownComponent,
+        MenuComponent,
+        SidenavComponent
 >>>>>>> 52b79dcf24b6e9cb0cc55ae71889ce68c5e03822
     ],
     providers: [/* TODO: Providers go here */],
@@ -62,13 +69,16 @@ import {
          InputComponent,
          RadioButtonComponent,
          CheckboxComponent,
-         IconComponent
+         IconComponent,
 =======
         TabGroupComponent,
         FormComponent,
-        CardComponent
->>>>>>> 52b79dcf24b6e9cb0cc55ae71889ce68c5e03822
-    ]
+        CardComponent,
+        DropdownComponent,
+        MenuComponent,
+        SidenavComponent
+    ],
+    schemas: [NO_ERRORS_SCHEMA]
 })
 export class SFCommonModule {
     static forRoot(): ModuleWithProviders {

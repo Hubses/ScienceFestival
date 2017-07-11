@@ -24,11 +24,12 @@ export class AppComponent implements OnInit {
       content: '<div> 123 </div>'
     }
   ]
-  public form = {
-    header: 'header',
-    footer: 'footer'
-  };
+  public dropdownOptions = {
+    placeholder: 'qwe',
+    values: ['123', '456']
+  }
 
+  public dropdownSelect: number | string;
 
   constructor(private store: Store<sf.store.NewsStore>) { }
 

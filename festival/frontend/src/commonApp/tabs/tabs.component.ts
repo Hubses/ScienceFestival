@@ -6,19 +6,14 @@ import { Pipe } from '@angular/core';
     selector: 'sf-common-tabs',
     templateUrl: './tabs.component.html',
 })
-export class TabGroupComponent implements OnInit, AfterViewInit {
+export class TabGroupComponent implements OnInit {
 
 
     @Input() public tabs: sf.common.Tab[];
-    @ViewChild('tabContent') public tabContentRef: ElementRef;
 
     constructor() { }
 
     ngOnInit(): void {
-        console.log(this.tabs);
-    }
-    ngAfterViewInit(): void {
-        // this.tabContentRef.nativeElement.innerHTML = this.tabs[0].content;
     }
 
     public trackById(index: number, tab: sf.common.Tab): number {

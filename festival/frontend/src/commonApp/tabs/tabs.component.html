@@ -1,7 +1,6 @@
 <md-tab-group *ngFor="let tab of tabs;">
-    <!--<sf-common-tab [tab]="tab">{{tab.content}}</sf-common-tab>-->
-    <md-tab label="{{tab.title}}" #tabContent>
-        <!--<ng-content></ng-content>-->
-        {{tab.content}}
+    <md-tab label="{{tab.title}}">
+        <div [innerHTML]="tab.content">
+        </div>
     </md-tab>
 </md-tab-group>
