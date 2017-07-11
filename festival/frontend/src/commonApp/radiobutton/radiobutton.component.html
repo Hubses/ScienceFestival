@@ -1,5 +1,7 @@
 <md-radio-group [(NgModel)]="cheked">
   <!--<md-radio-button-name (click)="change(true)">{{option}}</md-radio-button-name>    -->
-  <md-radio-button *NgFor="let option from options" [value]="option">{{option}}</md-radio-button>
-  
+  <md-radio-button *ngFor="let option of RadioButtonOptions" [value]="option">
+    {{option}}
+  </md-radio-button>
+
 </md-radio-group>
