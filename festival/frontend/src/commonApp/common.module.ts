@@ -22,7 +22,7 @@ import {
     CardComponent,
     DropdownComponent,
     MenuComponent,
-
+    SidenavComponent
 } from './';
 
 
@@ -31,24 +31,17 @@ import {
         BrowserModule,
         HttpModule,
         FormsModule,
-        MaterialModule
-        
-
         MaterialModule,
-        BrowserAnimationsModule,
-
+        BrowserAnimationsModule
     ],
     declarations: [
         InputComponent,
         SpinnerComponent,
-
-         ButtonComponent,
-         InputComponent,
-         RadioButtonComponent,
-         CheckboxComponent,
-         IconComponent,
-    
-
+        ButtonComponent,
+        InputComponent,
+        RadioButtonComponent,
+        CheckboxComponent,
+        IconComponent,
         TabGroupComponent,
         FormComponent,
         TabComponent,
@@ -62,13 +55,11 @@ import {
         MaterialModule,
         InputComponent,
         SpinnerComponent,
-
-         ButtonComponent,
-         InputComponent,
-         RadioButtonComponent,
-         CheckboxComponent,
-         IconComponent,
-
+        ButtonComponent,
+        InputComponent,
+        RadioButtonComponent,
+        CheckboxComponent,
+        IconComponent,
         TabGroupComponent,
         FormComponent,
         CardComponent,
