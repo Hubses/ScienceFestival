@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AgmCoreModule } from '@agm/core';
+import { CalendarModule } from "ap-angular2-fullcalendar";
 
 import {
     InputComponent,
@@ -21,9 +22,9 @@ import {
     CardComponent,
     DropdownComponent,
     MenuComponent,
-
+    CalendarComponent,
     AccordionComponent,
-	MapComponent,
+    MapComponent,
     HeaderComponent
 } from './';
 
@@ -35,6 +36,7 @@ import {
         FormsModule,
         MaterialModule,
         BrowserAnimationsModule,
+        CalendarModule,
         AgmCoreModule.forRoot({
             apiKey: 'AIzaSyB_TXfNWY4Vw5b7kTwo--qgSqt_ERZ9BiY'
         })
@@ -54,10 +56,10 @@ import {
         CardComponent,
         DropdownComponent,
         MenuComponent,
-
         AccordionComponent,
-	    MapComponent,
-        HeaderComponent
+        MapComponent,
+        HeaderComponent,
+        CalendarComponent
     ],
     providers: [/* TODO: Providers go here */],
     exports: [
@@ -77,7 +79,8 @@ import {
         MenuComponent,
         MapComponent,
         AccordionComponent,
-        HeaderComponent
+        HeaderComponent,
+        CalendarComponent
     ],
     schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA]
 })

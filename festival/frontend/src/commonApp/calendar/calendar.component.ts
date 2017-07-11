@@ -1,7 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
     selector: 'sf-common-calendar',
     templateUrl: './calendar.component.html'
 })
-export class CalendarComponent { }
+export class CalendarComponent implements OnInit {
+    @Input() events: any[];
+
+    public options = {
+        editable: false,
+        eventLimit: true, 
+        events: []
+    }
+
+    ngOnInit(): void {
+        this.options.events = this.events;
+    }
+}
