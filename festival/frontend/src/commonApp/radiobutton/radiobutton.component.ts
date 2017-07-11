@@ -6,4 +6,8 @@ import { Component,Input } from '@angular/core';
 })
 export class RadioButtonComponent { 
     @Input() public option: string;
+    @Input() public checked: string;   
+    
+         options:[string];
+    
 }
