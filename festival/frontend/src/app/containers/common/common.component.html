@@ -14,50 +14,49 @@
 
 <sf-common-tabs [tabs]="tabs">
 </sf-common-tabs>
+<!--<md-tab-group *ngFor="let tab of tabs;">
+    <md-tab label="{{tab.title}}">
+        <sf-common-input></sf-common-input>
+        {{tab.content}}
+    </md-tab>
+</md-tab-group>-->
 
 <sf-common-dropdown [dropdownOptions]="dropdownOptions"></sf-common-dropdown>
 
-<sf-common-menu>
-    <menu-show-content>
-        <button md-icon-button [mdMenuTriggerFor]="menu">
+
+<button md-icon-button [mdMenuTriggerFor]="menu">
             <md-icon>more_vert</md-icon>
         </button>
-    </menu-show-content>
 
-    <menu-actions>
-        <md-menu #menu="mdMenu">
-            <button md-menu-item>
+<md-menu #menu="mdMenu">
+    <button md-menu-item>
                 <sf-common-icon [name]="'dialpad'"></sf-common-icon>
                 <span>Redial</span>
             </button>
-            <button md-menu-item disabled>
+    <button md-menu-item disabled>
                  <sf-common-icon [name]="'voicemail'"></sf-common-icon>
                 <span>Check voicemail</span>
             </button>
-            <button md-menu-item>
+    <button md-menu-item>
                  <sf-common-icon [name]="'notifications_off'"></sf-common-icon>
                 <span>Disable alerts</span>
             </button>
-        </md-menu>
+</md-menu>
 
-    </menu-actions>
-</sf-common-menu>
 
-<sf-common-sidenav>
-    <sidenav-content>
-        <md-sidenav-container>
-            <md-sidenav #sidenav class="example-sidenav">
-                Jolly good!
-            </md-sidenav>
 
-            <div class="example-sidenav-content">
-                <button type="button" md-button (click)="sidenav.open()">
+<md-sidenav-container>
+    <md-sidenav #sidenav class="example-sidenav">
+        Jolly good!
+    </md-sidenav>
+
+    <div class="example-sidenav-content">
+        <button type="button" md-button (click)="sidenav.open()">
                 Open sidenav
             </button>
-            </div>
-        </md-sidenav-container>
-    </sidenav-content>
-</sf-common-sidenav>
+    </div>
+</md-sidenav-container>
+
 
 <sf-common-map [coordinates]="coordinates"></sf-common-map>
 <sf-common-accordion>

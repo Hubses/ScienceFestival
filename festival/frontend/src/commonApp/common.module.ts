@@ -1,4 +1,4 @@
-import { NgModule, ModuleWithProviders, NO_ERRORS_SCHEMA } from '@angular/core';
+import { NgModule, ModuleWithProviders, NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { CommonModule } from '@angular/common';
@@ -21,9 +21,8 @@ import {
     CardComponent,
     DropdownComponent,
     MenuComponent,
-    SidenavComponent,
     AccordionComponent,
-	MapComponent
+    MapComponent
 } from './';
 
 
@@ -53,9 +52,8 @@ import {
         CardComponent,
         DropdownComponent,
         MenuComponent,
-        SidenavComponent,
         AccordionComponent,
-	    MapComponent
+        MapComponent
     ],
     providers: [/* TODO: Providers go here */],
     exports: [
@@ -73,10 +71,10 @@ import {
         CardComponent,
         DropdownComponent,
         MenuComponent,
-	    MapComponent,
+        MapComponent,
         AccordionComponent
     ],
-    schemas: [NO_ERRORS_SCHEMA]
+    schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA]
 })
 export class SFCommonModule {
     static forRoot(): ModuleWithProviders {

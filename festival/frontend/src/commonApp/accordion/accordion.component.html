@@ -1,4 +1,4 @@
-<div class="header" fxLayout="row" (click)="isCollapsed = !isCollapsed">
+<div class="header"  (click)="isCollapsed = !isCollapsed">
     <md-icon [@iconChange]="isCollapsed">keyboard_arrow_down</md-icon>
     <ng-content select="accordion-header"></ng-content>
 </div>
