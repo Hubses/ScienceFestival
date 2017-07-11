@@ -13,6 +13,17 @@ export class CommonComponent implements OnInit {
     }
 
 
+  public coordinates: any[] = [{
+    latitude: 53.903215,
+    longitude: 30.335182,
+    description: 'this coordinates dont have information'
+  },{
+    latitude: 53.908882,
+    longitude: 30.346130,
+    description: 'this coordinates dont have information'
+  }];
+
+
     public tabs: sf.common.Tab[] = [
         {
             id: 1,

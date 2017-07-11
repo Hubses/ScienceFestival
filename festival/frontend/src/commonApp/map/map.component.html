@@ -1,1 +1,8 @@
-<input type="text"> 123
+<agm-map [latitude]="coordinates[0].latitude" [longitude]="coordinates[0].longitude" [zoom]="15">
+  <agm-marker *ngFor="let coordinate of coordinates;" [latitude]="coordinate.latitude"
+                          [longitude]="coordinate.longitude">
+    <agm-info-window>
+      <span>{{coordinate.description}}</span>
+      </agm-info-window>
+    </agm-marker>
+</agm-map>
