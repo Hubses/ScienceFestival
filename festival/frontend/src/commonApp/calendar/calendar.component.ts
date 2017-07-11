@@ -9,7 +9,7 @@ export class CalendarComponent implements OnInit {
 
     public options = {
         editable: false,
-        eventLimit: true, 
+        eventLimit: true,
         events: []
     }
 

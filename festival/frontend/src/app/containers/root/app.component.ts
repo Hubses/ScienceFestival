@@ -17,8 +17,6 @@ export class AppComponent implements OnInit {
   public news: News[];
 
   title = 'app works!';
-  
-
 
   public dropdownSelect: number | string;
 

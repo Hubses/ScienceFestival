@@ -12,13 +12,15 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import {
   AppComponent,
   CommonComponent
-} from './containers';
+} from './app/containers';
 
-import { NewsRepository } from '../store/news';
-import newsReducer from '../store/news/news.reducer';
-import { ApplicationStoreModule, ApplicationEffects } from '../store';
+import { NotFoundComponent } from './app/components'
 
-import { SFCommonModule } from '../commonApp/common.module';
+import { NewsRepository } from './store/news';
+import newsReducer from './store/news/news.reducer';
+import { ApplicationStoreModule, ApplicationEffects } from './store';
+
+import { SFCommonModule } from './commonApp/common.module';
 
 const appRoutes: Routes = [
   { path: 'common', component: CommonComponent },
@@ -27,12 +29,14 @@ const appRoutes: Routes = [
     redirectTo: '/common',
     pathMatch: 'full'
   },
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    CommonComponent
+    CommonComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
