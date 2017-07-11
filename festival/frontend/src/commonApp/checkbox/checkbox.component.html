@@ -1,2 +1,2 @@
-<md-checkbox (click)="change(true)"></md-checkbox>
+<md-checkbox [ngModel]="value" (ngModelChange)="onChanged($event)">{{label}}</md-checkbox>
 <!--write label-->

@@ -1,4 +1,4 @@
-import { Component,Input ,Output,EventEmitter} from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'sf-common-checkbox',
@@ -6,8 +6,10 @@ import { Component,Input ,Output,EventEmitter} from '@angular/core';
 })
 export class CheckboxComponent {
     @Input() public label: string;
-    @Output() onChanged = new EventEmitter<boolean>();
-change(increased){
-    this.onChanged.emit(increased);
+    @Input() public value: boolean;
+    @Output() valueChange = new EventEmitter<boolean>();
+    onChanged(newValue) {
+        this.value = newValue;
+        this.valueChange.emit(this.value);
+    }
 }
- }

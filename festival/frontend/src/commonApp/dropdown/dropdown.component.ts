@@ -27,7 +27,7 @@ export class DropdownComponent implements OnInit, OnChanges {
     // }
 
     onSelectedValueChanged(newValue) {
-        this.selectedValue = newValuel
+        this.selectedValue = newValue;
         this.selectedValueChange.emit(newValue);
     }
 }
