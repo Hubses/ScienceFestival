@@ -10,12 +10,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
     InputComponent,
     SpinnerComponent,
+
+    ButtonComponent,
+    RadioButtonComponent,
+    CheckboxComponent,
+    IconComponent,
+
     TabGroupComponent,
     TabComponent,
     FormComponent,
     CardComponent,
     DropdownComponent,
     MenuComponent,
+
 } from './';
 
 
@@ -24,24 +31,44 @@ import {
         BrowserModule,
         HttpModule,
         FormsModule,
+        MaterialModule
+        
+
         MaterialModule,
         BrowserAnimationsModule,
+
     ],
     declarations: [
         InputComponent,
         SpinnerComponent,
+
+         ButtonComponent,
+         InputComponent,
+         RadioButtonComponent,
+         CheckboxComponent,
+         IconComponent,
+    
+
         TabGroupComponent,
         FormComponent,
         TabComponent,
         CardComponent,
         DropdownComponent,
         MenuComponent,
+        SidenavComponent
     ],
     providers: [/* TODO: Providers go here */],
     exports: [
         MaterialModule,
         InputComponent,
         SpinnerComponent,
+
+         ButtonComponent,
+         InputComponent,
+         RadioButtonComponent,
+         CheckboxComponent,
+         IconComponent,
+
         TabGroupComponent,
         FormComponent,
         CardComponent,
