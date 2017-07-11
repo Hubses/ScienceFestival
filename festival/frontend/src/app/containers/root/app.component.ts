@@ -17,6 +17,18 @@ export class AppComponent implements OnInit {
   public news: News[];
 
   title = 'app works!';
+  public tabs: sf.common.Tab[] = [
+    {
+      id: 1,
+      title: '123',
+      content: '<div> 123 </div>'
+    }
+  ]
+  public form = {
+    header: 'header',
+    footer: 'footer'
+  };
+
 
   constructor(private store: Store<sf.store.NewsStore>) { }
 

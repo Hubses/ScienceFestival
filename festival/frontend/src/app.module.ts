@@ -9,7 +9,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppComponent } from './app/containers/root/app.component';
 
 import { NewsRepository } from './store/news';
-import { newsReducer } from './store/news/';
+import newsReducer from './store/news/news.reducer';
 import { ApplicationStoreModule, ApplicationEffects } from './store';
 
 import { SFCommonModule } from './commonApp/common.module';

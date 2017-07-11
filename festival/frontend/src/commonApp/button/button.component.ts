@@ -5,5 +5,5 @@ import { Component,Input } from '@angular/core';
     templateUrl: './button.component.html'
 })
 export class ButtonComponent {
-@Input() public buttonName: string;
+@Input() public label: string;
 }   

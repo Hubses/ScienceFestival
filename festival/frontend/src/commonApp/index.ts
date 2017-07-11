@@ -10,6 +10,6 @@ export * from './map';
 export * from './menu';
 export * from './radiobutton';
 export * from './spinner';
-export * from './tab';
+export * from './tabs';
 export * from './table';
 export * from './button';
