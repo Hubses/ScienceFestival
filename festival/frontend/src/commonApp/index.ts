@@ -15,3 +15,4 @@ export * from './table';
 export * from './button';
 export * from './sidenav';
 export * from './accordion';
+export * from './inputNumb';

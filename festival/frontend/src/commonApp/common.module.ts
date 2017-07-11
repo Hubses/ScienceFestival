@@ -5,17 +5,16 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { AgmCoreModule } from '@agm/core';
 
 import {
     InputComponent,
     SpinnerComponent,
-
     ButtonComponent,
     RadioButtonComponent,
     CheckboxComponent,
     IconComponent,
-
+    InputNumbComponent,
     TabGroupComponent,
     TabComponent,
     FormComponent,
@@ -23,7 +22,8 @@ import {
     DropdownComponent,
     MenuComponent,
     SidenavComponent,
-    AccordionComponent
+    AccordionComponent,
+	MapComponent
 } from './';
 
 
@@ -33,7 +33,10 @@ import {
         HttpModule,
         FormsModule,
         MaterialModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        AgmCoreModule.forRoot({
+            apiKey: 'AIzaSyB_TXfNWY4Vw5b7kTwo--qgSqt_ERZ9BiY'
+        })
     ],
     declarations: [
         InputComponent,
@@ -43,6 +46,7 @@ import {
         RadioButtonComponent,
         CheckboxComponent,
         IconComponent,
+        InputNumbComponent,
         TabGroupComponent,
         FormComponent,
         TabComponent,
@@ -50,7 +54,8 @@ import {
         DropdownComponent,
         MenuComponent,
         SidenavComponent,
-        AccordionComponent
+        AccordionComponent,
+	    MapComponent
     ],
     providers: [/* TODO: Providers go here */],
     exports: [
@@ -62,11 +67,13 @@ import {
         RadioButtonComponent,
         CheckboxComponent,
         IconComponent,
+        InputNumbComponent,
         TabGroupComponent,
         FormComponent,
         CardComponent,
         DropdownComponent,
         MenuComponent,
+	    MapComponent,
         AccordionComponent
     ],
     schemas: [NO_ERRORS_SCHEMA]
