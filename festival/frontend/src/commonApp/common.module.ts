@@ -23,7 +23,8 @@ import {
     MenuComponent,
     SidenavComponent,
     AccordionComponent,
-	MapComponent
+	MapComponent,
+    HeaderComponent,
 } from './';
 
 
@@ -55,7 +56,8 @@ import {
         MenuComponent,
         SidenavComponent,
         AccordionComponent,
-	    MapComponent
+	    MapComponent,
+        HeaderComponent
     ],
     providers: [/* TODO: Providers go here */],
     exports: [
@@ -74,7 +76,8 @@ import {
         DropdownComponent,
         MenuComponent,
 	    MapComponent,
-        AccordionComponent
+        AccordionComponent,
+        HeaderComponent
     ],
     schemas: [NO_ERRORS_SCHEMA]
 })
