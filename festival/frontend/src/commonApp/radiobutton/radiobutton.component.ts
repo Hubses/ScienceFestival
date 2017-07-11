@@ -1,4 +1,4 @@
-import { Component,Input } from '@angular/core';
+import { Component,Input,Output } from '@angular/core';
 
 @Component({
     selector: 'sf-common-radio',
@@ -6,8 +6,8 @@ import { Component,Input } from '@angular/core';
 })
 export class RadioButtonComponent { 
     @Input() public option: string;
-    @Input() public checked: string;   
+    @Output() public checked: string;   
     
-         options:[string];
+     @Input() options:[string];
     
 }
