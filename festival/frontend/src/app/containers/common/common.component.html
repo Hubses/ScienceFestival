@@ -1,0 +1,73 @@
+<sf-common-input></sf-common-input>
+<sf-common-spinner></sf-common-spinner>
+<sf-common-form>
+    <form-header>
+        <div class="temp">12456</div>
+    </form-header>
+    <form-body>
+        <div class="temp">12456789</div>
+    </form-body>
+    <form-actions>
+        <div class="temp">124567890</div>
+    </form-actions>
+</sf-common-form>
+
+<sf-common-tabs [tabs]="tabs">
+</sf-common-tabs>
+
+<sf-common-dropdown [dropdownOptions]="dropdownOptions"></sf-common-dropdown>
+
+<sf-common-menu>
+    <menu-show-content>
+        <button md-icon-button [mdMenuTriggerFor]="menu">
+            <md-icon>more_vert</md-icon>
+        </button>
+    </menu-show-content>
+
+    <menu-actions>
+        <md-menu #menu="mdMenu">
+            <button md-menu-item>
+                <sf-common-icon [name]="dialpad"></sf-common-icon>
+                <span>Redial</span>
+            </button>
+            <button md-menu-item disabled>
+                <md-icon>voicemail</md-icon>
+                <span>Check voicemail</span>
+            </button>
+            <button md-menu-item>
+                <md-icon>notifications_off</md-icon>
+                <span>Disable alerts</span>
+            </button>
+        </md-menu>
+
+    </menu-actions>
+</sf-common-menu>
+
+<sf-common-sidenav>
+    <sidenav-content>
+        <md-sidenav-container>
+            <md-sidenav #sidenav class="example-sidenav">
+                Jolly good!
+            </md-sidenav>
+
+            <div class="example-sidenav-content">
+                <button type="button" md-button (click)="sidenav.open()">
+                Open sidenav
+            </button>
+            </div>
+        </md-sidenav-container>
+    </sidenav-content>
+</sf-common-sidenav>
+
+<!--<md-sidenav-container class="sf-common-sidenav">
+
+    <md-sidenav #sidenav1 class="example-sidenav">
+        Jolly good!
+    </md-sidenav>
+
+    <div class="example-sidenav-content">
+        <button type="button" md-button (click)="sidenav1.open()">
+                Open sidenav
+            </button>
+    </div>
+</md-sidenav-container>-->

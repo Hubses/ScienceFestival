@@ -10,21 +10,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
     InputComponent,
     SpinnerComponent,
-<<<<<<< HEAD
+
     ButtonComponent,
     RadioButtonComponent,
     CheckboxComponent,
     IconComponent,
-    InputNumbComponent,
-=======
-    TabGroupComponent,
+    InputNumbComponent,    TabGroupComponent,
     TabComponent,
     FormComponent,
     CardComponent,
     DropdownComponent,
     MenuComponent,
     SidenavComponent
->>>>>>> 52b79dcf24b6e9cb0cc55ae71889ce68c5e03822
+
 } from './';
 
 
@@ -33,25 +31,19 @@ import {
         BrowserModule,
         HttpModule,
         FormsModule,
-        MaterialModule
-        
-=======
         MaterialModule,
-        BrowserAnimationsModule,
->>>>>>> 52b79dcf24b6e9cb0cc55ae71889ce68c5e03822
+
+        BrowserAnimationsModule
     ],
     declarations: [
         InputComponent,
         SpinnerComponent,
-<<<<<<< HEAD
          ButtonComponent,
          InputComponent,
          RadioButtonComponent,
          CheckboxComponent,
          IconComponent,
          InputNumbComponent,
-    
-=======
         TabGroupComponent,
         FormComponent,
         TabComponent,
@@ -59,27 +51,23 @@ import {
         DropdownComponent,
         MenuComponent,
         SidenavComponent
->>>>>>> 52b79dcf24b6e9cb0cc55ae71889ce68c5e03822
     ],
     providers: [/* TODO: Providers go here */],
     exports: [
         MaterialModule,
         InputComponent,
         SpinnerComponent,
-<<<<<<< HEAD
-         ButtonComponent,
+       
+          ButtonComponent,
          InputComponent,
          RadioButtonComponent,
          CheckboxComponent,
          IconComponent,
-         InputNumbComponent,
-=======
-        TabGroupComponent,
+         InputNumbComponent,        TabGroupComponent,
         FormComponent,
         CardComponent,
         DropdownComponent,
         MenuComponent,
-        SidenavComponent
     ],
     schemas: [NO_ERRORS_SCHEMA]
 })

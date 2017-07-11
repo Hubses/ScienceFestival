@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Pipe } from '@angular/core';
 
 
@@ -6,15 +6,12 @@ import { Pipe } from '@angular/core';
     selector: 'sf-common-tabs',
     templateUrl: './tabs.component.html',
 })
-export class TabGroupComponent implements OnInit {
+export class TabGroupComponent {
 
 
     @Input() public tabs: sf.common.Tab[];
 
     constructor() { }
-
-    ngOnInit(): void {
-    }
 
     public trackById(index: number, tab: sf.common.Tab): number {
         return tab.id;
