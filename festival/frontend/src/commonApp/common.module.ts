@@ -22,7 +22,8 @@ import {
     CardComponent,
     DropdownComponent,
     MenuComponent,
-    SidenavComponent
+    SidenavComponent,
+    AccordionComponent
 } from './';
 
 
@@ -48,7 +49,8 @@ import {
         CardComponent,
         DropdownComponent,
         MenuComponent,
-        SidenavComponent
+        SidenavComponent,
+        AccordionComponent
     ],
     providers: [/* TODO: Providers go here */],
     exports: [
@@ -65,6 +67,7 @@ import {
         CardComponent,
         DropdownComponent,
         MenuComponent,
+        AccordionComponent
     ],
     schemas: [NO_ERRORS_SCHEMA]
 })

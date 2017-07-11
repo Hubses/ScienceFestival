@@ -4,6 +4,6 @@ import { Component } from '@angular/core';
     selector: 'sf-common-input',
     templateUrl: './input.component.html'
 })
-export class InputComponent { 
-    
+export class InputComponent {
+
 }
