@@ -18,6 +18,7 @@ declare namespace sf.common {
         slider,
         trigger
     }
+    
     interface DropdownOptions {
         placeholder: string;
         values: string[] | number[];

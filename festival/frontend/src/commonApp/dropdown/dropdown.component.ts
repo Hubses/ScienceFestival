@@ -10,7 +10,7 @@ export class DropdownComponent implements OnInit, OnChanges {
     @Input() public selectedValue: string;
     @Input() public dropdownOptions: sf.common.DropdownOptions;
 
-    @Output() onSelected: EventEmitter<string> = new EventEmitter<string>();
+    @Output() selectedValueChange: EventEmitter<string> = new EventEmitter<string>();
 
     constructor() { }
 
@@ -18,11 +18,16 @@ export class DropdownComponent implements OnInit, OnChanges {
     }
     ngOnChanges(changes: SimpleChanges): void {
         if (changes['dropdownOptions'].currentValue !== changes['dropdownOptions'].previousValue) {
-            this.onSelected.emit(this.selectedValue);
+            this.selectedValueChange.emit(this.selectedValue);
         }
     }
 
     // public select(dropdownValue: string): void {
     //     this.onSelected.emit(dropdownValue);
     // }
+
+    onSelectedValueChanged(newValue) {
+        this.selectedValue = newValuel
+        this.selectedValueChange.emit(newValue);
+    }
 }
