@@ -16,7 +16,7 @@ export class MasterPageComponent implements OnInit {
         this.localization = {
             placeholder: 'select languadge',
             values: ['English', 'Russian'],
-            selectedValue: 'English'
+            selectedValue: ''
         }
     }
 }
