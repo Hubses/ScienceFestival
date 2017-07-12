@@ -1,3 +1,5 @@
 export * from './notfound';
-export * from './news-feed';
 export * from './news';
+export * from './login';
+export * from './register';
+export * from './about';

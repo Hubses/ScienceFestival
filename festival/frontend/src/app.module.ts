@@ -19,13 +19,23 @@ import newsReducer from './store/news/news.reducer';
 import {
   AppComponent,
   CommonComponent,
-  MasterPageComponent
+  MasterPageComponent,
+  FullFeedComponent,
+  NewsFeedComponent,
+  EventsFeedComponent,
+  CalendarComponent,
+  PersonalComponent,
+  AdminDashboardComponent,
+  WorksFeedComponent,
+  AdminStatisticComponent
 } from './app/containers';
 // components
 import {
   NotFoundComponent,
-  NewsFeedComponent,
-  NewsComponent
+  NewsComponent,
+  LoginComponent,
+  RegisterComponent,
+  AboutComponent
 } from './app/components';
 // routes
 const appRoutes: Routes = [
@@ -33,7 +43,52 @@ const appRoutes: Routes = [
   {
     path: 'feed', component: MasterPageComponent,
     children: [
-      { path: '', component: NewsFeedComponent }
+      { path: '', component: FullFeedComponent },
+      { path: 'news', component: NewsFeedComponent },
+      { path: 'events', component: EventsFeedComponent },
+      { path: 'works', component: WorksFeedComponent },
+    ]
+  },
+  {
+    path: 'calendar', component: MasterPageComponent,
+    children: [
+      { path: '', component: CalendarComponent }
+    ]
+  },
+  {
+    path: 'personal', component: MasterPageComponent, // can activate?
+    children: [
+      { path: '', component: PersonalComponent }
+    ]
+  },
+  {
+    path: 'login', component: MasterPageComponent,
+    children: [
+      { path: '', component: LoginComponent }
+    ]
+  },
+  {
+    path: 'register', component: MasterPageComponent,
+    children: [
+      { path: '', component: RegisterComponent }
+    ]
+  },
+  {
+    path: 'dashboard', component: MasterPageComponent,
+    children: [
+      { path: '', component: AdminDashboardComponent }
+    ]
+  },
+  {
+    path: 'statistic', component: MasterPageComponent,
+    children: [
+      { path: '', component: AdminStatisticComponent }
+    ]
+  },
+  {
+    path: 'about', component: MasterPageComponent,
+    children: [
+      { path: '', component: AboutComponent }
     ]
   },
   {
@@ -46,12 +101,24 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
+    // containers
     AppComponent,
     CommonComponent,
-    NotFoundComponent,
     MasterPageComponent,
+    FullFeedComponent,
     NewsFeedComponent,
-    NewsComponent
+    EventsFeedComponent,
+    CalendarComponent,
+    PersonalComponent,
+    AdminDashboardComponent,
+    WorksFeedComponent,
+    AdminStatisticComponent,
+    // components
+    NotFoundComponent,
+    NewsComponent,
+    LoginComponent,
+    RegisterComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +132,7 @@ const appRoutes: Routes = [
     SFCommonModule.forRoot(),
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true }),
+      { enableTracing: true }), // router debug
     VirtualScrollModule
   ],
   providers: [NewsRepository],

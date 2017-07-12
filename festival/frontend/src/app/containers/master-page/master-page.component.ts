@@ -7,7 +7,6 @@ import { MdSidenav } from '@angular/material'
 })
 
 export class MasterPageComponent implements OnInit {
-    public sidenavOpened: boolean = true;
     @ViewChild('sidenav') public sidenav: MdSidenav;
 
     public localization: sf.common.DropdownOptions;

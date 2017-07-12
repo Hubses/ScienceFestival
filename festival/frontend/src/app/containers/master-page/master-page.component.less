@@ -1,20 +1,43 @@
 @header-heigth: 64px;
-.space {
-    flex: 1 1 auto;
+.master-page {
+    height: calc(~"100% - @{header-heigth}");
+    &__space {
+        flex: 1 1 auto;
+    }
+    &__left-contols {
+        display: flex;
+        flex: 0.5;
+        align-items: center;
+        justify-content: space-around;
+        &__localization {}
+        &__enter-group {
+            display: inline-flex;
+            &__login {}
+            &__register {}
+        }
+    }
+    &__sidenav {
+        height: 100%;
+        &__container {
+            height: 100%;
+            &__menu {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                &__item {
+                    &--end {
+                        margin-top: auto;
+                    }
+                }
+            }
+        }
+        &__content {
+            height: 100%;
+        }
+    }
 }
 
 sf-common-header {
     height: @header-heigth;
-}
-
-.master-page {
-    height: calc(~"100% - @{header-heigth}");
-}
-
-.content {
-    height: 100%;
-}
-
-.sidenav-container {
-    height: 100%;
 }
