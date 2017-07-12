@@ -1,13 +1,17 @@
-import { Component,Input,Output } from '@angular/core';
+import { Component,Input,Output,EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'sf-common-radio',
     templateUrl: './radiobutton.component.html'
 })
 export class RadioButtonComponent { 
-    @Input() public option: string;
-    @Output() public checked: string;   
+     @Input() public option: string;
+    @Input() public value: boolean;
+
+    @Output() valueChange = new EventEmitter<boolean>();
     
-     @Input() options:[string];
-    
+    onChanged(newValue) {
+        this.value = newValue;
+        this.valueChange.emit(this.value);
+    }
 }

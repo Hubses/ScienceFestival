@@ -5,9 +5,14 @@ import { Component, Input, OnInit } from '@angular/core';
     templateUrl: './calendar.component.html'
 })
 export class CalendarComponent implements OnInit {
-    @Input() events: any[];
+    @Input() events: sf.common.Events[];
 
     public options = {
+        header: {
+            left: 'title',
+            center: 'month,agendaWeek,agendaDay',
+            right: 'prev,next today'
+        },
         editable: false,
         eventLimit: true,
         events: []

@@ -6,7 +6,9 @@ import { Component, Input } from '@angular/core';
     styleUrls: ['./map.component.less']
 })
 export class MapComponent {
-  @Input() public coordinates: any[];
+  @Input() public coordinates: sf.common.Coordinates[];
 
   public zoom: number = 15;
+
+  public zo: sf.common.Tab;
 }
