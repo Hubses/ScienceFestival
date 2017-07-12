@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 
 import { Observable } from 'rxjs';
 
-import { getNewsAction } from '../store/news/';
+import { getNewsAction } from '../../../store/news/';
 
 
 @Component({
@@ -17,6 +17,8 @@ export class AppComponent implements OnInit {
   public news: News[];
 
   title = 'app works!';
+
+  public dropdownSelect: number | string;
 
   constructor(private store: Store<sf.store.NewsStore>) { }
 
