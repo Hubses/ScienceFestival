@@ -24,6 +24,21 @@ declare namespace sf.common {
         values: string[] | number[];
         selectedValue: string | number;
     }
+
+    interface Coordinates{
+        latitude: number;
+        longitude: number;
+        description: string;
+    }
+
+    interface Events{
+        id: number;
+        title: string;
+        start: string;
+        end: string;
+        url: string;
+    }
+    
     interface menuOptions {
         
     }

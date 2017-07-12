@@ -5,7 +5,7 @@ import { Component, Input, OnInit } from '@angular/core';
     templateUrl: './calendar.component.html'
 })
 export class CalendarComponent implements OnInit {
-    @Input() events: any[];
+    @Input() events: sf.common.Events[];
 
     public options = {
         editable: false,
