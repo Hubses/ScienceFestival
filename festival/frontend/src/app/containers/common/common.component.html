@@ -25,15 +25,6 @@
     </form-actions>
 </sf-common-form>
 
-<sf-common-tabs [tabs]="tabs">
-</sf-common-tabs>
-<!--<md-tab-group *ngFor="let tab of tabs;">
-    <md-tab label="{{tab.title}}">
-        <sf-common-input></sf-common-input>
-        {{tab.content}}
-    </md-tab>
-</md-tab-group>-->
-
 <sf-common-dropdown [dropdownOptions]="dropdownOptions"></sf-common-dropdown>
 
 
@@ -57,20 +48,6 @@
 </md-menu>
 
 
-
-<md-sidenav-container>
-    <md-sidenav #sidenav class="example-sidenav">
-        Jolly good!
-    </md-sidenav>
-
-    <div class="example-sidenav-content">
-        <button type="button" md-button (click)="sidenav.open()">
-                Open sidenav
-            </button>
-    </div>
-</md-sidenav-container>
-
-
 <sf-common-map [coordinates]="coordinates"></sf-common-map>
 <sf-common-accordion>
     <accordion-header>
@@ -82,15 +59,3 @@
 </sf-common-accordion>
 
 <sf-common-calendar [events]="events"></sf-common-calendar>
-<!--<md-sidenav-container class="sf-common-sidenav">
-
-    <md-sidenav #sidenav1 class="example-sidenav">
-        Jolly good!
-    </md-sidenav>
-
-    <div class="example-sidenav-content">
-        <button type="button" md-button (click)="sidenav1.open()">
-                Open sidenav
-            </button>
-    </div>
-</md-sidenav-container>-->

@@ -13,8 +13,7 @@ export class DropdownComponent {
     @Output() selectedValueChange: EventEmitter<string> = new EventEmitter<string>();
 
     constructor() { }
-    onSelectedValueChange(newValue) {
-        this.selectedValue = newValue;
+    onSelectedValueChange(newValue: string) {
         this.selectedValueChange.emit(newValue);
     }
 }

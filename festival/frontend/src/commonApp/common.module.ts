@@ -16,8 +16,6 @@ import {
     CheckboxComponent,
     IconComponent,
     InputNumbComponent,
-    TabGroupComponent,
-    TabComponent,
     FormComponent,
     CardComponent,
     DropdownComponent,
@@ -25,7 +23,8 @@ import {
     CalendarComponent,
     AccordionComponent,
     MapComponent,
-    HeaderComponent
+    HeaderComponent,
+    TextAreaComponent
 } from './';
 
 
@@ -50,16 +49,15 @@ import {
         CheckboxComponent,
         IconComponent,
         InputNumbComponent,
-        TabGroupComponent,
         FormComponent,
-        TabComponent,
         CardComponent,
         DropdownComponent,
         MenuComponent,
         AccordionComponent,
         MapComponent,
         HeaderComponent,
-        CalendarComponent
+        CalendarComponent,
+        TextAreaComponent
     ],
     providers: [/* TODO: Providers go here */],
     exports: [
@@ -72,7 +70,6 @@ import {
         CheckboxComponent,
         IconComponent,
         InputNumbComponent,
-        TabGroupComponent,
         FormComponent,
         CardComponent,
         DropdownComponent,
@@ -80,7 +77,8 @@ import {
         MapComponent,
         AccordionComponent,
         HeaderComponent,
-        CalendarComponent
+        CalendarComponent,
+        TextAreaComponent
     ],
     schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA]
 })
