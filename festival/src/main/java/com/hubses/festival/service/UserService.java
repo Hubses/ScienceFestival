@@ -38,7 +38,7 @@ public class UserService {
 
     public Optional<User> createCustomer(CustomerDTO customerDTO) {
         return Optional.of(userRepository.save(
-                User.builder()
+                new User.UserBuilder()
                         .username(customerDTO.getUsername())
                         .password(customerDTO.getPassword())
                         .name(customerDTO.getName())
@@ -53,7 +53,7 @@ public class UserService {
                     if (customerDTO.getRole() == null) {
                         customerDTO.setRole(user.getRole().toString());
                     }
-                    return userRepository.save(User.builder()
+                    return userRepository.save(new User.UserBuilder()
                             .id(id)
                             .username(customerDTO.getUsername())
                             .password(customerDTO.getPassword())
@@ -83,7 +83,7 @@ public class UserService {
 
     public Optional<User> updateUser(CustomerDTO customerDTO, long id) {
         return userRepository.findOneByIdAndRole(id, Role.USER).map(user ->
-                userRepository.save(User.builder()
+                userRepository.save(new User.UserBuilder()
                         .id(id)
                         .username(customerDTO.getUsername())
                         .password(customerDTO.getPassword())
@@ -112,7 +112,7 @@ public class UserService {
 
     public Optional<User> createJury(CustomerDTO customerDTO) {
         return Optional.of(userRepository.save(
-                User.builder()
+                new User.UserBuilder()
                         .username(customerDTO.getUsername())
                         .password(customerDTO.getPassword())
                         .name(customerDTO.getName())
@@ -124,7 +124,7 @@ public class UserService {
 
     public Optional<User> updateJury(CustomerDTO customerDTO, long id) {
         return userRepository.findOneByIdAndRole(id, Role.JURY).map(jury ->
-                userRepository.save(User.builder()
+                userRepository.save(new User.UserBuilder()
                         .id(id)
                         .username(customerDTO.getUsername())
                         .password(customerDTO.getPassword())
@@ -153,7 +153,7 @@ public class UserService {
 
     public Optional<User> createCommittee(CustomerDTO customerDTO) {
         return Optional.of(userRepository.save(
-                User.builder()
+                new User.UserBuilder()
                         .username(customerDTO.getUsername())
                         .password(customerDTO.getPassword())
                         .name(customerDTO.getName())
@@ -165,14 +165,15 @@ public class UserService {
 
     public Optional<User> updateCommittee(CustomerDTO customerDTO, long id) {
         return userRepository.findOneByIdAndRole(id, Role.ORGANISING_COMMITTEE).map(committee ->
-                userRepository.save(User.builder()
-                        .id(id)
-                        .username(customerDTO.getUsername())
-                        .password(customerDTO.getPassword())
-                        .name(customerDTO.getName())
-                        .surname(customerDTO.getSurname())
-                        .role(Role.ORGANISING_COMMITTEE)
-                        .build()
+                userRepository.save(
+                        new User.UserBuilder()
+                                .id(id)
+                                .username(customerDTO.getUsername())
+                                .password(customerDTO.getPassword())
+                                .name(customerDTO.getName())
+                                .surname(customerDTO.getSurname())
+                                .role(Role.ORGANISING_COMMITTEE)
+                                .build()
                 )
         );
     }
