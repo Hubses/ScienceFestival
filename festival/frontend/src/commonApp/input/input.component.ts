@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit,Output,EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'sf-common-input',
@@ -6,14 +6,20 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class InputComponent implements OnInit {
 
-// write output
-    @Input() public value?: string;
 
+    @Input() public value: string;
+
+    @Output() valueChange: EventEmitter<string> = new EventEmitter<string>();
     constructor() { }
 
     ngOnInit(): void {
         if (!this.value) {
             this.value = '';
         }
+    }
+
+     onValueChanged(newValue) {
+        this.value = newValue;
+        this.valueChange.emit(newValue);
     }
 }

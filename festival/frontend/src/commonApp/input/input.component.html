@@ -1,4 +1,4 @@
 <md-input-container>
-  <input mdInput type="text" [value]="value">
-  <!-- rewrite on ngModel -->
+  <input mdInput type="text" [ngModel]="value" (ngModelChange)="onValueChange(newValue)">
+ 
 </md-input-container>
