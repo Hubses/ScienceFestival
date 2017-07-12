@@ -14,7 +14,7 @@ import {
   CommonComponent
 } from './app/containers';
 
-import { NotFoundComponent } from './app/components'
+import { NotFoundComponent, NewsFeedComponent } from './app/components'
 
 import { NewsRepository } from './store/news';
 import newsReducer from './store/news/news.reducer';
@@ -28,6 +28,8 @@ const appRoutes: Routes = [
     path: '',
     redirectTo: '/common',
     pathMatch: 'full'
+  },{
+    path: 'news', component: NewsFeedComponent
   },
   { path: '**', component: NotFoundComponent }
 ];
@@ -36,7 +38,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     CommonComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    NewsFeedComponent
   ],
   imports: [
     BrowserModule,
