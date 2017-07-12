@@ -15,3 +15,4 @@ export * from './button';
 export * from './accordion';
 export * from './inputNumb';
 export * from './textarea';
+export * from './filechoose';

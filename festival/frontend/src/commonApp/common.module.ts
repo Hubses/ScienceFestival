@@ -24,7 +24,8 @@ import {
     AccordionComponent,
     MapComponent,
     HeaderComponent,
-    TextAreaComponent
+    TextAreaComponent,
+    FileChooseComponent
 } from './';
 
 
@@ -57,7 +58,8 @@ import {
         MapComponent,
         HeaderComponent,
         CalendarComponent,
-        TextAreaComponent
+        TextAreaComponent,
+        FileChooseComponent
     ],
     providers: [/* TODO: Providers go here */],
     exports: [
@@ -78,7 +80,8 @@ import {
         AccordionComponent,
         HeaderComponent,
         CalendarComponent,
-        TextAreaComponent
+        TextAreaComponent,
+        FileChooseComponent
     ],
     schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA]
 })
