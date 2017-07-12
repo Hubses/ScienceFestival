@@ -36,4 +36,42 @@ public class News {
     public void setId(long id) {
         this.id = id;
     }
+
+    public News() {
+
+    }
+
+    private News(NewsBuilder newsBuilder) {
+        this.id = newsBuilder.id;
+        this.name = newsBuilder.name;
+        this.newsHTML = newsBuilder.newsHTML;
+    }
+
+    public static class NewsBuilder {
+
+        private long id;
+
+        private String name;
+
+        private String newsHTML;
+
+        public NewsBuilder id(long id) {
+            this.id = id;
+            return this;
+        }
+
+        public NewsBuilder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public NewsBuilder newsHTML(String newsHTML) {
+            this.newsHTML = newsHTML;
+            return this;
+        }
+
+        public News build() {
+            return new News(this);
+        }
+    }
 }

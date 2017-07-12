@@ -2,7 +2,7 @@ package com.hubses.festival.service;
 
 import com.hubses.festival.domain.Role;
 import com.hubses.festival.domain.User;
-import com.hubses.festival.dto.CustomerDTO;
+import com.hubses.festival.dto.form.CustomerFormDTO;
 import com.hubses.festival.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,30 +36,30 @@ public class UserService {
         );
     }
 
-    public Optional<User> createCustomer(CustomerDTO customerDTO) {
+    public Optional<User> createCustomer(CustomerFormDTO customerFormDTO) {
         return Optional.of(userRepository.save(
                 new User.UserBuilder()
-                        .username(customerDTO.getUsername())
-                        .password(customerDTO.getPassword())
-                        .name(customerDTO.getName())
-                        .surname(customerDTO.getSurname())
+                        .username(customerFormDTO.getUsername())
+                        .password(customerFormDTO.getPassword())
+                        .name(customerFormDTO.getName())
+                        .surname(customerFormDTO.getSurname())
                         .role(Role.USER)
                         .build()
         ));
     }
 
-    public Optional<User> updateCustomer(CustomerDTO customerDTO, long id) {
+    public Optional<User> updateCustomer(CustomerFormDTO customerFormDTO, long id) {
         return userRepository.findOneById(id).map(user -> {
-                    if (customerDTO.getRole() == null) {
-                        customerDTO.setRole(user.getRole().toString());
+                    if (customerFormDTO.getRole() == null) {
+                        customerFormDTO.setRole(user.getRole().toString());
                     }
                     return userRepository.save(new User.UserBuilder()
                             .id(id)
-                            .username(customerDTO.getUsername())
-                            .password(customerDTO.getPassword())
-                            .name(customerDTO.getName())
-                            .surname(customerDTO.getSurname())
-                            .role(Role.valueOf(customerDTO.getRole()))
+                            .username(customerFormDTO.getUsername())
+                            .password(customerFormDTO.getPassword())
+                            .name(customerFormDTO.getName())
+                            .surname(customerFormDTO.getSurname())
+                            .role(Role.valueOf(customerFormDTO.getRole()))
                             .build()
                     );
                 }
@@ -81,14 +81,14 @@ public class UserService {
         });
     }
 
-    public Optional<User> updateUser(CustomerDTO customerDTO, long id) {
+    public Optional<User> updateUser(CustomerFormDTO customerFormDTO, long id) {
         return userRepository.findOneByIdAndRole(id, Role.USER).map(user ->
                 userRepository.save(new User.UserBuilder()
                         .id(id)
-                        .username(customerDTO.getUsername())
-                        .password(customerDTO.getPassword())
-                        .name(customerDTO.getName())
-                        .surname(customerDTO.getSurname())
+                        .username(customerFormDTO.getUsername())
+                        .password(customerFormDTO.getPassword())
+                        .name(customerFormDTO.getName())
+                        .surname(customerFormDTO.getSurname())
                         .role(Role.USER)
                         .build()
                 )
@@ -110,26 +110,26 @@ public class UserService {
         });
     }
 
-    public Optional<User> createJury(CustomerDTO customerDTO) {
+    public Optional<User> createJury(CustomerFormDTO customerFormDTO) {
         return Optional.of(userRepository.save(
                 new User.UserBuilder()
-                        .username(customerDTO.getUsername())
-                        .password(customerDTO.getPassword())
-                        .name(customerDTO.getName())
-                        .surname(customerDTO.getSurname())
+                        .username(customerFormDTO.getUsername())
+                        .password(customerFormDTO.getPassword())
+                        .name(customerFormDTO.getName())
+                        .surname(customerFormDTO.getSurname())
                         .role(Role.JURY)
                         .build()
         ));
     }
 
-    public Optional<User> updateJury(CustomerDTO customerDTO, long id) {
+    public Optional<User> updateJury(CustomerFormDTO customerFormDTO, long id) {
         return userRepository.findOneByIdAndRole(id, Role.JURY).map(jury ->
                 userRepository.save(new User.UserBuilder()
                         .id(id)
-                        .username(customerDTO.getUsername())
-                        .password(customerDTO.getPassword())
-                        .name(customerDTO.getName())
-                        .surname(customerDTO.getSurname())
+                        .username(customerFormDTO.getUsername())
+                        .password(customerFormDTO.getPassword())
+                        .name(customerFormDTO.getName())
+                        .surname(customerFormDTO.getSurname())
                         .role(Role.JURY)
                         .build()
                 )
@@ -151,27 +151,27 @@ public class UserService {
         });
     }
 
-    public Optional<User> createCommittee(CustomerDTO customerDTO) {
+    public Optional<User> createCommittee(CustomerFormDTO customerFormDTO) {
         return Optional.of(userRepository.save(
                 new User.UserBuilder()
-                        .username(customerDTO.getUsername())
-                        .password(customerDTO.getPassword())
-                        .name(customerDTO.getName())
-                        .surname(customerDTO.getSurname())
+                        .username(customerFormDTO.getUsername())
+                        .password(customerFormDTO.getPassword())
+                        .name(customerFormDTO.getName())
+                        .surname(customerFormDTO.getSurname())
                         .role(Role.ORGANISING_COMMITTEE)
                         .build()
         ));
     }
 
-    public Optional<User> updateCommittee(CustomerDTO customerDTO, long id) {
+    public Optional<User> updateCommittee(CustomerFormDTO customerFormDTO, long id) {
         return userRepository.findOneByIdAndRole(id, Role.ORGANISING_COMMITTEE).map(committee ->
                 userRepository.save(
                         new User.UserBuilder()
                                 .id(id)
-                                .username(customerDTO.getUsername())
-                                .password(customerDTO.getPassword())
-                                .name(customerDTO.getName())
-                                .surname(customerDTO.getSurname())
+                                .username(customerFormDTO.getUsername())
+                                .password(customerFormDTO.getPassword())
+                                .name(customerFormDTO.getName())
+                                .surname(customerFormDTO.getSurname())
                                 .role(Role.ORGANISING_COMMITTEE)
                                 .build()
                 )
