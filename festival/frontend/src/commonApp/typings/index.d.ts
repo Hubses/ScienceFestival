@@ -21,8 +21,12 @@ declare namespace sf.common {
 
     interface DropdownOptions {
         placeholder: string;
-        values: string[];
-        selectedValue?: string;
+        values: string[] | Localisation[];
+        selectedValue?: string | Localisation;
+    }
+    enum Localisation {
+        English = 'English',
+        Russian = 'Russian'
     }
 
     interface Coordinates {

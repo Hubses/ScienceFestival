@@ -1,12 +1,12 @@
 <div class="master-page">
     <sf-common-header>
-        <sf-common-icon type="menu"></sf-common-icon>
+        <sf-common-icon type="menu" (click)="toggleSidenav()"></sf-common-icon>
         <div class="logo">
             SCIENCE FESTIVAL
         </div>
         <div class="space"></div>
         <div class="localization">
-            <sf-common-dropdown [dropdownOptions]="localization"></sf-common-dropdown>
+            <sf-common-dropdown [dropdownOptions]="localization" (selectedValueChange)="getLocalization($event)"></sf-common-dropdown>
         </div>
 
         <div class="login">
@@ -19,7 +19,7 @@
 
     <div class="content">
         <md-sidenav-container class="sidenav-container">
-            <md-sidenav #sidenav mode="side" opened="true" class="example-sidenav">
+            <md-sidenav #sidenav mode="side" opened="sidenavOpened" class="example-sidenav">
                 Jolly good!
             </md-sidenav>
 

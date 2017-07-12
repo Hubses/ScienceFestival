@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { MdSidenav } from '@angular/material'
 @Component({
     selector: 'sf-master-page',
     templateUrl: 'master-page.component.html',
@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class MasterPageComponent implements OnInit {
+    public sidenavOpened: boolean = true;
+    @ViewChild('sidenav') public sidenav: MdSidenav;
 
     public localization: sf.common.DropdownOptions;
 
@@ -16,7 +18,13 @@ export class MasterPageComponent implements OnInit {
         this.localization = {
             placeholder: 'select languadge',
             values: ['English', 'Russian'],
-            selectedValue: ''
+            selectedValue: 'English'
         }
+    }
+    public toggleSidenav() {
+        this.sidenav.toggle();
+    }
+    public getLocalization(option: string): void {
+        console.log(option);
     }
 }
