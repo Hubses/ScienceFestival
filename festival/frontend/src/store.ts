@@ -1,7 +1,7 @@
 import { StoreModule, combineReducers } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-
-import { newsReducer, NewsEffect } from './store/news';
+import newsReducer from './store/news/news.reducer';
+import { NewsEffect } from './store/news';
 
 const ApplicationReducers = {
     newsReducer

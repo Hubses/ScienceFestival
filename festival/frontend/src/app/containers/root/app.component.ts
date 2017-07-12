@@ -18,6 +18,8 @@ export class AppComponent implements OnInit {
 
   title = 'app works!';
 
+  public dropdownSelect: number | string;
+
   constructor(private store: Store<sf.store.NewsStore>) { }
 
   ngOnInit(): void {

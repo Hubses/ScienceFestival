@@ -2,21 +2,41 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
+import { RouterModule, Routes } from '@angular/router';
 
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
-import { AppComponent } from './app/containers/root/app.component';
+import {
+  AppComponent,
+  CommonComponent
+} from './app/containers';
+
+import { NotFoundComponent } from './app/components'
 
 import { NewsRepository } from './store/news';
-import { newsReducer } from './store/news/';
+import newsReducer from './store/news/news.reducer';
 import { ApplicationStoreModule, ApplicationEffects } from './store';
 
-import { TestModule } from './common/app.module';
+import { SFCommonModule } from './commonApp/common.module';
+
+const appRoutes: Routes = [
+  { path: 'common', component: CommonComponent },
+  {
+    path: '',
+    redirectTo: '/common',
+    pathMatch: 'full'
+  },
+  { path: '**', component: NotFoundComponent }
+];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CommonComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -27,9 +47,13 @@ import { TestModule } from './common/app.module';
     StoreDevtoolsModule.instrumentOnlyWithExtension({
       maxAge: 5
     }),
-    TestModule.forRoot()
+    SFCommonModule.forRoot(),
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true })
   ],
   providers: [NewsRepository],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
