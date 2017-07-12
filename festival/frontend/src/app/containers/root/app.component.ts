@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
   constructor(private store: Store<sf.store.NewsStore>) { }
 
   ngOnInit(): void {
-    this.store.select(s => s.newsReducer).subscribe(n => this.news = n.entity);
-    this.store.dispatch(getNewsAction());
+    // this.store.select(s => s.newsReducer).subscribe(n => this.news = n.entity);
+    // this.store.dispatch(getNewsAction());
   }
 }

@@ -1,0 +1,31 @@
+<div class="master-page">
+    <sf-common-header>
+        <sf-common-icon type="menu"></sf-common-icon>
+        <div class="logo">
+            SCIENCE FESTIVAL
+        </div>
+        <div class="space"></div>
+        <div class="localization">
+            <sf-common-dropdown [dropdownOptions]="localization"></sf-common-dropdown>
+        </div>
+
+        <div class="login">
+            <sf-common-button [label]="'LOGIN'"></sf-common-button>
+        </div>
+        <div class="register">
+            <sf-common-button [label]="'REGISTER'"></sf-common-button>
+        </div>
+    </sf-common-header>
+
+    <div class="content">
+        <md-sidenav-container class="example-container">
+            <md-sidenav #sidenav mode="side" opened="true" class="example-sidenav">
+                Jolly good!
+            </md-sidenav>
+
+            <div class="sidenav-content">
+                <router-outlet></router-outlet>
+            </div>
+        </md-sidenav-container>
+    </div>
+</div>
