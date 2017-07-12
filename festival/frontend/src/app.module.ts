@@ -27,7 +27,8 @@ import {
   PersonalComponent,
   AdminDashboardComponent,
   WorksFeedComponent,
-  AdminStatisticComponent
+  AdminStatisticComponent,
+  ApproveComponent
 } from './app/containers';
 // components
 import {
@@ -86,6 +87,12 @@ const appRoutes: Routes = [
     ]
   },
   {
+    path: 'approve', component: MasterPageComponent,
+    children: [
+      { path: '', component: ApproveComponent }
+    ]
+  },
+  {
     path: 'about', component: MasterPageComponent,
     children: [
       { path: '', component: AboutComponent }
@@ -113,6 +120,7 @@ const appRoutes: Routes = [
     AdminDashboardComponent,
     WorksFeedComponent,
     AdminStatisticComponent,
+    ApproveComponent,
     // components
     NotFoundComponent,
     NewsComponent,

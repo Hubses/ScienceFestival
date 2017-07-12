@@ -1,20 +1,22 @@
 <div class="master-page">
-    <sf-common-header>
-        <sf-common-icon type="menu" (click)="toggleSidenav()"></sf-common-icon>
-        <div class="master-page__logo">
+    <sf-common-header class="master-page__topbar">
+        <sf-common-button class="master-page__topbar__burger-button" (click)="toggleSidenav()">
+            <sf-common-icon type="menu"></sf-common-icon>
+        </sf-common-button>
+        <div class="master-page__topbar__logo">
             SCIENCE FESTIVAL
         </div>
-        <div class="master-page__space"></div>
-        <div class="master-page__left-contols">
-            <div class="master-page__left-contols__localization">
+        <div class="master-page__topbar__space"></div>
+        <div class="master-page__topbar__right-contols">
+            <div class="master-page__topbar__right-contols__localization">
                 <sf-common-dropdown [dropdownOptions]="localization" (selectedValueChange)="getLocalization($event)"></sf-common-dropdown>
             </div>
-            <div class="master-page__left-contols__enter-group">
-                <div class="master-page__left-contols__enter-group__login">
-                    <sf-common-button [label]="'LOGIN'" routerLink="/login" routerLinkActive="active"></sf-common-button>
+            <div class="master-page__topbar__right-contols__enter-group">
+                <div class="master-page__topbar__right-contols__enter-group__login">
+                    <sf-common-button routerLink="/login" routerLinkActive="active"> LOGIN</sf-common-button>
                 </div>
-                <div class="master-page__left-contols__enter-group__register">
-                    <sf-common-button [label]="'REGISTER'" routerLink="/register" routerLinkActive="active"></sf-common-button>
+                <div class="master-page__topbar__right-contols__enter-group__register">
+                    <sf-common-button routerLink="/register" routerLinkActive="active">REGISTER</sf-common-button>
                 </div>
             </div>
         </div>
@@ -22,37 +24,94 @@
 
     <div class="master-page__sidenav">
         <md-sidenav-container class="master-page__sidenav__container">
-            <md-sidenav #sidenav mode="side" opened="true">
-                <div class="master-page__sidenav__container__menu">
+            <md-sidenav #sidenav mode="side" opened="true" [@collapseChange]="isNormalSidenav">
+                <div class="master-page__sidenav__container__menu" [ngStyle]="{ 'align-items': getFlexState() }">
                     <div class="master-page__sidenav__container__menu__item">
-                        <sf-common-icon type="library_books"></sf-common-icon>
+                        <sf-common-button routerLink="/feed" routerLinkActive="active">
+                            <sf-common-icon type="library_books"></sf-common-icon>
+                            <div class="master-page__sidenav__container__menu__item__text" *ngIf="!isNormalSidenav">
+                                events and news
+                            </div>
+
+                        </sf-common-button>
                     </div>
                     <div class="master-page__sidenav__container__menu__item">
-                        <sf-common-icon type="content_copy"></sf-common-icon>
+                        <sf-common-button routerLink="/feed/news" routerLinkActive="active">
+                            <sf-common-icon type="content_copy"></sf-common-icon>
+                            <div class="master-page__sidenav__container__menu__item__text" *ngIf="!isNormalSidenav">
+                                news
+                            </div>
+                        </sf-common-button>
                     </div>
                     <div class="master-page__sidenav__container__menu__item">
-                        <sf-common-icon type="event"></sf-common-icon>
+                        <sf-common-button routerLink="/feed/events" routerLinkActive="active">
+                            <sf-common-icon type="book"></sf-common-icon>
+                            <div class="master-page__sidenav__container__menu__item__text" *ngIf="!isNormalSidenav">
+                                events
+                            </div>
+                        </sf-common-button>
                     </div>
                     <div class="master-page__sidenav__container__menu__item">
-                        <sf-common-icon type="date_range"></sf-common-icon>
+                        <sf-common-button routerLink="/calendar" routerLinkActive="active">
+                            <sf-common-icon type="date_range"></sf-common-icon>
+                            <div class="master-page__sidenav__container__menu__item__text" *ngIf="!isNormalSidenav">
+                                calendar
+                            </div>
+                        </sf-common-button>
                     </div>
                     <div class="master-page__sidenav__container__menu__item">
-                        <sf-common-icon type="settings"></sf-common-icon>
+                        <sf-common-button routerLink="/personal" routerLinkActive="active">
+                            <sf-common-icon type="settings"></sf-common-icon>
+                            <div class="master-page__sidenav__container__menu__item__text" *ngIf="!isNormalSidenav">
+                                personal settings
+                            </div>
+                        </sf-common-button>
                     </div>
                     <div class="master-page__sidenav__container__menu__item">
-                        <sf-common-icon type="content_paste"></sf-common-icon>
+                        <sf-common-button routerLink="/feed/works" routerLinkActive="active">
+                            <sf-common-icon type="content_paste"></sf-common-icon>
+                            <div class="master-page__sidenav__container__menu__item__text" *ngIf="!isNormalSidenav">
+                                works
+                            </div>
+                        </sf-common-button>
                     </div>
                     <div class="master-page__sidenav__container__menu__item">
-                        <sf-common-icon type="dashboard"></sf-common-icon>
+                        <sf-common-button routerLink="/approve" routerLinkActive="active">
+                            <sf-common-icon type="dashboard"></sf-common-icon>
+                            <div class="master-page__sidenav__container__menu__item__text" *ngIf="!isNormalSidenav">
+                                approve
+                            </div>
+                        </sf-common-button>
                     </div>
                     <div class="master-page__sidenav__container__menu__item">
-                        <sf-common-icon type="show_chart"></sf-common-icon>
+                        <sf-common-button routerLink="/statistic" routerLinkActive="active">
+                            <sf-common-icon type="show_chart"></sf-common-icon>
+                            <div class="master-page__sidenav__container__menu__item__text" *ngIf="!isNormalSidenav">
+                                statistic
+                            </div>
+                        </sf-common-button>
+                    </div>
+                    <div class="master-page__sidenav__container__menu__item">
+                        <sf-common-button routerLink="/about" routerLinkActive="active">
+                            <sf-common-icon type="help"></sf-common-icon>
+                            <div class="master-page__sidenav__container__menu__item__text" *ngIf="!isNormalSidenav">
+                                about
+                            </div>
+                        </sf-common-button>
                     </div>
                     <div class="master-page__sidenav__container__menu__item--end">
-                        <sf-common-icon type="keyboard_arrow_right"></sf-common-icon>
+                        <sf-common-button (click)="isNormalSidenav = !isNormalSidenav" [@iconChange]="!isNormalSidenav">
+                            <sf-common-icon *ngIf="isNormalSidenav" type="keyboard_arrow_right"></sf-common-icon>
+                            <sf-common-icon *ngIf="!isNormalSidenav" type="keyboard_arrow_left"></sf-common-icon>
+                            <!-- <md-icon [@iconChange]="!isNormalSidenav"> keyboard_arrow_right</md-icon> -->
+                            <div class="master-page__sidenav__container__menu__item__text" *ngIf="!isNormalSidenav">
+                                collapse
+                            </div>
+                        </sf-common-button>
                     </div>
                 </div>
             </md-sidenav>
+
 
             <div class="master-page__sidenav__content">
                 <router-outlet></router-outlet>

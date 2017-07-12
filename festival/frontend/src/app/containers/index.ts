@@ -9,3 +9,4 @@ export * from './personal';
 export * from './dashboard';
 export * from './works-feed';
 export * from './statistic';
+export * from './approve';
