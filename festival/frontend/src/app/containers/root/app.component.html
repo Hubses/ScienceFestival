@@ -7,4 +7,14 @@
   </div>
 </div>
 -->
+<div>
+  <h1>
+    {{title}}
+  </h1>
+
+  <div *ngFor="let feed of events">
+    {{feed.description}}
+     </div>
+  </div>
+
 <router-outlet></router-outlet>

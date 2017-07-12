@@ -18,6 +18,9 @@ import { NotFoundComponent } from './app/components'
 
 import { NewsRepository } from './store/news';
 import newsReducer from './store/news/news.reducer';
+
+import { EventsRepository } from './store/events';
+import eventsReducer from './store/events/events.reducer';
 import { ApplicationStoreModule, ApplicationEffects } from './store';
 
 import { SFCommonModule } from './commonApp/common.module';
@@ -44,6 +47,7 @@ const appRoutes: Routes = [
     HttpModule,
     ...ApplicationEffects,
     StoreModule.provideStore({ newsReducer }),
+    StoreModule.provideStore({ eventsReducer }),
     StoreDevtoolsModule.instrumentOnlyWithExtension({
       maxAge: 5
     }),
@@ -52,7 +56,7 @@ const appRoutes: Routes = [
       appRoutes,
       { enableTracing: true })
   ],
-  providers: [NewsRepository],
+  providers: [NewsRepository, EventsRepository],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
