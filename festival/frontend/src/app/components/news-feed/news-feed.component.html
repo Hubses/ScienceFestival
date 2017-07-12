@@ -1,14 +1,5 @@
-<div class="news-card" *ngFor="let feed of news">
-<sf-common-card >
-  <card-title>
-    <h2>{{feed.header}}</h2>
-  </card-title>
-  <card-content>
-    {{feed.description}}
-  </card-content>
-  <card-action>
-    <sf-common-button class="read-more" [label]="'Read more'"></sf-common-button>
-    <sf-common-button class="share" [label]="'Share'"></sf-common-button>
-  </card-action>
-</sf-common-card>
+<div class="news-feed">
+    <div *ngFor="let feed of items">
+        <sf-news [news]="feed"></sf-news>
+    </div>
 </div>

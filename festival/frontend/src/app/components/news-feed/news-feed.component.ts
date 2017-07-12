@@ -4,20 +4,21 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { getNewsAction } from '../../../store/news/';
-
+import { ChangeEvent, VirtualScrollComponent } from 'angular2-virtual-scroll';
 @Component({
     selector: 'sf-news-feed',
-    templateUrl: 'news-feed.component.html',
-    styleUrls: ['./news-feed.component.less']
+    templateUrl: 'news-feed.component.html'
 })
+
 export class NewsFeedComponent implements OnInit {
 
-    public news: News[];
+    public items: News[];
 
     constructor(private store: Store<sf.store.NewsStore>) { }
 
-    ngOnInit(): void {
-      this.store.select(s => s.newsReducer).subscribe(n => this.news = n.entity);
-      this.store.dispatch(getNewsAction());
+    ngOnInit() {
+        this.store.select(s => s.newsReducer).subscribe(n => this.items = n.entity);
+        this.store.dispatch(getNewsAction());
+        console.log(this.items);
     }
 }

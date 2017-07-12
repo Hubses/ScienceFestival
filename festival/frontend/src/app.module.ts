@@ -3,30 +3,42 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-
 import { RouterModule, Routes } from '@angular/router';
-
+// 3rd party libs
+import { VirtualScrollModule } from 'angular2-virtual-scroll';
+// common module
+import { SFCommonModule } from './commonApp/common.module';
+// store
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
+import { NewsRepository } from './store/news';
+import { ApplicationStoreModule, ApplicationEffects } from './store';
+import newsReducer from './store/news/news.reducer';
+// containers
 import {
   AppComponent,
-  CommonComponent
+  CommonComponent,
+  MasterPageComponent
 } from './app/containers';
-
-import { NotFoundComponent, NewsFeedComponent } from './app/components'
-
-import { NewsRepository } from './store/news';
-import newsReducer from './store/news/news.reducer';
-import { ApplicationStoreModule, ApplicationEffects } from './store';
-
-import { SFCommonModule } from './commonApp/common.module';
-
+// components
+import {
+  NotFoundComponent,
+  NewsFeedComponent,
+  NewsComponent
+} from './app/components';
+// routes
 const appRoutes: Routes = [
   { path: 'common', component: CommonComponent },
   {
+    path: 'feed', component: MasterPageComponent,
+    children: [
+      { path: '', component: NewsFeedComponent }
+    ]
+  },
+  {
     path: '',
-    redirectTo: '/common',
+    redirectTo: '/feed',
     pathMatch: 'full'
   },{
     path: 'news', component: NewsFeedComponent
@@ -39,7 +51,9 @@ const appRoutes: Routes = [
     AppComponent,
     CommonComponent,
     NotFoundComponent,
-    NewsFeedComponent
+    MasterPageComponent,
+    NewsFeedComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +67,8 @@ const appRoutes: Routes = [
     SFCommonModule.forRoot(),
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true })
+      { enableTracing: true }),
+    VirtualScrollModule
   ],
   providers: [NewsRepository],
   bootstrap: [AppComponent],
