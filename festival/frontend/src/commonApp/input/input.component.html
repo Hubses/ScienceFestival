@@ -1,4 +1,3 @@
 <md-input-container>
-  <input mdInput type="text" [ngModel]="value" (ngModelChange)="onValueChange(newValue)">
- 
+  <input mdInput type="text" placeholder="{{placeholder}}" [ngModel]="value" (ngModelChange)="onValueChange($event)">
 </md-input-container>

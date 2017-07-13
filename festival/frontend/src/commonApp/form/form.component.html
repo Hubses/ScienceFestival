@@ -1,13 +1,11 @@
-<form>
-    <md-card>
-        <md-toolbar>
-            <ng-content select="form-header"></ng-content>
-        </md-toolbar>
-        <md-card-content>
-            <ng-content select="form-body"></ng-content>
-        </md-card-content>
-        <md-toolbar>
-            <ng-content select="form-actions"></ng-content>
-        </md-toolbar>
-    </md-card>
-</form>
+<md-card>
+    <md-toolbar>
+        <ng-content select="form-header"></ng-content>
+    </md-toolbar>
+    <md-card-content>
+        <ng-content select="form-body"></ng-content>
+    </md-card-content>
+    <md-toolbar>
+        <ng-content select="form-actions"></ng-content>
+    </md-toolbar>
+</md-card>

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -131,6 +131,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     ...ApplicationEffects,
     StoreModule.provideStore({ newsReducer }),
@@ -140,7 +141,10 @@ const appRoutes: Routes = [
     SFCommonModule.forRoot(),
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true }), // router debug
+      {
+        enableTracing: true,
+        useHash: true
+      }), // router debug
     VirtualScrollModule
   ],
   providers: [NewsRepository],

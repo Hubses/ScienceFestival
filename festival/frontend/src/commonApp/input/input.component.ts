@@ -1,4 +1,4 @@
-import { Component, Input, OnInit,Output,EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'sf-common-input',
@@ -6,7 +6,7 @@ import { Component, Input, OnInit,Output,EventEmitter } from '@angular/core';
 })
 export class InputComponent implements OnInit {
 
-
+    @Input() placeholder: string;
     @Input() public value: string;
 
     @Output() valueChange: EventEmitter<string> = new EventEmitter<string>();
@@ -17,9 +17,7 @@ export class InputComponent implements OnInit {
             this.value = '';
         }
     }
-
-     onValueChanged(newValue) {
-        this.value = newValue;
+    onValueChange(newValue) {
         this.valueChange.emit(newValue);
     }
 }
