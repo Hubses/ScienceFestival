@@ -9,6 +9,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class NewsItemComponent implements OnInit {
     @Input() news: News;
 
+    public flag: boolean = false;
+
     constructor() { }
 
     ngOnInit() {
