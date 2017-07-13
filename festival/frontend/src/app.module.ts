@@ -2,6 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpModule } from '@angular/http';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -37,7 +38,9 @@ import {
   LoginComponent,
   RegisterComponent,
   NewsItemComponent,
-  AboutComponent
+  AboutComponent,
+  SidenavComponent,
+  HeaderComponent
 } from './app/components';
 // routes
 const appRoutes: Routes = [
@@ -127,7 +130,9 @@ const appRoutes: Routes = [
     LoginComponent,
     NewsItemComponent,
     RegisterComponent,
-    AboutComponent
+    AboutComponent,
+    SidenavComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

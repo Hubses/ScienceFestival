@@ -1,0 +1,19 @@
+<sf-common-header class="topbar">
+    <sf-common-button class="topbar__toggle-button" (click)="toggle()">
+        <sf-common-icon class="toggle-button__icon" type="menu"></sf-common-icon>
+    </sf-common-button>
+    <div class="topbar__logo">
+        SCIENCE FESTIVAL
+    </div>
+    <div class="right-contols">
+        <sf-common-dropdown class="right-contols__localization" [dropdownOptions]="localization" (selectedValueChange)="getLocalization($event)"></sf-common-dropdown>
+        <div class="right-contols__enter-group">
+            <div class="login">
+                <sf-common-button routerLink="/login" routerLinkActive="active"> LOGIN</sf-common-button>
+            </div>
+            <div class="register">
+                <sf-common-button routerLink="/register" routerLinkActive="active">REGISTER</sf-common-button>
+            </div>
+        </div>
+    </div>
+</sf-common-header>
