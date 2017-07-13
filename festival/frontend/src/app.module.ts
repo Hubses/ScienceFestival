@@ -4,14 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-// 3rd party libs
-import { VirtualScrollModule } from 'angular2-virtual-scroll';
 // common module
 
 // store
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-
 import { NewsRepository } from './store/news';
 import { ApplicationStoreModule, ApplicationEffects } from './store';
 import newsReducer from './store/news/news.reducer';
@@ -33,7 +30,7 @@ import {
 
 import {
   NotFoundComponent,
-  NewsComponent,
+  NewsItemComponent,
   LoginComponent,
   RegisterComponent,
   AboutComponent,
@@ -131,7 +128,7 @@ import { SFCommonModule } from './commonApp/common.module';const appRoutes: Rout
     ApproveComponent,
     // components
     NotFoundComponent,
-    NewsComponent,
+    NewsItemComponent,
      EventsComponent,
     LoginComponent,
     RegisterComponent,
@@ -151,7 +148,6 @@ import { SFCommonModule } from './commonApp/common.module';const appRoutes: Rout
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true }), // router debug
-    VirtualScrollModule
   ],
   providers: [NewsRepository, EventsRepository],
   bootstrap: [AppComponent],
