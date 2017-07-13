@@ -5,9 +5,7 @@
 interface News {
     header: string;
     description: string;
-    logo: string;
-    // coords:
 }
 interface NewsParams {
-    
+
 }
