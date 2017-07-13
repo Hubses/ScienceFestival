@@ -4,6 +4,7 @@ import com.hubses.festival.domain.Event;
 import com.hubses.festival.domain.User;
 import com.hubses.festival.dto.form.CustomerFormDTO;
 import com.hubses.festival.dto.model.CustomerModelDTO;
+import com.hubses.festival.exception.IDNotFoundException;
 import com.hubses.festival.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -68,7 +69,7 @@ public class CustomerResource {
                         .role(customer.getRole().toString())
                         .events(customer.getEvents().stream().map(Event::getName).collect(Collectors.toList()))
                         .build())
-                .orElse(new CustomerModelDTO());
+                .orElseThrow(() -> new IDNotFoundException("Customer with id = " + id + "not found"));
     }
 
     @ResponseStatus(HttpStatus.CREATED)

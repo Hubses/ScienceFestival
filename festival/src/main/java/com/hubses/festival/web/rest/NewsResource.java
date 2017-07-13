@@ -3,12 +3,14 @@ package com.hubses.festival.web.rest;
 import com.hubses.festival.domain.News;
 import com.hubses.festival.dto.form.NewsFormDTO;
 import com.hubses.festival.dto.model.NewsModelDTO;
+import com.hubses.festival.exception.IDNotFoundException;
 import com.hubses.festival.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,6 +46,7 @@ public class NewsResource {
                 .orElse(new NewsModelDTO());
     }
 
+    @Transactional
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public NewsModelDTO deleteNews(@PathVariable(value = "id") long id) {
         return newsService.deleteNewsById(id).map(news ->
@@ -52,7 +55,7 @@ public class NewsResource {
                         .name(news.getName())
                         .html(news.getNewsHTML())
                         .build())
-                .orElse(new NewsModelDTO());
+                .orElseThrow(() -> new IDNotFoundException("News with id = " + id + "not found"));
     }
 
     @ResponseStatus(HttpStatus.CREATED)
