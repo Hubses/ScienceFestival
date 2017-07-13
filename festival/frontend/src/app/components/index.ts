@@ -1,3 +1,3 @@
 export * from './notfound';
-export * from './news-feed';
+export * from '../containers/news-feed';
 export * from './news';

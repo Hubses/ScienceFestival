@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-
 import { Observable } from 'rxjs';
+import { getNewsAction } from '../../../store/news';
 
-import { getNewsAction } from '../../../store/news/';
-import { ChangeEvent, VirtualScrollComponent } from 'angular2-virtual-scroll';
 @Component({
     selector: 'sf-news-feed',
-    templateUrl: 'news-feed.component.html'
+    templateUrl: 'news-feed.component.html',
+    styleUrls: ['./news-feed.component.less']
 })
 
 export class NewsFeedComponent implements OnInit {

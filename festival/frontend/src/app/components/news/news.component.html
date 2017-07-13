@@ -1,3 +1,13 @@
-<div>
-    {{news.header}}
-</div>
+<sf-common-card class="news-item">
+  <card-title class="news-item__title">
+    <h2>{{news.header}}</h2>
+  </card-title>
+  <card-content class="news-item__content">
+    {{news.description}}
+  </card-content>
+  <card-action class="news-item__action">
+    <sf-common-button class="button__read-more" [label]="'Read more'"></sf-common-button>
+    <sf-common-button class="buton__share" [label]="'Share'"></sf-common-button>
+  </card-action>
+</sf-common-card>
+Added BEM

@@ -4,14 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-// 3rd party libs
-import { VirtualScrollModule } from 'angular2-virtual-scroll';
 // common module
 import { SFCommonModule } from './commonApp/common.module';
 // store
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-
 import { NewsRepository } from './store/news';
 import { ApplicationStoreModule, ApplicationEffects } from './store';
 import newsReducer from './store/news/news.reducer';
@@ -67,8 +64,7 @@ const appRoutes: Routes = [
     SFCommonModule.forRoot(),
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true }),
-    VirtualScrollModule
+      { enableTracing: true })
   ],
   providers: [NewsRepository],
   bootstrap: [AppComponent],
