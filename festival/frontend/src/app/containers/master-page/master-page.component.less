@@ -1,3 +1,60 @@
-.space {
-    flex: 1 1 auto;
+@header-heigth: 64px;
+.master-page {
+    height: calc(~"100% - @{header-heigth}");
+    &__topbar {
+        &__burger-button {
+            height: 100%;
+            margin-left: -16px;
+        }
+        &__space {
+            flex: 1 1 auto;
+        }
+        &__right-contols {
+            display: flex;
+            flex: 0.5;
+            align-items: center;
+            justify-content: space-around;
+            &__localization {}
+            &__enter-group {
+                display: inline-flex;
+                &__login {}
+                &__register {}
+            }
+        }
+    }
+    &__sidenav {
+        height: 100%;
+        &__container {
+            height: 100%;
+            &__menu {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                &__item,
+                button.mat-button {
+                    width: 100%;
+                    &__text {
+                        display: inline-flex;
+                        transform: translate(0%, -20%);
+                    }
+                    &--end {
+                        width: 100%;
+                        margin-top: auto;
+                    }
+                }
+            }
+        }
+        &__content {
+            height: 100%;
+        }
+    }
+}
+
+sf-common-header {
+    height: @header-heigth;
+}
+
+button.mat-button {
+    display: flex;
 }

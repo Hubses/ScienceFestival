@@ -13,17 +13,7 @@ import { getNewsAction } from '../../../store/news/';
 })
 export class AppComponent implements OnInit {
 
+  constructor() { }
 
-  public news: News[];
-
-  title = 'app works!';
-
-  public dropdownSelect: number | string;
-
-  constructor(private store: Store<sf.store.NewsStore>) { }
-
-  ngOnInit(): void {
-    // this.store.select(s => s.newsReducer).subscribe(n => this.news = n.entity);
-    // this.store.dispatch(getNewsAction());
-  }
+  ngOnInit(): void { }
 }

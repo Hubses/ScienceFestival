@@ -38,8 +38,4 @@ declare namespace sf.common {
         end: string;
         url: string;
     }
-
-    interface menuOptions {
-
-    }
 }
