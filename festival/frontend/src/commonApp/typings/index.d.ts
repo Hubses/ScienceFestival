@@ -18,28 +18,24 @@ declare namespace sf.common {
         slider,
         trigger
     }
-    
+
     interface DropdownOptions {
         placeholder: string;
-        values: string[] | number[];
-        selectedValue: string | number;
+        values: string[];
+        selectedValue?: string;
     }
 
-    interface Coordinates{
+    interface Coordinates {
         latitude: number;
         longitude: number;
         description: string;
     }
 
-    interface Events{
+    interface Events {
         id: number;
         title: string;
         start: string;
         end: string;
         url: string;
-    }
-    
-    interface menuOptions {
-        
     }
 }
