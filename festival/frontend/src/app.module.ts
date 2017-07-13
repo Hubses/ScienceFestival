@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -36,6 +37,7 @@ import {
   NewsComponent,
   LoginComponent,
   RegisterComponent,
+  NewsItemComponent,
   AboutComponent
 } from './app/components';
 // routes
@@ -125,6 +127,7 @@ const appRoutes: Routes = [
     NotFoundComponent,
     NewsComponent,
     LoginComponent,
+    NewsItemComponent,
     RegisterComponent,
     AboutComponent
   ],
@@ -152,3 +155,4 @@ const appRoutes: Routes = [
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
+
