@@ -1,10 +1,10 @@
 <sf-common-card class="news-item">
   <card-title class="news-item__title">
     <div *ngIf="flag; else elseBlock">
-      <h2>{{news.header}}</h2>
+      <div class="news-feed__title-text">{{news.header}}</div>
     </div>
     <ng-template #elseBlock>
-      <div>{{news.header}}</div>
+      <div class="news-feed__title-text">{{news.header}}</div>
       <div class="news-item__title-buttons">
         <!--<sf-common-button class="button__edit">-->
         <sf-common-icon class="icon__edit" type="edit"></sf-common-icon>
