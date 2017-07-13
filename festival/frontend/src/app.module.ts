@@ -7,7 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 // 3rd party libs
 import { VirtualScrollModule } from 'angular2-virtual-scroll';
 // common module
-import { SFCommonModule } from './commonApp/common.module';
+
 // store
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -30,21 +30,22 @@ import {
   AdminStatisticComponent,
   ApproveComponent
 } from './app/containers';
-import { SFCommonModule } from './commonApp/common.module';
+
 import {
   NotFoundComponent,
   NewsComponent,
   LoginComponent,
   RegisterComponent,
-  AboutComponent
+  AboutComponent,
+  EventsComponent
 } from './app/components';
 // routes
-import { NewsRepository } from './store/news';
-import newsReducer from './store/news/news.reducer';
+
+
 
 import { EventsRepository } from './store/events';
 import eventsReducer from './store/events/events.reducer';
-import { ApplicationStoreModule, ApplicationEffects } from './store';
+
 
 import { SFCommonModule } from './commonApp/common.module';const appRoutes: Routes = [
   { path: 'common', component: CommonComponent },
@@ -131,6 +132,7 @@ import { SFCommonModule } from './commonApp/common.module';const appRoutes: Rout
     // components
     NotFoundComponent,
     NewsComponent,
+     EventsComponent,
     LoginComponent,
     RegisterComponent,
     AboutComponent

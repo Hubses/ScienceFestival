@@ -14,8 +14,7 @@ import { getEventsAction } from '../../../store/events/';
 })
 export class AppComponent implements OnInit {
 
-  constructor() { }
-
+  
   public events: Events[];
 
   title = 'app works!';
