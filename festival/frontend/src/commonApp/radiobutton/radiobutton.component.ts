@@ -5,7 +5,7 @@ import { Component,Input,Output,EventEmitter } from '@angular/core';
     templateUrl: './radiobutton.component.html'
 })
 export class RadioButtonComponent { 
-     @Input() public option: string;
+    @Input() public option: string;
     @Input() public value: boolean;
 
     @Output() valueChange = new EventEmitter<boolean>();

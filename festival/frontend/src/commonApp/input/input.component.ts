@@ -10,6 +10,7 @@ export class InputComponent implements OnInit {
     @Input() public value: string;
 
     @Output() valueChange: EventEmitter<string> = new EventEmitter<string>();
+    
     constructor() { }
 
     ngOnInit(): void {
