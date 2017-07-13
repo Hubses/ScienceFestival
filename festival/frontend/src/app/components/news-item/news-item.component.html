@@ -1,19 +1,12 @@
 <sf-common-card class="news-item">
   <card-title class="news-item__title">
-    <div *ngIf="flag; else elseBlock">
-      <div class="news-feed__title-text">{{news.header}}</div>
-    </div>
-    <ng-template #elseBlock>
-      <div class="news-feed__title-text">{{news.header}}</div>
-      <div class="news-item__title-buttons">
-        <!--<sf-common-button class="button__edit">-->
-        <sf-common-icon class="icon__edit" type="edit"></sf-common-icon>
-        <!--</sf-common-button>-->
-        <!--<sf-common-button class="button__close">-->
+    <div class="title">
+      <div class="title__text">{{news.header}}</div>
+      <div class="title__buttons">
+        <sf-common-icon class="icon__edit" type="edit" (click)="onSelect(news)"></sf-common-icon>
         <sf-common-icon class="icon__close" type="close"></sf-common-icon>
-        <!--</sf-common-button>-->
       </div>
-    </ng-template>
+    </div>
   </card-title>
   <card-content class="news-item__content">
     {{news.description}}
