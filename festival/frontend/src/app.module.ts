@@ -34,7 +34,6 @@ import {
 // components
 import {
   NotFoundComponent,
-  NewsComponent,
   LoginComponent,
   RegisterComponent,
   NewsItemComponent,
@@ -125,7 +124,6 @@ const appRoutes: Routes = [
     ApproveComponent,
     // components
     NotFoundComponent,
-    NewsComponent,
     LoginComponent,
     NewsItemComponent,
     RegisterComponent,
