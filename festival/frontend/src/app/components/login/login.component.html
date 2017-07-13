@@ -1,1 +1,37 @@
-<div>login form here</div>
+<div class="form">
+    <sf-common-form>
+        <form-header>
+            Login
+        </form-header>
+        <form-body>
+            <form class="form__body" [formGroup]="loginForm">
+                <div class="form__body__group">
+                    <label class="form__body__group__block"> user name:
+                    <md-input-container>
+                        <input mdInput placeholder="user name" value="" formControlName="name">
+                    </md-input-container>
+                </label>
+                    <label class="form__body__group__block"> password:
+                    <md-input-container>
+                        <input mdInput type="password" placeholder="password" value="" formControlName="password" >
+                    </md-input-container>
+                </label>
+                </div>
+            </form>
+        </form-body>
+        <form-actions>
+            <div class="form__actions">
+                <div class="form__actions__item">
+                    <sf-common-button (click)="onSubmit()">
+                        submit
+                    </sf-common-button>
+                </div>
+                <div class="form__actions__item">
+                    <sf-common-button (click)="onReset()">
+                        reset
+                    </sf-common-button>
+                </div>
+            </div>
+        </form-actions>
+    </sf-common-form>
+</div>

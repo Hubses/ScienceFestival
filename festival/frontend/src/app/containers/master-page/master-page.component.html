@@ -25,7 +25,7 @@
     <div class="master-page__sidenav">
         <md-sidenav-container class="master-page__sidenav__container">
             <md-sidenav #sidenav mode="side" opened="true" [@collapseChange]="isNormalSidenav">
-                <div class="master-page__sidenav__container__menu" [ngStyle]="{ 'align-items': getFlexState() }">
+                <div class="master-page__sidenav__container__menu">
                     <div class="master-page__sidenav__container__menu__item">
                         <sf-common-button routerLink="/feed" routerLinkActive="active">
                             <sf-common-icon type="library_books"></sf-common-icon>

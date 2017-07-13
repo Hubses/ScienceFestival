@@ -50,11 +50,4 @@ export class MasterPageComponent implements OnInit {
     public getLocalization(option: string): void {
         console.log(option);
     }
-    public getFlexState(): string {
-        if (this.isNormalSidenav) {
-            return 'center';
-        } else {
-            return 'flex-start';
-        }
-    }
 }

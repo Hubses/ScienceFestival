@@ -1,14 +1,18 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+// 3rd party libs
+import { VirtualScrollModule } from 'angular2-virtual-scroll';
 // common module
 import { SFCommonModule } from './commonApp/common.module';
 // store
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
 import { NewsRepository } from './store/news';
 import { ApplicationStoreModule, ApplicationEffects } from './store';
 import newsReducer from './store/news/news.reducer';
@@ -30,9 +34,10 @@ import {
 // components
 import {
   NotFoundComponent,
-  NewsItemComponent,
+  NewsComponent,
   LoginComponent,
   RegisterComponent,
+  NewsItemComponent,
   AboutComponent
 } from './app/components';
 // routes
@@ -120,14 +125,16 @@ const appRoutes: Routes = [
     ApproveComponent,
     // components
     NotFoundComponent,
-    NewsItemComponent,
+    NewsComponent,
     LoginComponent,
+    NewsItemComponent,
     RegisterComponent,
     AboutComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     ...ApplicationEffects,
     StoreModule.provideStore({ newsReducer }),
@@ -137,10 +144,15 @@ const appRoutes: Routes = [
     SFCommonModule.forRoot(),
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true }), // router debug
+      {
+        enableTracing: true,
+        useHash: true
+      }), // router debug
+    VirtualScrollModule
   ],
   providers: [NewsRepository],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
+
