@@ -30,7 +30,7 @@ import {
 // components
 import {
   NotFoundComponent,
-  NewsComponent,
+  NewsItemComponent,
   LoginComponent,
   RegisterComponent,
   AboutComponent
@@ -120,7 +120,7 @@ const appRoutes: Routes = [
     ApproveComponent,
     // components
     NotFoundComponent,
-    NewsComponent,
+    NewsItemComponent,
     LoginComponent,
     RegisterComponent,
     AboutComponent
