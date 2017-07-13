@@ -16,131 +16,6 @@ import newsReducer from './store/news/news.reducer';
 import {
   AppComponent,
   CommonComponent,
-  MasterPageComponent
-} from './app/containers';
-// components
-import {
-  NotFoundComponent,
-  NewsFeedComponent,
-  NewsComponent
-} from './app/components';
-// routes
-const appRoutes: Routes = [
-  { path: 'common', component: CommonComponent },
-  {
-    path: 'feed', component: MasterPageComponent,
-    children: [
-      { path: '', component: NewsFeedComponent }
-    ]
-  },
-  {
-    path: '',
-    redirectTo: '/feed',
-    pathMatch: 'full'
-  },{
-    path: 'news', component: NewsFeedComponent
-  },
-  { path: '**', component: NotFoundComponent }
-];
-
-@NgModule({
-  declarations: [
-    AppComponent,
-    CommonComponent,
-    NotFoundComponent,
-    MasterPageComponent,
-    NewsFeedComponent,
-    NewsComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    ...ApplicationEffects,
-    StoreModule.provideStore({ newsReducer }),
-    StoreDevtoolsModule.instrumentOnlyWithExtension({
-      maxAge: 5
-    }),
-    SFCommonModule.forRoot(),
-    RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true })
-  ],
-  providers: [NewsRepository],
-  bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
-})
-export class AppModule { }
-
-import { NewsRepository } from './store/news';
-import { ApplicationStoreModule, ApplicationEffects } from './store';
-import newsReducer from './store/news/news.reducer';
-// containers
-import {
-  AppComponent,
-  CommonComponent,
-  MasterPageComponent
-} from './app/containers';
-// components
-import {
-  NotFoundComponent,
-  NewsFeedComponent,
-  NewsComponent
-} from './app/components';
-// routes
-const appRoutes: Routes = [
-  { path: 'common', component: CommonComponent },
-  {
-    path: 'feed', component: MasterPageComponent,
-    children: [
-      { path: '', component: NewsFeedComponent }
-    ]
-  },
-  {
-    path: '',
-    redirectTo: '/feed',
-    pathMatch: 'full'
-  },
-  { path: '**', component: NotFoundComponent }
-];
-
-@NgModule({
-  declarations: [
-    AppComponent,
-    CommonComponent,
-    NotFoundComponent,
-    MasterPageComponent,
-    NewsFeedComponent,
-    NewsComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    ...ApplicationEffects,
-    StoreModule.provideStore({ newsReducer }),
-    StoreDevtoolsModule.instrumentOnlyWithExtension({
-      maxAge: 5
-    }),
-    SFCommonModule.forRoot(),
-    RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true }),
-    VirtualScrollModule
-  ],
-  providers: [NewsRepository],
-  bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
-})
-export class AppModule { }
-
-import { NewsRepository } from './store/news';
-import { ApplicationStoreModule, ApplicationEffects } from './store';
-import newsReducer from './store/news/news.reducer';
-// containers
-import {
-  AppComponent,
-  CommonComponent,
   MasterPageComponent,
   FullFeedComponent,
   NewsFeedComponent,
@@ -263,7 +138,6 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true }), // router debug
-    VirtualScrollModule
   ],
   providers: [NewsRepository],
   bootstrap: [AppComponent],
