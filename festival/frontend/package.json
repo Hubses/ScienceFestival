@@ -6,7 +6,8 @@
     "ng": "ng",
     "start": "ng serve --hmr --open --port 4201",
     "build": "ng build",
-    "test": "ng test",
+    "build-prod": "ng build --prod",
+    "test": "ng test --watch false",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
