@@ -1,7 +1,5 @@
-<div *ngIf="dropdownOptions">
-  <md-select placeholder="{{dropdownOptions.placeholder}}" [ngModel]="selectedValue" (ngModelChange)="onSelectedValueChange($event)">
-    <md-option *ngFor="let value of dropdownOptions.values" [value]="value">
-      {{value}}
-    </md-option>
-  </md-select>
-</div>
+<md-select placeholder="{{dropdownOptions.placeholder}}" [ngModel]="selectedValue" (ngModelChange)="onSelectedValueChange($event)">
+  <md-option *ngFor="let value of dropdownOptions.values" [value]="value">
+    {{value}}
+  </md-option>
+</md-select>
