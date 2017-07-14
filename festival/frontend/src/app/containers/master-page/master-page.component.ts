@@ -23,16 +23,25 @@ export class MasterPageComponent implements OnInit {
 
     public isCollapsed: boolean = true;
     @ViewChild('sidenav') public sidenav: MdSidenav;
+    public localization: sf.common.DropdownOptions<string>;
 
     constructor() { }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.localization = {
+            placeholder: 'select languadge',
+            values: ['English', 'Russian'],
+            selectedValue: 'English'
+        };
+    }
     public toggleSidenav(): void {
         this.sidenav.toggle();
     }
 
     collapseSidenav(): void {
         this.isCollapsed = !this.isCollapsed;
-        console.log(this.isCollapsed);
+    }
+    getLocalization(lang: string) {
+        console.log(lang);
     }
 }

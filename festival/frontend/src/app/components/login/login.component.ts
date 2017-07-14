@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 @Component({
     selector: 'sf-login',
     templateUrl: 'login.component.html',
@@ -7,26 +8,31 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 
 export class LoginComponent implements OnInit {
-    public loginForm: FormGroup;
-    constructor(private fb: FormBuilder) {
-        this.createForm();
+    public loginForm: sf.entities.User;
+    @ViewChild('email') public email: sf.common.StringInput;
+    @ViewChild('password') public password: sf.common.StringInput;
+    @Output() public onSubmitted: EventEmitter<sf.entities.User> = new EventEmitter<sf.entities.User>();
+
+    constructor() { }
+
+    ngOnInit() {
+        this.loginForm = {
+            email: this.email.value,
+            password: this.password.value
+        };
     }
 
-    ngOnInit() { }
-
-    public onSubmit(): User {
-        const formModel: User = this.loginForm.value;
-        console.log(formModel);
-        return formModel;
+    public submit(): void {
+        this.loginForm = {
+            email: this.email.value,
+            password: this.password.value
+        };
+        console.log(this.loginForm);
+        this.onSubmitted.emit(this.loginForm);
     }
 
-    public onReset(): void {
-        this.loginForm.reset();
-    }
-    private createForm(): void {
-        this.loginForm = this.fb.group({
-            name: ['', Validators.required],
-            password: ['', Validators.required]
-        });
+    public reset(): void {
+        this.email.value = '';
+        this.password.value = '';
     }
 }

@@ -9,21 +9,16 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class HeaderComponent implements OnInit {
     @Input() public isToggledButton: boolean;
     @Output() public onTogledButton: EventEmitter<boolean> = new EventEmitter<boolean>();
-    public localization: sf.common.DropdownOptions;
+    @Input() public localization: sf.common.DropdownOptions<string>;
+    @Output() public onLocalizationChange: EventEmitter<string> = new EventEmitter<string>();
 
     constructor() { }
 
-    ngOnInit() {
-        this.localization = {
-            placeholder: 'select languadge',
-            values: ['English', 'Russian'],
-            selectedValue: 'English'
-        };
-    }
+    ngOnInit() { }
     public toggle(isToggled: boolean): void {
         this.onTogledButton.emit(isToggled);
     }
-    public getLocalization(option: string): void {
-        console.log(option);
+    public localizationChange(option: string): void {
+        this.onLocalizationChange.emit(option);
     }
 }

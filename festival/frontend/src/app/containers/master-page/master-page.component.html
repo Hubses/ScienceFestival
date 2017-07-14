@@ -1,5 +1,6 @@
 <div class="master-page">
-    <sf-header class="header" [isToggledButton]="isCollapsed" (onTogledButton)="toggleSidenav($event)"></sf-header>
+    <sf-header class="header" [isToggledButton]="isCollapsed" (onTogledButton)="toggleSidenav($event)" (onLocalizationChange)="getLocalization($event)"
+        [localization]="localization"></sf-header>
 
     <md-sidenav-container class="sidenav">
         <md-sidenav #sidenav mode="side" opened="true" [@collapseChange]="isCollapsed">

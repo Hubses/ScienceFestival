@@ -33,17 +33,17 @@ button.mat-button .mat-button-wrapper {
     width: 100%;
     &__item {
         .icon--extend {
-            width: 30%;
+            .icon-width(30%); // width: 30%;
         }
         .icon--collapsed {
-            width: 100%;
+            .icon-width(100%); // width: 100%;
         }
         &--end {
             .icon--extend {
-                width: 30%;
+                .icon-width(30%); // width: 30%;
             }
             .icon--collapsed {
-                width: 100%;
+                .icon-width(100%); // width: 100%;
             }
         }
         &--space {
@@ -51,4 +51,8 @@ button.mat-button .mat-button-wrapper {
             flex: 1 1 auto;
         }
     }
+}
+
+.icon-width(@width) {
+    width: @width;
 }

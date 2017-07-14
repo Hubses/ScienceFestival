@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
@@ -8,45 +8,45 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 })
 
 export class RegisterComponent implements OnInit {
-    public positions: sf.common.DropdownOptions;
-    public registerForm: FormGroup;
+    public positions: sf.common.DropdownOptions<string>;
+    public registerForm: sf.entities.User;
+    @ViewChild('email') public email: sf.common.StringInput;
+    @ViewChild('password') public password: sf.common.StringInput;
+    @ViewChild('phone') public phone: sf.common.NumberInput;
+    @ViewChild('position') public position: sf.common.Dropdown<string>;
+    @Output() public onSubmitted: EventEmitter<sf.entities.User> = new EventEmitter<sf.entities.User>();
 
-
-    constructor(private fb: FormBuilder) {
-        this.createForm();
-    }
+    constructor() { }
 
     ngOnInit() {
         this.positions = {
             placeholder: 'position',
             values: ['user', 'admin'],
-            selectedValue: 'user'
+            selectedValue: 'user',
         };
     }
-    public getPosition(position: string) {
+    public getPosition(position: string): string {
         console.log(position);
         return position;
     }
-    public onSubmit(): User {
-        const formModel: User = this.registerForm.value;
-        console.log(formModel);
-        return formModel;
+    public submit(form: sf.entities.User): void {
+        this.registerForm = {
+            email: this.email.value,
+            password: this.email.value,
+            phone: this.phone.value,
+            position: this.position.selectedValue
+        }
+        console.log(this.registerForm);
+        form = this.registerForm;
+        this.onSubmitted.emit(form);
     }
 
-    public onReset(): void {
-        this.registerForm.reset();
-    }
-    private createForm(): void {
-        this.registerForm = this.fb.group({
-            name: ['', Validators.required],
-            password: ['', Validators.required],
-            email: ['', Validators.required],
-            position: ['', Validators.required]
-        });
-        this.registerForm.patchValue({
-            position: ['user']
-        }, {
-                emitEvent: true
-            });
+    public reset(): void {
+        this.registerForm = {
+            email: '',
+            password: '',
+            phone: 0,
+            position: ''
+        }
     }
 }
