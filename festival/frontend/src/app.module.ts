@@ -2,6 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpModule } from '@angular/http';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -38,7 +39,9 @@ import {
   RegisterComponent,
   NewsItemComponent,
   AboutComponent,
+  SidenavComponent,
   NewsDetailComponent
+  HeaderComponent
 } from './app/components';
 // routes
 const appRoutes: Routes = [
@@ -130,6 +133,8 @@ const appRoutes: Routes = [
     NewsItemComponent,
     RegisterComponent,
     AboutComponent,
+    SidenavComponent,
+    HeaderComponent
     NewsDetailComponent
   ],
   imports: [
