@@ -3,7 +3,7 @@ export * from './root';
 export * from './master-page';
 export * from './news-feed';
 export * from './full-feed';
-export * from './events-feed';
+export * from './festivalEvent-feed';
 export * from './calendar';
 export * from './personal';
 export * from './dashboard';

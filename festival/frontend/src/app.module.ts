@@ -10,8 +10,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { NewsRepository } from './store/news';
+import { FestivalEventRepository } from './store/festivalEvent';
 import { ApplicationStoreModule, ApplicationEffects } from './store';
 import newsReducer from './store/news/news.reducer';
+import festivalEventReducer from './store/festivalEvent/festivalEvent.reducer';
 // containers
 import {
   AppComponent,
@@ -19,7 +21,7 @@ import {
   MasterPageComponent,
   FullFeedComponent,
   NewsFeedComponent,
-  EventsFeedComponent,
+  FestivalEventFeedComponent,
   CalendarComponent,
   PersonalComponent,
   AdminDashboardComponent,
@@ -31,6 +33,7 @@ import {
 import {
   NotFoundComponent,
   NewsItemComponent,
+  FestivalEventItemComponent,
   LoginComponent,
   RegisterComponent,
   AboutComponent,
@@ -51,7 +54,7 @@ import { SFCommonModule } from './commonApp/common.module';const appRoutes: Rout
     children: [
       { path: '', component: FullFeedComponent },
       { path: 'news', component: NewsFeedComponent },
-      { path: 'events', component: EventsFeedComponent },
+      { path: 'events', component: FestivalEventFeedComponent },
       { path: 'works', component: WorksFeedComponent },
     ]
   },
@@ -119,7 +122,7 @@ import { SFCommonModule } from './commonApp/common.module';const appRoutes: Rout
     MasterPageComponent,
     FullFeedComponent,
     NewsFeedComponent,
-    EventsFeedComponent,
+    FestivalEventFeedComponent,
     CalendarComponent,
     PersonalComponent,
     AdminDashboardComponent,
@@ -129,7 +132,7 @@ import { SFCommonModule } from './commonApp/common.module';const appRoutes: Rout
     // components
     NotFoundComponent,
     NewsItemComponent,
-     EventsComponent,
+    FestivalEventItemComponent,
     LoginComponent,
     RegisterComponent,
     AboutComponent
@@ -139,7 +142,10 @@ import { SFCommonModule } from './commonApp/common.module';const appRoutes: Rout
     FormsModule,
     HttpModule,
     ...ApplicationEffects,
-    StoreModule.provideStore({ newsReducer }),
+    StoreModule.provideStore({
+      newsReducer: newsReducer,
+      festivalEventReducer: festivalEventReducer
+    }),
     StoreModule.provideStore({ eventsReducer }),
     StoreDevtoolsModule.instrumentOnlyWithExtension({
       maxAge: 5
@@ -149,7 +155,7 @@ import { SFCommonModule } from './commonApp/common.module';const appRoutes: Rout
       appRoutes,
       { enableTracing: true }), // router debug
   ],
-  providers: [NewsRepository, EventsRepository],
+  providers: [NewsRepository, FestivalEventRepository],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
