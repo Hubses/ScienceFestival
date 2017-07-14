@@ -1,0 +1,25 @@
+<sf-common-card class=" festivalEvent-item">
+  <card-title class=" festivalEvent-item__title">
+    <div *ngIf="flag; else elseBlock">
+      <div class=" festivalEvent-feed__title-text">{{ festivalEvent.header}}</div>
+    </div>
+    <ng-template #elseBlock>
+      <div class=" festivalEvent-feed__title-text">{{ festivalEvent.header}}</div>
+      <div class=" festivalEvent-item__title-buttons">
+        <!--<sf-common-button class="button__edit">-->
+        <sf-common-icon class="icon__edit" type="edit"></sf-common-icon>
+        <!--</sf-common-button>-->
+        <!--<sf-common-button class="button__close">-->
+        <sf-common-icon class="icon__close" type="close"></sf-common-icon>
+        <!--</sf-common-button>-->
+      </div>
+    </ng-template>
+  </card-title>
+  <card-content class=" festivalEvent-item__content">
+    {{ festivalEvent.description}}
+  </card-content>
+  <card-action class=" festivalEvent-item__action">
+    <sf-common-button class="button__read-more">Read more</sf-common-button>
+    <sf-common-button class="buton__share">Share</sf-common-button>
+  </card-action>
+</sf-common-card>

@@ -37,14 +37,13 @@ import {
   LoginComponent,
   RegisterComponent,
   AboutComponent,
-  EventsComponent
+  
 } from './app/components';
 // routes
 
 
 
-import { EventsRepository } from './store/events';
-import eventsReducer from './store/events/events.reducer';
+
 
 
 import { SFCommonModule } from './commonApp/common.module';const appRoutes: Routes = [
@@ -146,7 +145,6 @@ import { SFCommonModule } from './commonApp/common.module';const appRoutes: Rout
       newsReducer: newsReducer,
       festivalEventReducer: festivalEventReducer
     }),
-    StoreModule.provideStore({ eventsReducer }),
     StoreDevtoolsModule.instrumentOnlyWithExtension({
       maxAge: 5
     }),

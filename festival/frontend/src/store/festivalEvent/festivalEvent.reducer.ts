@@ -1,24 +1,24 @@
 import { Action } from '@ngrx/store';
-import { EVENTS_ACTION_TYPES } from './events.actions';
+import { FESTIVALEVENT_ACTION_TYPES } from './festivalEvent.actions';
 
-type State = sf.store.LoadableObject<Events>;
+type State = sf.store.LoadableObject<FestivalEvent>;
 
 const initialState: State = {
     isLoaded: false,
     isLoading: false,
     isError: false,
-    entity: null
+    entity: null,
 };
 
-const eventsReducer = (state: State = initialState, { type, payload }: Action): State => {
+const festivalEventReducer = (state: State = initialState, { type, payload }: Action): State => {
     switch (type) {
-        case EVENTS_ACTION_TYPES.GET:
+        case FESTIVALEVENT_ACTION_TYPES.GET:
             return Object.assign({}, state, {
                 isLoading: true,
                 isError: false
             });
 
-        case EVENTS_ACTION_TYPES.GET_SUCCESS:
+        case FESTIVALEVENT_ACTION_TYPES.GET_SUCCESS:
             return Object.assign({}, state, {
                 isLoaded: true,
                 isLoading: false,
@@ -26,7 +26,7 @@ const eventsReducer = (state: State = initialState, { type, payload }: Action): 
                 entity: payload
             });
 
-        case EVENTS_ACTION_TYPES.GET_FAILURE:
+        case FESTIVALEVENT_ACTION_TYPES.GET_FAILURE:
             return Object.assign({}, state, {
                 isLoaded: false,
                 isLoading: false,
@@ -37,4 +37,4 @@ const eventsReducer = (state: State = initialState, { type, payload }: Action): 
             return state;
     }
 };
-export default eventsReducer;
+export default festivalEventReducer;
