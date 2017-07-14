@@ -6,7 +6,7 @@ interface News {
     id:number;
     createDate: Date;
     header: string;
-    description: string;
+    content: string;
 }
 interface NewsParams {
 
