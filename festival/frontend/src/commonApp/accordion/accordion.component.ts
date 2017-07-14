@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 
 @Component({
@@ -7,29 +7,28 @@ import { trigger, state, style, transition, animate, keyframes } from '@angular/
     animations: [
         trigger('collapseChange', [
             state('true',
-                style({ height: '0', overflow: 'hidden' }),
+                style({ height: '*' }),
             ),
             state('false',
-                style({ height: '*' })
+                style({ height: '0', overflow: 'hidden' })
             ),
             transition('* => *', animate('.25s ease-in'))
         ]),
         trigger('iconChange', [
             state('true',
-                style({ transform: 'rotate( -90deg )' })
+                style({ transform: 'rotate( 0deg )' })
             ),
             state('false',
-                style({ transform: 'rotate( 0deg )' })
+                style({ transform: 'rotate( -90deg )' })
             ),
             transition('* => *', animate('.25s'))
         ])
     ]
 })
 
-
 export class AccordionComponent implements OnInit {
 
-    public isCollapsed: boolean = false;
+    @Input() public isCollapsed: boolean;
     constructor() { }
 
     ngOnInit() { }

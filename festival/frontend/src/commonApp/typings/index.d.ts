@@ -32,11 +32,11 @@ declare namespace sf.common {
     }
 
     interface Events {
-        id: number;
+        id?: number;
         title: string;
         start: string;
         end: string;
-        url: string;
+        url?: string;
     }
     interface Input {
         placeholder?: string;
@@ -54,5 +54,11 @@ declare namespace sf.common {
     interface Dropdown<T> {
         selectedValue: T;
         dropdownOptions: sf.common.DropdownOptions<T>
+    }
+    interface Icon {
+        type: string;
+    }
+    interface Accordion {
+        isCollapsed: boolean;
     }
 }

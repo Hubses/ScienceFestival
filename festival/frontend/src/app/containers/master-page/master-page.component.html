@@ -1,13 +1,14 @@
 <div class="master-page">
-    <sf-header class="header" [isToggledButton]="isCollapsed" (onTogledButton)="toggleSidenav($event)" (onLocalizationChange)="getLocalization($event)"
+    <sf-header class="master-page__header" (onTogledButton)="toggleSidenav($event)" (onLocalizationChange)="getLocalization($event)"
         [localization]="localization"></sf-header>
 
-    <md-sidenav-container class="sidenav">
-        <md-sidenav #sidenav mode="side" opened="true" [@collapseChange]="isCollapsed">
-            <sf-sidenav-content class="sidenav__content" [isCollapsed]="isCollapsed" (onSidenavCollapse)="collapseSidenav($event)"></sf-sidenav-content>
+    <md-sidenav-container class="master-page__sidenav">
+        <!-- tgglechange -->
+        <md-sidenav #sidenav mode="side" opened="true" [@collapseChange]="isNavigationCollapsed">
+            <!-- toggle isToggleChange -->
+            <sf-navigation-panel [isToggleChange]="isNavigationCollapsed" (sidenavToggled)="onSidenavToggled($event)"></sf-navigation-panel>
         </md-sidenav>
-
-        <div class="content">
+        <div class="master-page__content">
             <router-outlet></router-outlet>
         </div>
     </md-sidenav-container>

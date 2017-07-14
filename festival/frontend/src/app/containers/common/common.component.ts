@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { MdMenu, MdMenuItem, MdAccordion } from "@angular/material";
 @Component({
     selector: 'app-common',
     templateUrl: 'common.component.html'
@@ -32,11 +32,11 @@ export class CommonComponent implements OnInit {
     public coordinates: sf.common.Coordinates[] = [{
         latitude: 53.903215,
         longitude: 30.335182,
-        description: 'this coordinates dont have information'
+        description: 'this coordinates dont have information 123'
     }, {
         latitude: 53.908882,
         longitude: 30.346130,
-        description: 'this coordinates dont have information'
+        description: 'this coordinates dont have information test'
     }];
 
 
@@ -51,4 +51,7 @@ export class CommonComponent implements OnInit {
     constructor() { }
 
     ngOnInit() { }
+    public something(some:MouseEvent){
+        console.log(some);
+    }
 }

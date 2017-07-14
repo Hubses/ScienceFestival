@@ -1,0 +1,88 @@
+<div class="navigation-panel">
+    <div class="navigation-panel__menu">
+        <div class="menu">
+            <div class="menu__item">
+                <sf-common-button routerLink="/feed" routerLinkActive="active">
+                    <sf-common-icon [ngClass]="{'icon--collapsed':isToggled, 'icon--extend':!isToggled }" type="library_books"></sf-common-icon>
+                    <div class="text" *ngIf="!isToggled">
+                        events and news
+                    </div>
+                </sf-common-button>
+            </div>
+            <div class="menu__item">
+                <sf-common-button routerLink="/feed/news" routerLinkActive="active">
+                    <sf-common-icon [ngClass]="{'icon--collapsed':isToggled, 'icon--extend':!isToggled }" type="content_copy"></sf-common-icon>
+                    <div class="text" *ngIf="!isToggled">
+                        news
+                    </div>
+                </sf-common-button>
+            </div>
+            <div class="menu__item">
+                <sf-common-button routerLink="/feed/events" routerLinkActive="active">
+                    <sf-common-icon [ngClass]="{'icon--collapsed':isToggled, 'icon--extend':!isToggled }" type="book"></sf-common-icon>
+                    <div class="text" *ngIf="!isToggled">
+                        events
+                    </div>
+                </sf-common-button>
+            </div>
+            <div class="menu__item">
+                <sf-common-button routerLink="/calendar" routerLinkActive="active">
+                    <sf-common-icon [ngClass]="{'icon--collapsed':isToggled, 'icon--extend':!isToggled }" type="date_range"></sf-common-icon>
+                    <div class="text" *ngIf="!isToggled">
+                        calendar
+                    </div>
+                </sf-common-button>
+            </div>
+            <div class="menu__item">
+                <sf-common-button routerLink="/personal" routerLinkActive="active">
+                    <sf-common-icon [ngClass]="{'icon--collapsed':isToggled, 'icon--extend':!isToggled }" type="settings"></sf-common-icon>
+                    <div class="text" *ngIf="!isToggled">
+                        personal settings
+                    </div>
+                </sf-common-button>
+            </div>
+            <div class="menu__item">
+                <sf-common-button routerLink="/feed/works" routerLinkActive="active">
+                    <sf-common-icon [ngClass]="{'icon--collapsed':isToggled, 'icon--extend':!isToggled }" type="content_paste"></sf-common-icon>
+                    <div class="text" *ngIf="!isToggled">
+                        works
+                    </div>
+                </sf-common-button>
+            </div>
+            <div class="menu__item">
+                <sf-common-button routerLink="/approve" routerLinkActive="active">
+                    <sf-common-icon [ngClass]="{'icon--collapsed':isToggled, 'icon--extend':!isToggled }" type="dashboard"></sf-common-icon>
+                    <div class="text" *ngIf="!isToggled">
+                        approve
+                    </div>
+                </sf-common-button>
+            </div>
+            <div class="menu__item">
+                <sf-common-button routerLink="/statistic" routerLinkActive="active">
+                    <sf-common-icon [ngClass]="{'icon--collapsed':isToggled, 'icon--extend':!isToggled }" type="show_chart"></sf-common-icon>
+                    <div class="text" *ngIf="!isToggled">
+                        statistic
+                    </div>
+                </sf-common-button>
+            </div>
+            <div class="menu__item">
+                <sf-common-button routerLink="/about" routerLinkActive="active">
+                    <sf-common-icon [ngClass]="{'icon--collapsed':isToggled, 'icon--extend':!isToggled }" type="help"></sf-common-icon>
+                    <div class="text" *ngIf="!isToggled">
+                        about
+                    </div>
+                </sf-common-button>
+            </div>
+            <div class="menu__item--space"></div>
+            <div class="menu__item--end">
+                <sf-common-button (click)="onCollapse()">
+                    <sf-common-icon [ngClass]="{'icon--collapsed':isToggled, 'icon--extend':!isToggled }" type={{iconArrowsType}}></sf-common-icon>
+                    <div class="text" *ngIf="!isToggled">
+                        collapse
+                    </div>
+                </sf-common-button>
+            </div>
+        </div>
+    </div>
+
+</div>

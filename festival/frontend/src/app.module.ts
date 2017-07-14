@@ -39,12 +39,17 @@ import {
   RegisterComponent,
   NewsItemComponent,
   AboutComponent,
-  SidenavComponent,
+  NavigationPanelComponent,
   HeaderComponent
 } from './app/components';
 // routes
 const appRoutes: Routes = [
-  { path: 'common', component: CommonComponent },
+  {
+    path: 'common', component: MasterPageComponent,
+    children: [
+      { path: '', component: CommonComponent }
+    ]
+  },
   {
     path: 'feed', component: MasterPageComponent,
     children: [
@@ -131,7 +136,7 @@ const appRoutes: Routes = [
     NewsItemComponent,
     RegisterComponent,
     AboutComponent,
-    SidenavComponent,
+    NavigationPanelComponent,
     HeaderComponent
   ],
   imports: [
