@@ -3,7 +3,7 @@
     <div class="title">
       <div class="title__text">{{news.header}}</div>
       <div class="title__buttons">
-        <sf-common-icon class="icon__edit" type="edit" (click)="onSelect(news)"></sf-common-icon>
+        <sf-common-icon class="icon__edit" type="edit"></sf-common-icon>
         <sf-common-icon class="icon__close" type="close"></sf-common-icon>
       </div>
     </div>
@@ -12,7 +12,7 @@
     {{news.description}}
   </card-content>
   <card-action class="news-item__action">
-    <sf-common-button class="button__read-more">Read more</sf-common-button>
+    <sf-common-button class="button__read-more" (click)="onSelect(news)">Read more</sf-common-button>
     <sf-common-button class="buton__share">Share</sf-common-button>
   </card-action>
 </sf-common-card>

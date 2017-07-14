@@ -37,4 +37,9 @@ export class NewsRepository {
   getNews(): Observable<News[]> {
     return Observable.of(NEWS);
   }
+
+  getNewsItemById(id: number): Observable<News> {
+    let newsItem: News = NEWS.find(n => n.id == id);
+    return Observable.of(newsItem);
+  }
 }

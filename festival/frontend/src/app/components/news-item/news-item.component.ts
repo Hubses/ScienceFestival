@@ -20,6 +20,6 @@ export class NewsItemComponent implements OnInit {
   }
 
   onSelect(news: News) {
-    this.router.navigate(['/news', news]);
+    this.router.navigate(['news/', news.id]);
   }
 }

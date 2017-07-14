@@ -18,6 +18,5 @@ export class NewsFeedComponent implements OnInit {
     ngOnInit() {
         this.store.select(s => s.newsReducer).subscribe(n => this.items = n.entity);
         this.store.dispatch(getNewsAction());
-        console.log(this.items);
     }
 }

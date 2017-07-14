@@ -37,7 +37,8 @@ import {
   LoginComponent,
   RegisterComponent,
   NewsItemComponent,
-  AboutComponent
+  AboutComponent,
+  NewsDetailComponent
 } from './app/components';
 // routes
 const appRoutes: Routes = [
@@ -46,7 +47,8 @@ const appRoutes: Routes = [
     path: 'feed', component: MasterPageComponent,
     children: [
       { path: '', component: FullFeedComponent },
-      { path: 'news', component: NewsFeedComponent },
+      { path: 'news', component: NewsFeedComponent},
+      { path: 'news/:id', component: NewsDetailComponent},
       { path: 'events', component: EventsFeedComponent },
       { path: 'works', component: WorksFeedComponent },
     ]
@@ -127,7 +129,8 @@ const appRoutes: Routes = [
     LoginComponent,
     NewsItemComponent,
     RegisterComponent,
-    AboutComponent
+    AboutComponent,
+    NewsDetailComponent
   ],
   imports: [
     BrowserModule,
