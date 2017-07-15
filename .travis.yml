@@ -45,16 +45,15 @@ before_script:
   - sleep 3 # give xvfb some time to start
 script:
   - chmod +x ./mvnw
-  - ./mvnw clean test
+  - ./mvnw clean test cobertura:cobertura
   - cd ./frontend
   - npm test
-  - "mvn cobertura:cobertura"
 #after_success:
-  - bash <(curl -s https://codecov.io/bash)
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
   - cd ../..
   - chmod +x ./deploy.sh
   - ./deploy.sh
+  - bash <(curl -s https://codecov.io/bash)
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 notifications:
   webhooks:
     on_success: change  # options: [always|never|change] default: always
