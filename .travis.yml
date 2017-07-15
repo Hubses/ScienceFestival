@@ -7,6 +7,10 @@ node_js:
 jdk:
   - oraclejdk8
 sudo: false
+branches:
+  only:
+  - master
+  - dev
 cache:
   directories:
     - node
