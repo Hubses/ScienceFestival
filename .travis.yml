@@ -19,6 +19,8 @@ cache:
 env:
   global:
     - NODE_VERSION=6.10.0
+    - CC_TEST_REPORTER_ID=f5657076a1c6f5ec8126fa362e8d4aebb00e46c81168b6229e7a5c0c089bcab7
+    - GIT_COMMITTED_AT=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then git log -1 --pretty=format:%ct; else git log -1 --skip 1 --pretty=format:%ct; fi)
     - SPRING_OUTPUT_ANSI_ENABLED=ALWAYS
     - SPRING_JPA_SHOW_SQL=false
 addons:
@@ -36,6 +38,8 @@ install:
   - npm install
   - cd ..
 before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
   - sleep 3 # give xvfb some time to start
@@ -44,7 +48,10 @@ script:
   - ./mvnw clean test
   - cd ./frontend
   - npm test
+  - "mvn cobertura:cobertura"
 #after_success:
+  - bash <(curl -s https://codecov.io/bash)
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
   - cd ../..
   - chmod +x ./deploy.sh
   - ./deploy.sh
