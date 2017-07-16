@@ -51,8 +51,8 @@ script:
 #after_success:
   - cd ..
   - ./mvnw clean cobertura:cobertura > /dev/null
-  - ./mvnw org.eluder.coveralls.coveralls-maven-plugin:report
   - bash <(curl -s https://codecov.io/bash)
+  - ./mvnw org.eluder.coveralls:coveralls-maven-plugin:report
   - ./cc-test-reporter after-build
   - cd ..
   - chmod +x ./deploy.sh
