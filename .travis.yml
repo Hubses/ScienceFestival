@@ -50,6 +50,7 @@ script:
   - npm run test-ci
 #after_success:
   - cd ..
+  - ./cc-test-reporter before-build
   - ./mvnw clean cobertura:cobertura > /dev/null
   - bash <(curl -s https://codecov.io/bash)
   - ./mvnw org.eluder.coveralls:coveralls-maven-plugin:report
