@@ -128,6 +128,11 @@
                         <format>html</format>
                         <format>xml</format>
                     </formats>
+                    <instrumentation>
+                        <excludes>
+                            <exclude>com/hubses/festival/dto/*.class</exclude>
+                        </excludes>
+                    </instrumentation>
                     <check/>
                 </configuration>
             </plugin>
@@ -136,6 +141,7 @@
                 <artifactId>coveralls-maven-plugin</artifactId>
                 <version>4.3.0</version>
                 <configuration>
+                    <sourceDirectories>target/generated-sources/delombok</sourceDirectories>
                     <scanForSources>true</scanForSources>
                 </configuration>
             </plugin>
