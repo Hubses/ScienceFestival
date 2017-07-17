@@ -8,7 +8,7 @@ import {Router, ActivatedRoute, ParamMap} from '@angular/router';
 })
 
 export class NewsItemComponent implements OnInit {
-  @Input() news: News;
+  @Input() news: sf.entities.News;
 
   public flag: boolean = false;
 
@@ -19,7 +19,7 @@ export class NewsItemComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSelect(news: News) {
+  onSelect(news: sf.entities.News) {
     this.router.navigate(['feed/news/', news.id]);
   }
 }

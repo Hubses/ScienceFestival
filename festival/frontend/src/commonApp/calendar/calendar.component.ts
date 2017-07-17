@@ -5,7 +5,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
     templateUrl: './calendar.component.html'
 })
 export class CalendarComponent implements OnInit {
-    @Input() events: sf.common.Events[];
+    @Input() events: sf.common.Event[];
     @Output() public onEdit: EventEmitter<any> = new EventEmitter();
 
     public options = {
@@ -17,7 +17,7 @@ export class CalendarComponent implements OnInit {
         editable: false,
         eventLimit: true,
         events: []
-    }
+    };
 
     ngOnInit(): void {
         this.options.events = this.events;

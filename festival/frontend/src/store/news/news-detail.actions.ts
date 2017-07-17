@@ -4,11 +4,11 @@ export const NEWS_DETAIL_ACTION_TYPES = {
   GET_FAILURE: '[newsDetail] GET FAILURE',
 };
 
-export const getNewsDetailAction = (payload?: NewsParams) => ({
+export const getNewsDetailAction = (payload?: sf.entities.NewsParams) => ({
   type: NEWS_DETAIL_ACTION_TYPES.GET
 });
 
-export const getNewsDetailSuccessAction = (payload: News) => ({
+export const getNewsDetailSuccessAction = (payload: sf.entities.News) => ({
   type: NEWS_DETAIL_ACTION_TYPES.GET_SUCCESS,
   payload
 });
