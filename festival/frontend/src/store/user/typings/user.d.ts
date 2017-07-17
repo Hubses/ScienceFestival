@@ -1,11 +1,11 @@
 declare namespace sf.entities {
     interface User {
-        id: number
+        id?: number
         email: string;
         password: string;
         lang?: sf.entities.Localization;
         name?: string;
-        role?: sf.enums.user.Role;
+        role?: string;
         isApproved?: boolean;
         submittedEvents?: number[];
         phone?: number;

@@ -10,5 +10,4 @@ export class MapComponent {
 
   public zoom: number = 15;
 
-  public zo: sf.common.Tab;
 }

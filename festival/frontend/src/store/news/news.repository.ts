@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 
-export const NEWS: News[] = [{ //mock data
+export const NEWS: sf.entities.News[] = [{ //mock data
   header: 'Some header',
   description: 'some description'
   },
@@ -16,7 +16,7 @@ export class NewsRepository {
   constructor() {
   }
 
-  getNews(): Observable<News[]> {
+  getNews(): Observable<sf.entities.News[]> {
     return Observable.of(NEWS);
   }
 }

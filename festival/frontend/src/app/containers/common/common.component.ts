@@ -12,7 +12,7 @@ export class CommonComponent implements OnInit {
         values: ['123', '456']
     }
 
-    public events: sf.common.Events[] = [
+    public events: sf.entities.Event[] = [
         {
             id: 1,
             title: 'All Day Event',
@@ -40,18 +40,7 @@ export class CommonComponent implements OnInit {
     }];
 
 
-    public tabs: sf.common.Tab[] = [
-        {
-            id: 1,
-            title: '123',
-            content: `tempsras`
-        }
-    ];
-
     constructor() { }
 
     ngOnInit() { }
-    public something(some:MouseEvent){
-        console.log(some);
-    }
 }

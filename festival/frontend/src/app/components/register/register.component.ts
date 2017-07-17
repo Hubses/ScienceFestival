@@ -31,10 +31,11 @@ export class RegisterComponent implements OnInit { // registerForm
     }
     public submit(form: sf.entities.User): void {
         this.registerForm = {
+            id: 1,
             email: this.email.value,
             password: this.email.value,
             phone: this.phone.value,
-            position: this.position.selectedValue
+            role: 'admin'
         }
         console.log(this.registerForm);
         form = this.registerForm;
@@ -43,10 +44,11 @@ export class RegisterComponent implements OnInit { // registerForm
 
     public reset(): void {
         this.registerForm = {
+            id: 1,
             email: '',
             password: '',
-            phone: 0,
-            position: ''
+            phone: null,
+            role: 'admin'
         }
     }
 }

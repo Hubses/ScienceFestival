@@ -9,9 +9,9 @@ import { MdSidenav } from "@angular/material";
 })
 
 export class NavigationPanelComponent implements OnInit {
+    @Input() public isOpen: boolean;
     @Input() isToggled: boolean;
     @Output() public sidenavToggled: EventEmitter<boolean> = new EventEmitter<boolean>();
-
     public iconArrowsType: string = 'keyboard_arrow_left';
 
     constructor() { }

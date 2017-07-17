@@ -1,4 +1,3 @@
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -11,12 +10,20 @@ import { VirtualScrollModule } from 'angular2-virtual-scroll';
 // common module
 import { SFCommonModule } from './commonApp/common.module';
 // store
-import { StoreModule } from '@ngrx/store';
+import { StoreModule, combineReducers } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreLogMonitorModule, useLogMonitor } from '@ngrx/store-log-monitor';
 
-import { NewsRepository } from './store/news';
-import { ApplicationStoreModule, ApplicationEffects } from './store';
+import { NewsRepository, NewsEffect } from './store/news';
+import { UserRepository, UserEffect } from './store/user';
+
+import { ApplicationReducers } from './store';
+
 import newsReducer from './store/news/news.reducer';
+import userReducer from './store/user/user.reducer';
+import { appRoutes } from './routes';
+
+import { APP_API } from './constants';
 // containers
 import {
   AppComponent,
@@ -42,79 +49,13 @@ import {
   NavigationPanelComponent,
   HeaderComponent
 } from './app/components';
+import { RouterStoreModule } from '@ngrx/router-store';
+import { EffectsModule } from "@ngrx/effects";
 // routes
-const appRoutes: Routes = [
-  {
-    path: 'common', component: MasterPageComponent,
-    children: [
-      { path: '', component: CommonComponent }
-    ]
-  },
-  {
-    path: 'feed', component: MasterPageComponent,
-    children: [
-      { path: '', component: FullFeedComponent },
-      { path: 'news', component: NewsFeedComponent },
-      { path: 'events', component: EventsFeedComponent },
-      { path: 'works', component: WorksFeedComponent },
-    ]
-  },
-  {
-    path: 'calendar', component: MasterPageComponent,
-    children: [
-      { path: '', component: CalendarComponent }
-    ]
-  },
-  {
-    path: 'personal', component: MasterPageComponent, // can activate?
-    children: [
-      { path: '', component: PersonalComponent }
-    ]
-  },
-  {
-    path: 'login', component: MasterPageComponent,
-    children: [
-      { path: '', component: LoginComponent }
-    ]
-  },
-  {
-    path: 'register', component: MasterPageComponent,
-    children: [
-      { path: '', component: RegisterComponent }
-    ]
-  },
-  {
-    path: 'dashboard', component: MasterPageComponent,
-    children: [
-      { path: '', component: AdminDashboardComponent }
-    ]
-  },
-  {
-    path: 'statistic', component: MasterPageComponent,
-    children: [
-      { path: '', component: AdminStatisticComponent }
-    ]
-  },
-  {
-    path: 'approve', component: MasterPageComponent,
-    children: [
-      { path: '', component: ApproveComponent }
-    ]
-  },
-  {
-    path: 'about', component: MasterPageComponent,
-    children: [
-      { path: '', component: AboutComponent }
-    ]
-  },
-  {
-    path: '',
-    redirectTo: '/feed',
-    pathMatch: 'full'
-  },
-  { path: '**', component: NotFoundComponent }
-];
 
+const ApplicationEffects = [
+  EffectsModule.run(NewsEffect)
+];
 @NgModule({
   declarations: [
     // containers
@@ -144,23 +85,31 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    RouterStoreModule.connectRouter(),
     ...ApplicationEffects,
-    StoreModule.provideStore({ newsReducer }),
-    StoreDevtoolsModule.instrumentOnlyWithExtension({
-      maxAge: 5
+    StoreLogMonitorModule,
+    // StoreModule.provideStore({
+    //   newsReducer,
+    //   userReducer
+    // }),
+    StoreModule.provideStore(combineReducers(ApplicationReducers)),
+    StoreDevtoolsModule.instrumentStore({
+      maxAge: 5,
+      monitor: useLogMonitor({ visible: true, position: 'right' })
     }),
     SFCommonModule.forRoot(),
     RouterModule.forRoot(
       appRoutes,
       {
-        enableTracing: true,
         useHash: true
       }), // router debug
     VirtualScrollModule
   ],
-  providers: [NewsRepository],
+  providers: [
+    NewsRepository,
+    UserRepository
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
-
