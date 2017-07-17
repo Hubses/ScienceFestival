@@ -7,8 +7,8 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
     styleUrls: ['./register.component.less']
 })
 
-export class RegisterComponent implements OnInit {
-    public positions: sf.common.DropdownOptions<string>;
+export class RegisterComponent implements OnInit { // registerForm
+    public positions: sf.common.DropdownOptions<string>; //Input
     public registerForm: sf.entities.User;
     @ViewChild('email') public email: sf.common.StringInput;
     @ViewChild('password') public password: sf.common.StringInput;

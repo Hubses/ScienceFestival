@@ -14,14 +14,13 @@ import { trigger, state, style, transition, animate, keyframes } from '@angular/
             state('false',
                 style({ width: '192px' })
             ),
-            transition('* => *', animate('.25s ease-in'))
+            transition('* => *', animate('.25s ease-out'))
         ])
     ]
 })
 
 export class MasterPageComponent implements OnInit {
-
-    public isCollapsed: boolean = true;
+    public isNavigationCollapsed: boolean;
     @ViewChild('sidenav') public sidenav: MdSidenav;
     public localization: sf.common.DropdownOptions<string>;
 
@@ -38,8 +37,8 @@ export class MasterPageComponent implements OnInit {
         this.sidenav.toggle();
     }
 
-    collapseSidenav(): void {
-        this.isCollapsed = !this.isCollapsed;
+    onSidenavToggled(): void {
+        this.isNavigationCollapsed = !this.isNavigationCollapsed;
     }
     getLocalization(lang: string) {
         console.log(lang);

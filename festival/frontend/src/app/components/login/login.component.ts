@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
         };
     }
 
-    public submit(): void {
+    public onSubmit(): void {
         this.loginForm = {
             email: this.email.value,
             password: this.password.value
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
         this.onSubmitted.emit(this.loginForm);
     }
 
-    public reset(): void {
+    public onReset(): void {
         this.email.value = '';
         this.password.value = '';
     }

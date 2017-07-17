@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'sf-common-calendar',
@@ -6,6 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CalendarComponent implements OnInit {
     @Input() events: sf.common.Events[];
+    @Output() public onEdit: EventEmitter<any> = new EventEmitter();
 
     public options = {
         header: {

@@ -1,22 +1,46 @@
-<sf-common-form>
-    <form-header>
+<sf-common-form class="form">
+    <form-header class="form__header">
         Register
     </form-header>
-    <form-body>
-        <form class="form">
-            <div class="form__group">
-                <label class="group__block"> email:
-                    <sf-common-input #email class="group__block__item" [placeholder]="'email'"></sf-common-input>
-                </label>
-                <label class="group__block"> password:
-                    <sf-common-input class="group__block__item" #password [placeholder]="'password'" [isSecure]="true"></sf-common-input>
-                </label>
-                <label class="group__block"> phone:
-                    <sf-common-inputNumb class="group__block__item" #phone></sf-common-inputNumb>
-                    </label>
-                <label class="group__block"> position:
-                        <sf-common-dropdown class="group__block__item" class="dropdown" #position [dropdownOptions]="positions" (selectedValueChange)="getPosition($event)"></sf-common-dropdown>
-                </label>
+    <form-body class="form__body">
+        <form class="body">
+            <div class="body__row">
+                <div class="row">
+                    <div class="row__item">
+                        <div class="item">
+                            <div class="item__name">
+                                email:
+                            </div>
+                            <div class="item__contol">
+                                <sf-common-input #email [placeholder]="'email'"></sf-common-input>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row__item">
+                        <div class="item">
+                            <div class="item__name">password:</div>
+                            <div class="item__control">
+                                <sf-common-input #password [placeholder]="'password'" [isSecure]="true"></sf-common-input>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row__item">
+                        <div class="item">
+                            <div class="item__name">phone:</div>
+                            <div class="item__control">
+                                <sf-common-inputNumb #phone></sf-common-inputNumb>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row__item">
+                        <div class="item">
+                            <div class="item__name">position:</div>
+                            <div class="item__control">
+                                <sf-common-dropdown class="group__block__item" class="dropdown" #position [dropdownOptions]="positions" (selectedValueChange)="getPosition($event)"></sf-common-dropdown>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </form>
     </form-body>
@@ -24,6 +48,7 @@
         <div class="actions">
             <div class="actions__item">
                 <sf-common-button (click)="submit()">
+                    <!-- onSubmitButtonClick -->
                     submit
                 </sf-common-button>
             </div>

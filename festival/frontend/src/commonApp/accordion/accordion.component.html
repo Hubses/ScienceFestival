@@ -1,6 +1,8 @@
-<div class="header"  (click)="isCollapsed = !isCollapsed">
-    <md-icon [@iconChange]="isCollapsed">keyboard_arrow_down</md-icon>
-    <ng-content select="accordion-header"></ng-content>
+<div class="header" (click)="isCollapsed = !isCollapsed">
+    <sf-common-button>
+        <md-icon [@iconChange]="isCollapsed">keyboard_arrow_down</md-icon>
+        <ng-content select="accordion-header"></ng-content>
+    </sf-common-button>
 </div>
 <div class="content" [@collapseChange]="isCollapsed">
     <ng-content select="accordion-content"></ng-content>
