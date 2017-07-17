@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 
-export const NEWS: News[] = [{
+export const NEWS: sf.entities.News[] = [{
   id: 1,
   createDate: new Date("1970 00:00:00"),
   header: 'Routing Angular',
@@ -34,20 +34,20 @@ export class NewsRepository {
   constructor() {
   }
 
-  getNews(): Observable<News[]> {
+  getNews(): Observable<sf.entities.News[]> {
     return Observable.of(NEWS);
   }
 
-  getNewsItemById(id: number): Observable<News> {
-    let newsItem: News = NEWS.find(n => n.id == id);
+  getNewsItemById(id: number): Observable<sf.entities.News> {
+    let newsItem: sf.entities.News = NEWS.find(n => n.id == id);
     return Observable.of(newsItem);
   }
 
-  setNewNewsItem(news: News): void{
+  setNewNewsItem(news: sf.entities.News): void{
     NEWS.push(news);
   }
 
-  updateNewsById(news: News): void{
+  updateNewsById(news: sf.entities.News): void{
     let newsIndex: number = NEWS.findIndex(n => n.id == news.id);
     NEWS[newsIndex] = news;
   }
