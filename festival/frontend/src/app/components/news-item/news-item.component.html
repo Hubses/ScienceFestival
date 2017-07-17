@@ -3,8 +3,14 @@
     <div class="title">
       <div class="title__text">{{news.header}}</div>
       <div class="title__buttons">
-        <sf-common-icon class="icon__edit" type="edit"></sf-common-icon>
-        <sf-common-icon class="icon__close" type="close"></sf-common-icon>
+        <div class="title-buttons">
+          <sf-common-button class="title-buttons__edit" (click)="onEdit(news)">
+            <sf-common-icon class="icon__edit" type="edit"></sf-common-icon>
+          </sf-common-button>
+          <sf-common-button class="title-buttons__close" (click)="onDelete(news)">
+            <sf-common-icon class="icon__close" type="close"></sf-common-icon>
+          </sf-common-button>
+        </div>
       </div>
     </div>
   </card-title>
