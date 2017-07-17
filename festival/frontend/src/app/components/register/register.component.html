@@ -1,48 +1,37 @@
-<div class="form">
-    <sf-common-form>
-        <form-header>
-            Register
-        </form-header>
-        <form-body>
-            <form class="form__body" [formGroup]="registerForm">
-                <div class="form__body__group">
-                    <label class="form__body__group__block"> user name:
-                        <md-input-container>
-                            <input mdInput placeholder="user name" value="" formControlName="name">
-                        </md-input-container>
+<sf-common-form>
+    <form-header>
+        Register
+    </form-header>
+    <form-body>
+        <form class="form">
+            <div class="form__group">
+                <label class="group__block"> email:
+                    <sf-common-input #email class="group__block__item" [placeholder]="'email'"></sf-common-input>
+                </label>
+                <label class="group__block"> password:
+                    <sf-common-input class="group__block__item" #password [placeholder]="'password'" [isSecure]="true"></sf-common-input>
+                </label>
+                <label class="group__block"> phone:
+                    <sf-common-inputNumb class="group__block__item" #phone></sf-common-inputNumb>
                     </label>
-                    <label class="form__body__group__block"> password:
-                        <md-input-container>
-                            <input mdInput type="password" placeholder="password" value="" formControlName="password" >
-                        </md-input-container>
-                    </label>
-                    <label class="form__body__group__block"> email:
-                        <md-input-container>
-                            <input mdInput type="text" placeholder="email" value="" formControlName="email" >
-                        </md-input-container>
-                    </label>
-                    <label class="form__body__group__block"> position:
-                        <sf-common-dropdown [dropdownOptions]="positions" (selectedValueChange)="getPosition($event)"></sf-common-dropdown>
-                        <!-- <md-input-container>
-                            <input mdInput type="text" placeholder="position" value="" formControlName="position" >
-                        </md-input-container> -->
-                    </label>
-                </div>
-            </form>
-        </form-body>
-        <form-actions>
-            <div class="form__actions">
-                <div class="form__actions__item">
-                    <sf-common-button (click)="onSubmit()">
-                        submit
-                    </sf-common-button>
-                </div>
-                <div class="form__actions__item">
-                    <sf-common-button (click)="onReset()">
-                        reset
-                    </sf-common-button>
-                </div>
+                <label class="group__block"> position:
+                        <sf-common-dropdown class="group__block__item" class="dropdown" #position [dropdownOptions]="positions" (selectedValueChange)="getPosition($event)"></sf-common-dropdown>
+                </label>
             </div>
-        </form-actions>
-    </sf-common-form>
-</div>
+        </form>
+    </form-body>
+    <form-actions>
+        <div class="actions">
+            <div class="actions__item">
+                <sf-common-button (click)="submit()">
+                    submit
+                </sf-common-button>
+            </div>
+            <div class="actions__item">
+                <sf-common-button (click)="reset()">
+                    reset
+                </sf-common-button>
+            </div>
+        </div>
+    </form-actions>
+</sf-common-form>

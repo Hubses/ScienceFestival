@@ -5,11 +5,12 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
     templateUrl: './input.component.html'
 })
 export class InputComponent implements OnInit {
+    @Input() isSecure?: boolean;
 
     @Input() placeholder: string;
     @Input() public value: string;
 
-    @Output() valueChange: EventEmitter<string> = new EventEmitter<string>();
+    @Output() onValueChange: EventEmitter<string> = new EventEmitter<string>();
     constructor() { }
 
     ngOnInit(): void {
@@ -17,7 +18,13 @@ export class InputComponent implements OnInit {
             this.value = '';
         }
     }
-    onValueChange(newValue) {
-        this.valueChange.emit(newValue);
+    valueChange(newValue) {
+        this.value = newValue;
+        this.onValueChange.emit(newValue);
+    }
+    getType(): string {
+        let inputType: string;
+        this.isSecure ? inputType = 'password' : inputType = 'text';
+        return inputType;
     }
 }
