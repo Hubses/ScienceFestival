@@ -31,7 +31,7 @@ declare namespace sf.common {
         description: string;
     }
 
-    interface Events {
+    interface Event {
         id?: number;
         title: string;
         start: string;
