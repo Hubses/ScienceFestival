@@ -15,6 +15,7 @@ import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
@@ -84,13 +85,12 @@ public class EventService {
                 .finishDate(stepFormDTO.getFinishDate())
                 .maxUsers(stepFormDTO.getMaxUsers())
                 .users(new HashSet<>())
+                .event(event)
                 .build();
 
 
-            Set<Step> steps = new HashSet<>();
+            Set<Step> steps = event.getSteps();
             steps.add(step);
-          event.setSteps(steps);
-//          stepRepository.save(step);
         eventRepository.save(event);
 
 
@@ -105,6 +105,7 @@ public class EventService {
         event.setStartDate("11/12/2013");
         event.setFinishDate("12/12/2013");
         event.setCoordinate(new Coordinate());
+        //event.setSteps(Collections.singleton(new Step.StepBuilder().id(1).name("lol").build()));
         eventRepository.save(event);
     }
 }

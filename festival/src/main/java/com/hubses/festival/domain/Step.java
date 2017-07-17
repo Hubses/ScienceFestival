@@ -19,6 +19,7 @@ public class Step {
     private int maxUsers;
 
     @ManyToOne
+    @JoinColumn(name="EVENT_ID", nullable=false)
     private Event event;
 
     @ManyToMany
@@ -92,7 +93,8 @@ public class Step {
         this.startDate = stepBuilder.startDate;
         this.finishDate = stepBuilder.finishDate;
         this.maxUsers = stepBuilder.maxUsers;
-//        this.users = stepBuilder.users;
+        this.users = stepBuilder.users;
+        this.event = stepBuilder.event;
     }
 
     public static class StepBuilder {
@@ -101,6 +103,7 @@ public class Step {
         private String startDate;
         private String finishDate;
         private int maxUsers;
+        private Event event;
         private Set<User> users;
 
         public StepBuilder id(long id) {
@@ -130,6 +133,11 @@ public class Step {
 
         public StepBuilder users(Set<User> users) {
             this.users = users;
+            return this;
+        }
+
+        public StepBuilder event(Event event) {
+            this.event = event;
             return this;
         }
 
