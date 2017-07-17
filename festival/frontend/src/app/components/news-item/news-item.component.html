@@ -12,7 +12,9 @@
     {{news.content}}
   </card-content>
   <card-action class="news-item__action">
-    <sf-common-button class="button__read-more" (click)="onSelect(news)">Read more</sf-common-button>
-    <sf-common-button class="buton__share">Share</sf-common-button>
+    <div class="action">
+      <sf-common-button class="action__read-more" (click)="onSelect(news)"><span>Read more</span></sf-common-button>
+      <sf-common-button class="action__share"><span>Share</span></sf-common-button>
+    </div>
   </card-action>
 </sf-common-card>
