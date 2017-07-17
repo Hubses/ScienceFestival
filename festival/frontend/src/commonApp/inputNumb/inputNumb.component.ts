@@ -1,4 +1,4 @@
-import { Component, Input, Output,EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 
 @Component({
     selector: 'sf-common-inputNumb',
@@ -6,18 +6,20 @@ import { Component, Input, Output,EventEmitter, OnInit } from '@angular/core';
 })
 export class InputNumbComponent {
     @Input() public value: number;
+    @Input() public minValue?: number;
+    @Input() public maxValue?: number;
 
-     @Output() valueChange: EventEmitter<number> = new EventEmitter<number>();
+    @Output() onValueChange: EventEmitter<number> = new EventEmitter<number>();
 
-ngOnInit(): void {
+    ngOnInit(): void {
         if (!this.value) {
             this.value = null;
         }
     }
 
-     onValueChanged(newValue) {
+    valueChange(newValue) {
         this.value = newValue;
-        this.valueChange.emit(newValue);
+        this.onValueChange.emit(newValue);
     }
 
 }

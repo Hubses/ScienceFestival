@@ -21,6 +21,5 @@ export class NewsFeedComponent implements OnInit {
             this.items = n.entity;
         });
         this.store.dispatch(getNewsAction());
-        console.log(this.items);
     }
 }

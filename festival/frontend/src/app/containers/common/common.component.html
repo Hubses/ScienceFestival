@@ -35,34 +35,33 @@
 
 <sf-common-filechoose></sf-common-filechoose>
 
-<button md-icon-button [mdMenuTriggerFor]="menu">
-            <md-icon>more_vert</md-icon>
-        </button>
-
+<!-- <md-common-button [mdMenuTriggerFor]="menu">
+    
+</md-common-button> -->
+<button md-button-icon [mdMenuTriggerFor]="menu" (click)="something($event)">
+  <sf-common-icon [type]="'more_vert'"></sf-common-icon>
+</button>
 <md-menu #menu="mdMenu">
-    <button md-menu-item>
-                <sf-common-icon [name]="'dialpad'"></sf-common-icon>
-                <span>Redial</span>
-            </button>
-    <button md-menu-item disabled>
-                 <sf-common-icon [name]="'voicemail'"></sf-common-icon>
-                <span>Check voicemail</span>
-            </button>
-    <button md-menu-item>
-                 <sf-common-icon [name]="'notifications_off'"></sf-common-icon>
-                <span>Disable alerts</span>
-            </button>
+    <sf-common-button>
+        <sf-common-icon [type]="'dialpad'"></sf-common-icon>
+        <span>Redial</span>
+    </sf-common-button>
+    <sf-common-button>
+        <sf-common-icon [type]="'dialpad'"></sf-common-icon>
+        <span>Redial</span>
+    </sf-common-button>
+    <sf-common-button>
+        <sf-common-icon [type]="'dialpad'"></sf-common-icon>
+        <span>Redial</span>
+    </sf-common-button>
 </md-menu>
 
-
-<sf-common-map [coordinates]="coordinates"></sf-common-map>
-<sf-common-accordion>
+<sf-common-accordion [isCollapsed]="false">
     <accordion-header>
-        1234653
+        Show map
     </accordion-header>
     <accordion-content>
-        1565461
+        <sf-common-map [coordinates]="coordinates"></sf-common-map>
     </accordion-content>
 </sf-common-accordion>
-
 <sf-common-calendar [events]="events"></sf-common-calendar>

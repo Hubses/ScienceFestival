@@ -12,28 +12,17 @@ import { trigger, state, style, transition, animate, keyframes } from '@angular/
                 style({ width: '96px' }),
             ),
             state('false',
-                style({ width: '166px' })
+                style({ width: '192px' })
             ),
-            transition('* => *', animate('.25s ease-in'))
-        ]),
-        trigger('iconChange', [
-            state('true',
-                style({ transform: 'rotate( -180deg )' })
-            ),
-            state('false',
-                style({ transform: 'rotate( 0deg )' })
-            ),
-            transition('* => *', animate('.25s'))
+            transition('* => *', animate('.25s ease-out'))
         ])
     ]
 })
 
 export class MasterPageComponent implements OnInit {
-
-    public isNormalSidenav: boolean = true;
+    public isNavigationCollapsed: boolean;
     @ViewChild('sidenav') public sidenav: MdSidenav;
-
-    public localization: sf.common.DropdownOptions;
+    public localization: sf.common.DropdownOptions<string>;
 
     constructor() { }
 
@@ -47,14 +36,11 @@ export class MasterPageComponent implements OnInit {
     public toggleSidenav(): void {
         this.sidenav.toggle();
     }
-    public getLocalization(option: string): void {
-        console.log(option);
+
+    onSidenavToggled(): void {
+        this.isNavigationCollapsed = !this.isNavigationCollapsed;
     }
-    public getFlexState(): string {
-        if (this.isNormalSidenav) {
-            return 'center';
-        } else {
-            return 'flex-start';
-        }
+    getLocalization(lang: string) {
+        console.log(lang);
     }
 }

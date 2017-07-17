@@ -4,3 +4,8 @@ export * from './festivalEvent-item';
 export * from './login';
 export * from './register';
 export * from './about';
+export * from './navigation-panel';
+export * from './header';
+export * from './news-detail';
+export * from './news-editor';
+export * from './news-creator';

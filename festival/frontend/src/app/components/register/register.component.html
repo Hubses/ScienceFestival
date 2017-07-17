@@ -1,3 +1,62 @@
-<div>
-    register form here
-</div>
+<sf-common-form class="form">
+    <form-header class="form__header">
+        Register
+    </form-header>
+    <form-body class="form__body">
+        <form class="body">
+            <div class="body__row">
+                <div class="row">
+                    <div class="row__item">
+                        <div class="item">
+                            <div class="item__name">
+                                email:
+                            </div>
+                            <div class="item__contol">
+                                <sf-common-input #email [placeholder]="'email'"></sf-common-input>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row__item">
+                        <div class="item">
+                            <div class="item__name">password:</div>
+                            <div class="item__control">
+                                <sf-common-input #password [placeholder]="'password'" [isSecure]="true"></sf-common-input>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row__item">
+                        <div class="item">
+                            <div class="item__name">phone:</div>
+                            <div class="item__control">
+                                <sf-common-inputNumb #phone></sf-common-inputNumb>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row__item">
+                        <div class="item">
+                            <div class="item__name">position:</div>
+                            <div class="item__control">
+                                <sf-common-dropdown class="group__block__item" class="dropdown" #position [dropdownOptions]="positions" (selectedValueChange)="getPosition($event)"></sf-common-dropdown>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </form-body>
+    <form-actions>
+        <div class="actions">
+            <div class="actions__item">
+                <sf-common-button (click)="submit()">
+                    <!-- onSubmitButtonClick -->
+                    submit
+                </sf-common-button>
+            </div>
+            <div class="actions__item">
+                <sf-common-button (click)="reset()">
+                    reset
+                </sf-common-button>
+            </div>
+        </div>
+    </form-actions>
+</sf-common-form>

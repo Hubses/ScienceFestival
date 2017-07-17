@@ -2,10 +2,14 @@
 // coords:{
 //     lat,lng
 // }
-interface News {
-    header: string;
-    description: string;
-}
-interface NewsParams {
+declare namespace sf.entities {
+    interface News {
+        id:number;
+        createDate: Date;
+        header: string;
+        description: string;
+    }
+    interface NewsParams {
+    }
 
 }
