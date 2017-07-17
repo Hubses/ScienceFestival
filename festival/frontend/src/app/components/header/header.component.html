@@ -10,7 +10,7 @@
     </div>
     <div class="space"></div>
     <div class="right-contols">
-        <sf-common-dropdown class="right-contols__localization" [dropdownOptions]="localization" (selectedValueChange)="localizationChange($event)"></sf-common-dropdown>
+        <sf-common-dropdown class="right-contols__localization" [dropdownOptions]="localizationOption" (selectedValueChange)="localizationChange($event)"></sf-common-dropdown>
         <div class="right-contols__enter-group">
             <div class="login">
                 <sf-common-button routerLink="/en/admin/login" routerLinkActive="active"> LOGIN</sf-common-button>

@@ -1,26 +1,40 @@
-import * as layout from './layout.actions';
+import * as layoutActions from './layout.actions';
 
 
 export interface State {
     showSidenav: boolean;
+    collapseSidenav: boolean
 }
 
 const initialState: State = {
-    showSidenav: false
+    showSidenav: true,
+    collapseSidenav: true
 };
 
-export function reducer(state = initialState, action: layout.Actions): State {
+export function layout(state = initialState, action: layoutActions.SidenavActions): State {
     switch (action.type) {
-        case layout.CLOSE_SIDENAV:
+        case layoutActions.CLOSE_SIDENAV:
             return {
-                showSidenav: false
+                showSidenav: false,
+                collapseSidenav: undefined
             };
 
-        case layout.OPEN_SIDENAV:
+        case layoutActions.OPEN_SIDENAV:
             return {
-                showSidenav: true
+                showSidenav: true,
+                collapseSidenav: undefined
             };
 
+        case layoutActions.WIDE_SIDENAV:
+            return {
+                showSidenav: true,
+                collapseSidenav: false
+            };
+        case layoutActions.COLLAPSE_SIDENAV:
+            return {
+                showSidenav: true,
+                collapseSidenav: true
+            };
 
         default:
             return state;
@@ -28,3 +42,4 @@ export function reducer(state = initialState, action: layout.Actions): State {
 }
 
 export const getShowSidenav = (state: State) => state.showSidenav;
+export const getCollapseSidenav = (state: State) => state.collapseSidenav;

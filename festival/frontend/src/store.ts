@@ -6,24 +6,20 @@ import { NewsEffect } from './store/news';
 import { UserEffect } from './store/user';
 import userReducer from './store/user/user.reducer';
 import * as fromRouter from '@ngrx/router-store';
-import * as fromLayout from './store/layout';
+import { layout } from './store/layout';
+import * as fromApp from './store/application';
 
-export interface State {
-    layout: fromLayout.State;
+export interface ApplicationState {
+    application: fromApp.State;
+    layout: any;
     router: fromRouter.RouterState;
+    newsReducer: sf.entities.News[];
+    userReducer: sf.entities.User;
 }
 export const ApplicationReducers = {
     newsReducer,
     userReducer,
-    layout: fromLayout.reducer,
-    router: fromRouter.routerReducer
+    layout: layout,
+    router: fromRouter.routerReducer,
+    application: fromApp.reducer
 };
-
-export const getLayoutState = (state: State) => state.layout;
-
-export const getShowSidenav = createSelector(getLayoutState, fromLayout.getShowSidenav);
-
-
-
-
-

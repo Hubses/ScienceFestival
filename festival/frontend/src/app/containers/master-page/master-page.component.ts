@@ -1,14 +1,13 @@
-import { Component, OnInit, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
-import { MdSidenav } from '@angular/material';
+import { Component, OnInit, ViewChild, ElementRef, ViewEncapsulation, OnDestroy } from '@angular/core';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 
 import { Router } from '@angular/router';
-import { Observable } from "rxjs/Rx";
+import { Observable, Subscriber, Subscription } from "rxjs/Rx";
 import { Store } from "@ngrx/store";
 
 import * as fromRoot from '../../../store';
 import * as layout from '../../../store/layout/layout.actions';
-import { BehaviorSubject } from "rxjs/BehaviorSubject";
+import * as app from '../../../store/application/application.actions';
 
 @Component({
     selector: 'sf-master-page',
@@ -18,41 +17,72 @@ import { BehaviorSubject } from "rxjs/BehaviorSubject";
 
 })
 
-export class MasterPageComponent implements OnInit {
-    showSidenav$: Observable<boolean>;
-    public isShowSidenav: boolean;
-    public isNavigationCollapsed: boolean;
-    @ViewChild('sidenav') public sidenav: MdSidenav;
-    public localization: sf.common.DropdownOptions<string>;
+export class MasterPageComponent implements OnInit, OnDestroy {
+    // streams
+    public navigationShow$: Observable<boolean>;
+    public navigationCollapse$: Observable<boolean>;
+    public localizationList$: Observable<sf.entities.Localization>;
+    public currentLocalization$: Observable<sf.entities.Localization>;
+    // subscriptions
+    private navigationShowSubscriber: Subscription;
+    private navigationCollapseSubscriber: Subscription;
+    private localizationListSubscription: Subscription;
+    private currentLocalizationSubscription: Subscription;
 
-    constructor(private store: Store<fromRoot.State>) {
-        this.showSidenav$ = this.store.select(fromRoot.getShowSidenav);
+    // variables
+    private localizationList: sf.entities.Localization;
+    private currentLocalization: sf.entities.Localization;
+    public isNavigationShow: boolean;
+
+    public isNavigationCollapsed: boolean;
+    constructor(
+        private store: Store<fromRoot.ApplicationState>
+    ) {
+        this.navigationShow$ = this.store.select(s => s.layout.showSidenav);
+        this.navigationCollapse$ = this.store.select(s => s.layout.collapseSidenav);
+        this.localizationList$ = this.store.select(s => s.application.localizationList);
+        this.currentLocalization$ = this.store.select(s => s.application.currentLocalization);
     }
 
     ngOnInit() {
-        // this.router.navigateByUrl('/lang/en-Us/role/anonimus', { skipLocationChange: true });
+        this.store.dispatch(new app.GetLocalizationListAction());
 
-        this.localization = {
-            placeholder: 'select languadge',
-            values: ['eng', 'rus'],
-            selectedValue: 'eng'
-        };
-        // this.router.createUrlTree(['/feed', 'news', 'lang', this.localization.selectedValue]);
+        this.navigationShowSubscriber = this.navigationShow$.subscribe((isShowNavigation) => {
+            this.isNavigationShow = isShowNavigation;
+        });
+        this.navigationCollapseSubscriber = this.navigationCollapse$.subscribe((isNavigationCollapse) => {
+            this.isNavigationCollapsed = isNavigationCollapse;
+        });
+        this.localizationListSubscription = this.localizationList$.subscribe((localizationList) => {
+            this.localizationList = localizationList;
+        });
+        this.currentLocalizationSubscription = this.currentLocalization$.subscribe((currentLocalization) => {
+            this.currentLocalization = currentLocalization;
+        });
+
+    }
+    ngOnDestroy(): void {
+        this.navigationShowSubscriber.unsubscribe();
+        this.navigationCollapseSubscriber.unsubscribe();
+        this.localizationListSubscription.unsubscribe();
+        this.currentLocalizationSubscription.unsubscribe();
     }
     public toggleSidenav(): void {
-
-        if (this.isShowSidenav) {
+        if (!this.isNavigationShow) {
             this.store.dispatch(new layout.OpenSidenavAction());
-            this.isShowSidenav = !this.isShowSidenav;
         } else {
             this.store.dispatch(new layout.CloseSidenavAction());
-            this.isShowSidenav = !this.isShowSidenav;
         }
     }
 
-    onSidenavToggled(): void {
-        this.isNavigationCollapsed = !this.isNavigationCollapsed;
+    sidenavToggled(): void {
+        if (!this.isNavigationCollapsed) {
+            this.store.dispatch(new layout.CollapseSidenavAction());
+        } else {
+            this.store.dispatch(new layout.WideSidenavAction());
+        }
     }
-    getLocalization(lang: string) {
+    getLocalization(lang: sf.entities.Localization) {
+        this.store.dispatch(new app.ChangeLocalizationAction(lang));
     }
 }

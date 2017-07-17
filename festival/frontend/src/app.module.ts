@@ -10,7 +10,8 @@ import { VirtualScrollModule } from 'angular2-virtual-scroll';
 // common module
 import { SFCommonModule } from './commonApp/common.module';
 // store
-import { StoreModule, combineReducers } from '@ngrx/store';
+import { StoreModule } from '@ngrx/store';
+import { combineReducers } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreLogMonitorModule, useLogMonitor } from '@ngrx/store-log-monitor';
 
@@ -88,13 +89,8 @@ const ApplicationEffects = [
     RouterStoreModule.connectRouter(),
     ...ApplicationEffects,
     StoreLogMonitorModule,
-    // StoreModule.provideStore({
-    //   newsReducer,
-    //   userReducer
-    // }),
     StoreModule.provideStore(combineReducers(ApplicationReducers)),
-    StoreDevtoolsModule.instrumentStore({
-      maxAge: 5,
+    StoreDevtoolsModule.instrumentOnlyWithExtension({
       monitor: useLogMonitor({ visible: true, position: 'right' })
     }),
     SFCommonModule.forRoot(),
@@ -102,8 +98,7 @@ const ApplicationEffects = [
       appRoutes,
       {
         useHash: true
-      }), // router debug
-    VirtualScrollModule
+      }) // router debug
   ],
   providers: [
     NewsRepository,
