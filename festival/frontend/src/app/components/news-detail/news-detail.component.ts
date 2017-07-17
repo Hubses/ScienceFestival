@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {NewsRepository} from '../../../store/news'
+import {NewsRepository} from '../../../store/news';
 
 @Component({
   selector: 'sf-news-detail',
