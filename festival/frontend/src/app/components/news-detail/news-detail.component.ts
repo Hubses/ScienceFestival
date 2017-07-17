@@ -1,6 +1,5 @@
-import {Component, OnInit, Input} from '@angular/core';
-import {Router, ActivatedRoute, ParamMap} from '@angular/router';
-import 'rxjs/add/operator/switchMap';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 import {NewsRepository} from '../../../store/news'
 
 @Component({
@@ -8,21 +7,19 @@ import {NewsRepository} from '../../../store/news'
   templateUrl: 'news-detail.component.html',
   styleUrls: ['./news-detail.component.less']
 })
-
 export class NewsDetailComponent implements OnInit {
 
-  public newsId: number;
   public news: News;
 
   constructor(private route: ActivatedRoute, private newsRepository: NewsRepository) {
   }
 
   ngOnInit() {
+    let newsId: number;
     this.route.params.subscribe(params => {
-      this.newsId = params['id'];
+      newsId = params['id'];
     });
 
-    this.newsRepository.getNewsItemById(this.newsId).subscribe(n => this.news = n);
-    console.log(this.news);
+    this.newsRepository.getNewsItemById(newsId).subscribe(n => this.news = n);
   }
 }

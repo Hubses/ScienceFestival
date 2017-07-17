@@ -1,21 +1,21 @@
-
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpModule } from '@angular/http';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {HttpModule} from '@angular/http';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 // 3rd party libs
-import { VirtualScrollModule } from 'angular2-virtual-scroll';
+import {VirtualScrollModule} from 'angular2-virtual-scroll';
+import { CKEditorModule } from 'ng2-ckeditor';
 // common module
-import { SFCommonModule } from './commonApp/common.module';
+import {SFCommonModule} from './commonApp/common.module';
 // store
-import { StoreModule } from '@ngrx/store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import {StoreModule} from '@ngrx/store';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 
-import { NewsRepository } from './store/news';
-import { ApplicationStoreModule, ApplicationEffects } from './store';
+import {NewsRepository} from './store/news';
+import {ApplicationStoreModule, ApplicationEffects} from './store';
 import newsReducer from './store/news/news.reducer';
 // containers
 import {
@@ -40,68 +40,72 @@ import {
   NewsItemComponent,
   AboutComponent,
   SidenavComponent,
-  NewsDetailComponent
-  HeaderComponent
+  NewsDetailComponent,
+  HeaderComponent,
+  NewsCreaterComponent,
+  NewsEditorComponent
 } from './app/components';
 // routes
 const appRoutes: Routes = [
-  { path: 'common', component: CommonComponent },
+  {path: 'common', component: CommonComponent},
   {
     path: 'feed', component: MasterPageComponent,
     children: [
-      { path: '', component: FullFeedComponent },
-      { path: 'news', component: NewsFeedComponent},
-      { path: 'news/:id', component: NewsDetailComponent},
-      { path: 'events', component: EventsFeedComponent },
-      { path: 'works', component: WorksFeedComponent },
+      {path: '', component: FullFeedComponent},
+      {path: 'news', component: NewsFeedComponent},
+      {path: 'news/:id', component: NewsDetailComponent},
+      {path: 'edit/news/:id', component: NewsEditorComponent},
+      {path: 'create/news', component: NewsCreaterComponent},
+      {path: 'events', component: EventsFeedComponent},
+      {path: 'works', component: WorksFeedComponent},
     ]
   },
   {
     path: 'calendar', component: MasterPageComponent,
     children: [
-      { path: '', component: CalendarComponent }
+      {path: '', component: CalendarComponent}
     ]
   },
   {
     path: 'personal', component: MasterPageComponent, // can activate?
     children: [
-      { path: '', component: PersonalComponent }
+      {path: '', component: PersonalComponent}
     ]
   },
   {
     path: 'login', component: MasterPageComponent,
     children: [
-      { path: '', component: LoginComponent }
+      {path: '', component: LoginComponent}
     ]
   },
   {
     path: 'register', component: MasterPageComponent,
     children: [
-      { path: '', component: RegisterComponent }
+      {path: '', component: RegisterComponent}
     ]
   },
   {
     path: 'dashboard', component: MasterPageComponent,
     children: [
-      { path: '', component: AdminDashboardComponent }
+      {path: '', component: AdminDashboardComponent}
     ]
   },
   {
     path: 'statistic', component: MasterPageComponent,
     children: [
-      { path: '', component: AdminStatisticComponent }
+      {path: '', component: AdminStatisticComponent}
     ]
   },
   {
     path: 'approve', component: MasterPageComponent,
     children: [
-      { path: '', component: ApproveComponent }
+      {path: '', component: ApproveComponent}
     ]
   },
   {
     path: 'about', component: MasterPageComponent,
     children: [
-      { path: '', component: AboutComponent }
+      {path: '', component: AboutComponent}
     ]
   },
   {
@@ -109,7 +113,7 @@ const appRoutes: Routes = [
     redirectTo: '/feed',
     pathMatch: 'full'
   },
-  { path: '**', component: NotFoundComponent }
+  {path: '**', component: NotFoundComponent}
 ];
 
 @NgModule({
@@ -134,16 +138,19 @@ const appRoutes: Routes = [
     RegisterComponent,
     AboutComponent,
     SidenavComponent,
-    HeaderComponent
-    NewsDetailComponent
+    HeaderComponent,
+    NewsDetailComponent,
+    NewsCreaterComponent,
+    NewsEditorComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    CKEditorModule,
     HttpModule,
     ...ApplicationEffects,
-    StoreModule.provideStore({ newsReducer }),
+    StoreModule.provideStore({newsReducer}),
     StoreDevtoolsModule.instrumentOnlyWithExtension({
       maxAge: 5
     }),
@@ -160,5 +167,6 @@ const appRoutes: Routes = [
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AppModule { }
+export class AppModule {
+}
 
