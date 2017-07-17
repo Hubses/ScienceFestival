@@ -9,7 +9,7 @@ import {NewsRepository} from '../../../store/news'
 })
 export class NewsEditorComponent implements OnInit {
 
-  public news: News;
+  public news: sf.entities.News;
   public content: string;
 
   constructor() {

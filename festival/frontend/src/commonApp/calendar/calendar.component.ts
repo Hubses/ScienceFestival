@@ -17,7 +17,7 @@ export class CalendarComponent implements OnInit {
         editable: false,
         eventLimit: true,
         events: []
-    }
+    };
 
     ngOnInit(): void {
         this.options.events = this.events;

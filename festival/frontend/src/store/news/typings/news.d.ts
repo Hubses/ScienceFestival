@@ -3,13 +3,13 @@
 //     lat,lng
 // }
 declare namespace sf.entities {
-    interface News {
-        id:number;
-        createDate: Date;
-        header: string;
-        description: string;
-    }
-    interface NewsParams {
-    }
+  interface News {
+    id: number;
+    createDate: number;
+    header: string;
+    content: string;
+  }
+  interface NewsParams {
+  }
 
 }

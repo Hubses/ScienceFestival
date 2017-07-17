@@ -1,9 +1,9 @@
 declare namespace sf.entities {
     interface User {
-        id: number
+        id?: number
         email: string;
         password: string;
-        lang?: sf.entities.Localization;
+        // lang?: sf.entities.Localization;
         name?: string;
         role?: sf.enums.user.Role;
         isApproved?: boolean;

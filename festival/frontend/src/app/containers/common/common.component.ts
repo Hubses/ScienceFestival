@@ -12,7 +12,7 @@ export class CommonComponent implements OnInit {
         values: ['123', '456']
     }
 
-    public events: sf.common.Events[] = [
+    public events: sf.common.Event[] = [
         {
             id: 1,
             title: 'All Day Event',

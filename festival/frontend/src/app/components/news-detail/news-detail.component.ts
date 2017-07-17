@@ -9,7 +9,7 @@ import {NewsRepository} from '../../../store/news'
 })
 export class NewsDetailComponent implements OnInit {
 
-  public news: News;
+  public news: sf.entities.News;
 
   constructor(private route: ActivatedRoute, private newsRepository: NewsRepository) {
   }

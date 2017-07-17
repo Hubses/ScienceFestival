@@ -8,7 +8,7 @@ import {NewsRepository} from '../../../store/news'
   styleUrls: ['./news-creator.component.less']
 })
 export class NewsCreaterComponent{
-  public news: News;
+  public news: sf.entities.News;
 
   constructor() {
   }

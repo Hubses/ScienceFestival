@@ -1,7 +1,7 @@
 import { Action } from '@ngrx/store';
 import { NEWS_DETAIL_ACTION_TYPES } from './news-detail.actions';
 
-type State = sf.store.LoadableObject<News>;
+type State = sf.store.LoadableObject<sf.entities.News>;
 
 const initialState: State = {
   isLoaded: false,

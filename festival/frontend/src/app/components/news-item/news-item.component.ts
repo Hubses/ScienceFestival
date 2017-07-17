@@ -1,5 +1,5 @@
 import {Component, OnInit, Input} from '@angular/core';
-import {Router, ActivatedRoute, ParamMap} from '@angular/router';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'sf-news-item',
@@ -8,18 +8,24 @@ import {Router, ActivatedRoute, ParamMap} from '@angular/router';
 })
 
 export class NewsItemComponent implements OnInit {
-  @Input() news: News;
+  @Input() news: sf.entities.News;
 
   public flag: boolean = false;
 
-  constructor(
-    private router: Router
-  ) {}
+  constructor(private router: Router) {
+  }
 
   ngOnInit() {
   }
 
-  onSelect(news: News) {
+  onSelect(news: sf.entities.News) {
     this.router.navigate(['feed/news/', news.id]);
+  }
+
+  onEdit(news: sf.entities.News) {
+    this.router.navigate(['feed/edit/news', news.id]);
+  }
+
+  onDelete(news: sf.entities.News) {
   }
 }

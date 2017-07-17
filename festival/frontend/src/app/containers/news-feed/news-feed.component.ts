@@ -11,7 +11,7 @@ import { getNewsAction } from '../../../store/news';
 
 export class NewsFeedComponent implements OnInit {
 
-    public items: News[];
+    public items: sf.entities.News[];
 
     constructor(private store: Store<sf.store.NewsStore>) { }
 

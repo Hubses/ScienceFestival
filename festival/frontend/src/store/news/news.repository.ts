@@ -3,27 +3,27 @@ import {Observable} from 'rxjs';
 
 export const NEWS: sf.entities.News[] = [{
   id: 1,
-  createDate: new Date("1970 00:00:00"),
+  createDate: 1,
   header: 'Routing Angular',
   content: `The Angular Router ("the router") borrows from this model. It can interpret a browser URL as an instruction to navigate to a client-generated view. It can pass optional parameters along to the supporting view component that help it decide what specific content to present. You can bind the router to links on a page and it will navigate to the appropriate application view when the user clicks a link. You can navigate imperatively when the user clicks a button, selects from a drop box, or in response to some other stimulus from any source. And the router logs activity in the browser's history journal so the back and forward buttons work as well.`
 }, {
   id: 2,
-  createDate: new Date("1970 00:00:00"),
+  createDate: 2,
   header: 'Routing Angular',
   content: `The Angular Router ("the router") borrows from this model. It can interpret a browser URL as an instruction to navigate to a client-generated view. It can pass optional parameters along to the supporting view component that help it decide what specific content to present. You can bind the router to links on a page and it will navigate to the appropriate application view when the user clicks a link. You can navigate imperatively when the user clicks a button, selects from a drop box, or in response to some other stimulus from any source. And the router logs activity in the browser's history journal so the back and forward buttons work as well.`
 }, {
   id: 3,
-  createDate: new Date("1970 00:00:00"),
+  createDate: 3,
   header: 'Routing Angular',
   content: `The Angular Router ("the router") borrows from this model. It can interpret a browser URL as an instruction to navigate to a client-generated view. It can pass optional parameters along to the supporting view component that help it decide what specific content to present. You can bind the router to links on a page and it will navigate to the appropriate application view when the user clicks a link. You can navigate imperatively when the user clicks a button, selects from a drop box, or in response to some other stimulus from any source. And the router logs activity in the browser's history journal so the back and forward buttons work as well.`
 }, {
   id: 4,
-  createDate: new Date("1970 00:00:00"),
+  createDate: 4,
   header: 'Routing Angular',
   content: `The Angular Router ("the router") borrows from this model. It can interpret a browser URL as an instruction to navigate to a client-generated view. It can pass optional parameters along to the supporting view component that help it decide what specific content to present. You can bind the router to links on a page and it will navigate to the appropriate application view when the user clicks a link. You can navigate imperatively when the user clicks a button, selects from a drop box, or in response to some other stimulus from any source. And the router logs activity in the browser's history journal so the back and forward buttons work as well.`
 }, {
   id: 5,
-  createDate: new Date("1970 00:00:00"),
+  createDate: 5,
   header: 'Routing Angular',
   content: `The Angular Router ("the router") borrows from this model. It can interpret a browser URL as an instruction to navigate to a client-generated view. It can pass optional parameters along to the supporting view component that help it decide what specific content to present. You can bind the router to links on a page and it will navigate to the appropriate application view when the user clicks a link. You can navigate imperatively when the user clicks a button, selects from a drop box, or in response to some other stimulus from any source. And the router logs activity in the browser's history journal so the back and forward buttons work as well.`
 }];
@@ -43,11 +43,11 @@ export class NewsRepository {
     return Observable.of(newsItem);
   }
 
-  setNewNewsItem(news: sf.entities.News): void{
+  setNewNewsItem(news: sf.entities.News): void {
     NEWS.push(news);
   }
 
-  updateNewsById(news: sf.entities.News): void{
+  updateNewsById(news: sf.entities.News): void {
     let newsIndex: number = NEWS.findIndex(n => n.id == news.id);
     NEWS[newsIndex] = news;
   }

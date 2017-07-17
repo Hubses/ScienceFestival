@@ -34,7 +34,7 @@ export class RegisterComponent implements OnInit { // registerForm
             email: this.email.value,
             password: this.email.value,
             phone: this.phone.value,
-            position: this.position.selectedValue
+            // position: this.position.selectedValue
         }
         console.log(this.registerForm);
         form = this.registerForm;
@@ -46,7 +46,7 @@ export class RegisterComponent implements OnInit { // registerForm
             email: '',
             password: '',
             phone: 0,
-            position: ''
+            // position: ''
         }
     }
 }
