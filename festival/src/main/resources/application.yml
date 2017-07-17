@@ -9,3 +9,5 @@ logging:
     org:
       hibernate:
         type: trace
+
+

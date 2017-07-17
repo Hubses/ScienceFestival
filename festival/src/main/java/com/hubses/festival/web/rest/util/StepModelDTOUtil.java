@@ -4,6 +4,7 @@ import com.hubses.festival.domain.Step;
 import com.hubses.festival.domain.User;
 import com.hubses.festival.dto.model.StepModelDTO;
 
+import java.util.ArrayList;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -16,10 +17,10 @@ public class StepModelDTOUtil {
                 .startDate(step.getStartDate())
                 .finishDate(step.getFinishDate())
                 .maxUsers(step.getMaxUsers())
-                .users(step.getUsers().stream().map(User::getId).collect(Collectors.toList()))
+                .users(new ArrayList<>())
                 .build()).collect(Collectors.toSet());
     }
-
+//step.getUsers().stream().map(User::getId).collect(Collectors.toList())
     private StepModelDTOUtil() {
     }
 }

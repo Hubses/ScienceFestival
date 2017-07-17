@@ -3,6 +3,7 @@ package com.hubses.festival.web.rest;
 import com.hubses.festival.domain.Event;
 import com.hubses.festival.domain.User;
 import com.hubses.festival.dto.form.EventFormDTO;
+import com.hubses.festival.dto.form.StepFormDTO;
 import com.hubses.festival.dto.model.EventModelDTO;
 import com.hubses.festival.exception.IDNotFoundException;
 import com.hubses.festival.service.EventService;
@@ -24,8 +25,9 @@ public class EventResource {
     @Autowired
     private EventService eventService;
 
+    @Transactional
     @RequestMapping("")
-    public Iterable<EventModelDTO> getAllCustomers() {
+    public Iterable<EventModelDTO> getAllEvents() {
         return eventService.getAllEvents().map(events -> {
             List<EventModelDTO> eventList = new ArrayList<>();
             for (Event event : events) {
@@ -113,4 +115,22 @@ public class EventResource {
                 .orElse(new EventModelDTO());
     }
 
+    @RequestMapping(value = "/{id}/step", method = RequestMethod.POST)
+    public EventModelDTO addStepToEvent(@RequestBody StepFormDTO stepFormDTO, @PathVariable(value = "id") long id) {
+        return eventService.addStepToEvent(stepFormDTO, id).map(event -> {
+            if (event.getUsers() == null) {
+                event.setUsers(new HashSet<>());
+            }
+            return EventModelDTO.builder()
+                    .id(event.getId())
+                    .name(event.getName())
+                    .description(event.getDescription())
+                    .startDate(event.getStartDate())
+                    .finishDate(event.getFinishDate())
+                    .users(event.getUsers().stream().map(User::getId).collect(Collectors.toList()))
+                    .steps(StepModelDTOUtil.getStepModelDTOs(event.getSteps()))
+                    .build();
+        })
+                .orElseThrow(() -> new IDNotFoundException("Event with id = " + id + "not found"));
+    }
 }

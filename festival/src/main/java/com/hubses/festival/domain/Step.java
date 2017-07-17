@@ -18,8 +18,7 @@ public class Step {
 
     private int maxUsers;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "event")
+    @ManyToOne
     private Event event;
 
     @ManyToMany
@@ -81,5 +80,61 @@ public class Step {
 
     public void setUsers(Set<User> users) {
         this.users = users;
+    }
+
+    public Step() {
+
+    }
+
+    public Step(StepBuilder stepBuilder) {
+        this.id = stepBuilder.id;
+        this.name = stepBuilder.name;
+        this.startDate = stepBuilder.startDate;
+        this.finishDate = stepBuilder.finishDate;
+        this.maxUsers = stepBuilder.maxUsers;
+//        this.users = stepBuilder.users;
+    }
+
+    public static class StepBuilder {
+        private long id;
+        private String name;
+        private String startDate;
+        private String finishDate;
+        private int maxUsers;
+        private Set<User> users;
+
+        public StepBuilder id(long id) {
+            this.id = id;
+            return this;
+        }
+
+        public StepBuilder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public StepBuilder startDate(String startDate) {
+            this.startDate = startDate;
+            return this;
+        }
+
+        public StepBuilder finishDate(String finishDate) {
+            this.finishDate = finishDate;
+            return this;
+        }
+
+        public StepBuilder maxUsers(int maxUsers) {
+            this.maxUsers = maxUsers;
+            return this;
+        }
+
+        public StepBuilder users(Set<User> users) {
+            this.users = users;
+            return this;
+        }
+
+        public Step build() {
+            return new Step(this);
+        }
     }
 }
