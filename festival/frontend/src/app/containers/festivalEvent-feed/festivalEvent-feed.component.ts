@@ -11,13 +11,13 @@ import { getFestivalEventAction } from '../../../store/festivalEvent';
 
 export class FestivalEventFeedComponent implements OnInit {
 
-    public items: FestivalEvent[];
+    public events: FestivalEvent[];
 
     constructor(private store: Store<sf.store.FestivalEventStore>) { }
 
     ngOnInit() {
-        this.store.select(s => s.festivalEventReducer).subscribe(f => this.items = f.entity);
+        this.store.select(store => store.festivalEventReducer).subscribe(festivalEvents => this.events = festivalEvents.entity);
         this.store.dispatch(getFestivalEventAction());
-        console.log(this.items);
+        console.log(this.events);
     }
 }
