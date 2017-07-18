@@ -40,6 +40,7 @@ import {
   LoginComponent,
   RegisterComponent,
   NewsItemComponent,
+  FestivalEventItemComponent,
   AboutComponent,
   NavigationPanelComponent,
   NewsDetailComponent,
@@ -142,6 +143,7 @@ const appRoutes: Routes = [
     NotFoundComponent,
     LoginComponent,
     NewsItemComponent,
+    FestivalEventFeedComponent,
     RegisterComponent,
     AboutComponent,
     NavigationPanelComponent,
@@ -157,7 +159,7 @@ const appRoutes: Routes = [
     CKEditorModule,
     HttpModule,
     ...ApplicationEffects,
-    StoreModule.provideStore({newsReducer}),
+    StoreModule.provideStore({newsReducer,festivalEventReducer}),
     StoreDevtoolsModule.instrumentOnlyWithExtension({
       maxAge: 5
     }),
@@ -170,7 +172,10 @@ const appRoutes: Routes = [
       }), // router debug
     VirtualScrollModule
   ],
-  providers: [NewsRepository],
+  providers: [
+    NewsRepository,
+    FestivalEventRepository
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
