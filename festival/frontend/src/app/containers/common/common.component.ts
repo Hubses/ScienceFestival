@@ -12,22 +12,22 @@ export class CommonComponent implements OnInit {
         values: ['123', '456']
     }
 
-    public events: sf.common.Event[] = [
-        {
-            id: 1,
-            title: 'All Day Event',
-            start: '2017-07-01',
-            end: null,
-            url: null
-        },
-        {
-            id: 2,
-            title: 'Long Event',
-            start: '2017-07-07',
-            end: '2017-07-10',
-            url: null
-        }
-    ];
+    // public events: sf.common.Event[] = [
+    //     {
+    //         id: 1,
+    //         title: 'All Day Event',
+    //         start: '2017-07-01',
+    //         end: null,
+    //         url: null
+    //     },
+    //     {
+    //         id: 2,
+    //         title: 'Long Event',
+    //         start: '2017-07-07',
+    //         end: '2017-07-10',
+    //         url: null
+    //     }
+    // ];
 
     public coordinates: sf.common.Coordinates[] = [{
         latitude: 53.903215,
