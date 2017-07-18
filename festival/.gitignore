@@ -1,0 +1,46 @@
+######################
+# Intellij
+######################
+.idea/
+*.iml
+*.iws
+*.ipr
+*.ids
+*.orig
+######################
+# Maven
+######################
+/log/
+/target/
+######################
+# Package Files
+######################
+*.jar
+*.war
+*.ear
+*.db
+######################
+# Windows
+######################
+# Windows image file caches
+Thumbs.db
+# Folder config file
+Desktop.ini
+######################
+# Logs
+######################
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+######################
+# Others
+######################
+*.class
+*.*~
+*~
+.merge_file*
+######################
+# Maven Wrapper
+######################
+!.mvn/wrapper/maven-wrapper.jar

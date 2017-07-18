@@ -1,0 +1,65 @@
+os:
+  - linux
+dist: trusty
+language: node_js
+node_js:
+  - "6.11.1"
+jdk:
+  - oraclejdk8
+sudo: false
+branches:
+  only:
+  - master
+  - dev
+cache:
+  directories:
+    - node
+    - node_modules
+    - $HOME/.m2
+env:
+  global:
+    - NODE_VERSION=6.11.1
+    - CC_TEST_REPORTER_ID=f5657076a1c6f5ec8126fa362e8d4aebb00e46c81168b6229e7a5c0c089bcab7
+    - GIT_COMMITTED_AT=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then git log -1 --pretty=format:%ct; else git log -1 --skip 1 --pretty=format:%ct; fi)
+    - SPRING_OUTPUT_ANSI_ENABLED=ALWAYS
+    - SPRING_JPA_SHOW_SQL=false
+addons:
+  chrome: stable
+  apt:
+    packages:
+      - oracle-java8-set-default
+before_install:
+  - nvm install $NODE_VERSION
+  - node -v
+  - npm -v
+  - java -version
+install:
+  - cd ./festival/frontend
+  - npm install
+  - cd ..
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+#  - sleep 3 # give xvfb some time to start, we skip it because we run long java tests
+script:
+  - chmod +x ./mvnw
+  - ./mvnw clean test
+  - cd ./frontend
+  - npm run test-ci
+#after_success:
+  - cd ..
+  - ./cc-test-reporter before-build
+  - ./mvnw clean cobertura:cobertura > /dev/null
+  - bash <(curl -s https://codecov.io/bash)
+  - ./mvnw org.eluder.coveralls:coveralls-maven-plugin:report
+  - ./cc-test-reporter after-build
+  - cd ..
+  - chmod +x ./deploy.sh
+  - ./deploy.sh
+notifications:
+  webhooks:
+    on_success: change  # options: [always|never|change] default: always
+    on_failure: always  # options: [always|never|change] default: always
+    on_start: false     # default: false
