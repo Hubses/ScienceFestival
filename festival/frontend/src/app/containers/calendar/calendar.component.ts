@@ -17,6 +17,6 @@ export class CalendarComponent implements OnInit {
   }
 
   setEvent(events: any){
-    
+
   }
 }

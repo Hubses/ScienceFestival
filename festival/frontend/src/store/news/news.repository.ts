@@ -47,13 +47,4 @@ export class NewsRepository {
     let newsItem: sf.entities.News = NEWS.find(n => n.id == id);
     return Observable.of(newsItem);
   }
-
-  setNewNewsItem(news: sf.entities.News): void {
-    NEWS.push(news);
-  }
-
-  updateNewsById(news: sf.entities.News): void {
-    let newsIndex: number = NEWS.findIndex(n => n.id == news.id);
-    NEWS[newsIndex] = news;
-  }
 }
