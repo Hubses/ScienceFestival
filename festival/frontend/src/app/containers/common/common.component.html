@@ -32,7 +32,7 @@
 <!-- <md-common-button [mdMenuTriggerFor]="menu">
     
 </md-common-button> -->
-<button md-button-icon [mdMenuTriggerFor]="menu" (click)="something($event)">
+<button md-button-icon [mdMenuTriggerFor]="menu">
   <sf-common-icon [type]="'more_vert'"></sf-common-icon>
 </button>
 <md-menu #menu="mdMenu">
@@ -58,4 +58,4 @@
         <sf-common-map [coordinates]="coordinates"></sf-common-map>
     </accordion-content>
 </sf-common-accordion>
-<sf-common-calendar [events]="events"></sf-common-calendar>
+ <sf-common-calendar [events]="events"></sf-common-calendar> 

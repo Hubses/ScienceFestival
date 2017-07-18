@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'sf-news-item',
@@ -8,11 +8,15 @@ import { Component, OnInit, Input } from '@angular/core';
 
 export class NewsItemComponent implements OnInit {
     @Input() news: sf.entities.News;
+    @Output() onViewDetail: EventEmitter<sf.entities.News> = new EventEmitter<sf.entities.News>()
 
     public flag: boolean = false;
 
     constructor() { }
 
     ngOnInit() {
+    }
+    viewDetail(news: sf.entities.News) {
+        this.onViewDetail.emit(news);
     }
 }

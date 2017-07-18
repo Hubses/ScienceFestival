@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { getNewsAction } from '../../../store/news';
+import { getNewsAction, editNewsAction } from '../../../store/news';
 
 @Component({
     selector: 'sf-news-feed',
@@ -19,5 +19,8 @@ export class NewsFeedComponent implements OnInit {
         this.store.select(s => s.newsReducer).subscribe(n => this.items = n.entity);
         this.store.dispatch(getNewsAction());
         console.log(this.items);
+    }
+    viewDetailClick() {
+        this.store.dispatch(editNewsAction());
     }
 }

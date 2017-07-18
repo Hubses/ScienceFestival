@@ -14,7 +14,7 @@
     {{news.description}}
   </card-content>
   <card-action class="news-item__action">
-    <sf-common-button class="button__read-more">Read more</sf-common-button>
+    <sf-common-button class="button__read-more" (click)="viewDetail($event)">Read more</sf-common-button>
     <sf-common-button class="buton__share">Share</sf-common-button>
   </card-action>
 </sf-common-card>
