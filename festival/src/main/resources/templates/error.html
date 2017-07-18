@@ -2,9 +2,26 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title></title>
+    <title>Pisos nasos</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+
+        .bg {
+            height: 100%;
+            background: url("https://i.imgur.com/9XJw2N3.jpg") no-repeat top;
+            background-size: contain;
+        }
+    </style>
 </head>
 <body>
-<h1 th:text="${errorMsg}">Error 228 - description</h1>
+<div class="bg">
+    <div align="center" style="position: absolute; bottom: 5%; width: 100%;">
+        <h1 style="color: hotpink; text-align: center; margin: auto; "
+            th:text="${#strings.defaultString(errorMsg,'Error 228 - description')}"></h1>
+    </div>
+</div>
 </body>
 </html>
