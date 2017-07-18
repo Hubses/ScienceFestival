@@ -1,16 +1,20 @@
-<div class="news-editor">
-  <div class="news-editor__header">
-    <div>Header</div>
+<div class="news-creator">
+  <div class="news-creator__header">
+    <div>Name</div>
     <div>
       <sf-common-input></sf-common-input>
     </div>
   </div>
-  <div class="news-editor__content">
+  <div class="news-creator__content">
     <div>News text</div>
-    <ckeditor [(ngModel)]="content" debounce="500">>
+    <ckeditor [(ngModel)]="content" debounce="800">>
     </ckeditor>
   </div>
-  <div class="news-editor__save-close">
-    <button (click)="onSave()">save</button>
+  <div class="news-creator__action">
+    <div class="action">
+      <sf-common-button class="action__save" (click)="onSave()">Save</sf-common-button>
+      <sf-common-button class="action__cancle" (click)="onCancle()">Cancle</sf-common-button>
+    </div>
   </div>
 </div>
+
