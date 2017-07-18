@@ -9,18 +9,18 @@ import { MdSidenav } from "@angular/material";
 })
 
 export class NavigationPanelComponent implements OnInit {
+    @Input() public isOpen: boolean;
     @Input() isToggled: boolean;
-    @Output() public sidenavToggled: EventEmitter<boolean> = new EventEmitter<boolean>();
-
-    public iconArrowsType: string = 'keyboard_arrow_left';
+    @Output() public onSidenavToggled: EventEmitter<boolean> = new EventEmitter<boolean>();
+    public iconArrowsType: string = 'keyboard_arrow_right';
 
     constructor() { }
     ngOnInit() { }
-    public onCollapse(): void {
+    public collapse(): void {
         this.isToggled = !this.isToggled;
         this.isToggled ?
             this.iconArrowsType = 'keyboard_arrow_right' :
             this.iconArrowsType = 'keyboard_arrow_left';
-        this.sidenavToggled.emit(this.isToggled);
+        this.onSidenavToggled.emit(this.isToggled);
     }
 }

@@ -17,13 +17,15 @@ export class LoginComponent implements OnInit {
 
     ngOnInit() {
         this.loginForm = {
+            id: 1,
             email: this.email.value,
-            password: this.password.value
+            password: this.password.value,
         };
     }
 
     public onSubmit(): void {
         this.loginForm = {
+            id: 1,
             email: this.email.value,
             password: this.password.value
         };

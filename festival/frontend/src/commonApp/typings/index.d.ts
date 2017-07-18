@@ -21,8 +21,8 @@ declare namespace sf.common {
 
     interface DropdownOptions<T> {
         placeholder?: string;
-        values?: T[];
-        selectedValue?: T;
+        values?: T[] | T;
+        selectedValue?: T[] | T;
     }
 
     interface Coordinates {

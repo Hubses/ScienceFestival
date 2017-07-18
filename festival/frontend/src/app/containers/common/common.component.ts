@@ -40,18 +40,7 @@ export class CommonComponent implements OnInit {
     }];
 
 
-    public tabs: sf.common.Tab[] = [
-        {
-            id: 1,
-            title: '123',
-            content: `tempsras`
-        }
-    ];
-
     constructor() { }
 
     ngOnInit() { }
-    public something(some:MouseEvent){
-        console.log(some);
-    }
 }

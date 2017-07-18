@@ -6,10 +6,10 @@ import { Component, Input, EventEmitter, Output, OnInit } from '@angular/core';
 })
 export class DropdownComponent implements OnInit {
 
-    public selectedValue: string;
+    public selectedValue: any;
     @Input() public dropdownOptions: sf.common.DropdownOptions<any>;
 
-    @Output() selectedValueChange: EventEmitter<string> = new EventEmitter<string>();
+    @Output() selectedValueChange: EventEmitter<any> = new EventEmitter<any>();
 
     constructor() { }
 
@@ -17,7 +17,7 @@ export class DropdownComponent implements OnInit {
         this.selectedValue = this.dropdownOptions.selectedValue;
     }
 
-    onSelectedValueChange(newValue: string) {
+    onSelectedValueChange(newValue: any) {
         this.selectedValue = newValue;
         this.selectedValueChange.emit(newValue);
     }

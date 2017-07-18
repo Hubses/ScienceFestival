@@ -8,7 +8,7 @@ import {Router} from '@angular/router';
 })
 
 export class NewsItemComponent implements OnInit {
-  @Input() news: sf.entities.News;
+    @Input() news: sf.entities.News;
 
   public flag: boolean = false;
 
