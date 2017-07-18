@@ -31,11 +31,20 @@ declare namespace sf.common {
         description: string;
     }
 
+    interface CalendarOptions{
+      aspectRatio?: number;
+      contentHeight?: number | string;
+      header?: any;
+      editable?: boolean;
+      eventLimit?: boolean;
+      events?: sf.common.Event[];
+    }
+
     interface Event {
         id?: number;
         title: string;
-        start: string;
-        end: string;
+        start: Date;
+        end: Date;
         url?: string;
     }
     interface Input {
