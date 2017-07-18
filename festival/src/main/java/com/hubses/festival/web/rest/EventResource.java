@@ -8,7 +8,6 @@ import com.hubses.festival.dto.model.EventModelDTO;
 import com.hubses.festival.exception.IDNotFoundException;
 import com.hubses.festival.service.EventService;
 import com.hubses.festival.web.rest.util.StepModelDTOUtil;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -22,8 +21,11 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping(value = "/api/v1/events", produces = MediaType.APPLICATION_JSON_VALUE)
 public class EventResource {
-    @Autowired
     private EventService eventService;
+
+    EventResource(EventService eventService) {
+        this.eventService = eventService;
+    }
 
     @Transactional
     @RequestMapping("")
@@ -58,7 +60,7 @@ public class EventResource {
                         .users(event.getUsers().stream().map(User::getId).collect(Collectors.toList()))
                         .steps(StepModelDTOUtil.getStepModelDTOs(event.getSteps()))
                         .build())
-                .orElse(new EventModelDTO());
+                .orElseThrow(IDNotFoundException::new);
     }
 
     @Transactional

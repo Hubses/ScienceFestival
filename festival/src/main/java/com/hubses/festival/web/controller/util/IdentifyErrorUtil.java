@@ -15,8 +15,11 @@ public final class IdentifyErrorUtil {
         return identifyErrorPage(getErrorCode(request));
     }
 
-    private static String identifyErrorPage(int errorCode) {
-        switch (errorCode) {
+    private static String identifyErrorPage(Object error) {
+        if (error instanceof Exception) {
+            return ((Exception) error).getMessage();
+        }
+        switch (Integer.parseInt((String) error)) {
             case BAD_REQUEST_CODE:
                 return "Http Error Code: 400. Bad Request";
 
@@ -34,8 +37,11 @@ public final class IdentifyErrorUtil {
         }
     }
 
-    private static int getErrorCode(HttpServletRequest request) {
-        return (Integer) request
-                .getAttribute("javax.servlet.error.status_code");
+    private static Object getErrorCode(HttpServletRequest request) {
+        Object errorCode = request.getAttribute("javax.servlet.error.status_code");
+        if (errorCode == null) {
+            errorCode = request.getAttribute("org.springframework.boot.autoconfigure.web.DefaultErrorAttributes.ERROR");
+        }
+        return errorCode;
     }
 }

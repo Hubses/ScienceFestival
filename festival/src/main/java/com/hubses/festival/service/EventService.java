@@ -5,36 +5,26 @@ import com.hubses.festival.domain.Event;
 import com.hubses.festival.domain.Step;
 import com.hubses.festival.dto.form.EventFormDTO;
 import com.hubses.festival.dto.form.StepFormDTO;
+import com.hubses.festival.exception.IDNotFoundException;
 import com.hubses.festival.repository.EventRepository;
 import com.hubses.festival.repository.StepRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class EventService {
-    @Autowired
-    private EventRepository eventRepository;
 
-    @Autowired
+    private EventRepository eventRepository;
     private StepRepository stepRepository;
 
-    public Optional<Iterable<Event>> getAllEvents() {
+    public EventService(EventRepository eventRepository, StepRepository stepRepository) {
+        this.eventRepository = eventRepository;
+        this.stepRepository = stepRepository;
+    }
 
-        System.out.println("SUKAAAAAAAAAAAAA)________________");
-        for (Step o : stepRepository.findAll()) {
-            System.out.println(o.toString());
-        }
-        System.out.println("SUKAAAAAAAAAAAAA)________________");
+    public Optional<Iterable<Event>> getAllEvents() {
         return Optional.ofNullable(eventRepository.findAll());
     }
 
@@ -78,7 +68,7 @@ public class EventService {
     }
 
     public Optional<Event> addStepToEvent(StepFormDTO stepFormDTO, long eventId) {
-        Event event = eventRepository.findOneById(eventId).get();
+        Event event = eventRepository.findOneById(eventId).orElseThrow(IDNotFoundException::new);
         Step step = new Step.StepBuilder()
                 .name(stepFormDTO.getName())
                 .startDate(stepFormDTO.getStartDate())
@@ -89,12 +79,12 @@ public class EventService {
                 .build();
 
 
-            Set<Step> steps = event.getSteps();
-            steps.add(step);
+        Set<Step> steps = event.getSteps();
+        steps.add(step);
         eventRepository.save(event);
 
 
-        return Optional.ofNullable(eventRepository.findOne(1l));
+        return Optional.ofNullable(eventRepository.findOne(1L));
     }
 
     @PostConstruct
@@ -105,7 +95,11 @@ public class EventService {
         event.setStartDate("11/12/2013");
         event.setFinishDate("12/12/2013");
         event.setCoordinate(new Coordinate());
-        //event.setSteps(Collections.singleton(new Step.StepBuilder().id(1).name("lol").build()));
+        eventRepository.save(event);
+        Step step1 = new Step.StepBuilder().id(1).name("lol").event(event).build();
+        Step step2 = new Step.StepBuilder().id(2).name("kek").event(event).build();
+        stepRepository.save(Arrays.asList(step1, step2));
+        event.setSteps(new HashSet<>(Arrays.asList(step1, step2)));
         eventRepository.save(event);
     }
 }

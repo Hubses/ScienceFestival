@@ -12,10 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 public class ErrorController {
 
     @RequestMapping(value = "/error", method = RequestMethod.GET)
-    public String renderErrorPage(HttpServletRequest httpRequest) {
+    public ModelAndView renderErrorPage(HttpServletRequest httpRequest) {
         ModelAndView errorPage = new ModelAndView("error");
         errorPage.addObject("errorMsg", IdentifyErrorUtil.selectErrorMessage(httpRequest));
-        return "error";
+        return errorPage;
     }
 
 }

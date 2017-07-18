@@ -72,10 +72,29 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!--these override dependencies from spring boot with a security breach-->
+        <!--https://nvd.nist.gov/vuln/detail/CVE-2017-5929-->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-access</artifactId>
+            <version>1.2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>1.2.3</version>
+        </dependency>
+        <!--end of logback security update-->
     </dependencies>
 
     <build>
         <defaultGoal>spring-boot:run</defaultGoal>
+
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -151,7 +170,9 @@
                 </configuration>
             </plugin>
         </plugins>
+
     </build>
+
     <profiles>
         <profile>
             <id>dev</id>
@@ -170,4 +191,5 @@
             <id>prod</id>
         </profile>
     </profiles>
+
 </project>

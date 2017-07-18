@@ -8,4 +8,8 @@ public class IDNotFoundException extends RuntimeException {
     public IDNotFoundException(String message) {
         super(message);
     }
+
+    public IDNotFoundException() {
+        super("This id is not stored");
+    }
 }
