@@ -12,14 +12,19 @@ export class NewsEditorComponent implements OnInit {
   public news: sf.entities.News;
   public content: string;
 
-  constructor() {
+  constructor(private route: ActivatedRoute, private newsRepository: NewsRepository) {
   }
 
   ngOnInit() {
+    let newsId: number;
+    this.route.params.subscribe(params => {
+      newsId = params['id'];
+    });
 
+    this.newsRepository.getNewsItemById(newsId).subscribe(n => this.news = n);
+    this.content = this.news.content;
   }
 
   onSave(): void {
-    console.log(this.content);
   }
 }
