@@ -19,11 +19,11 @@ export class NewsItemComponent implements OnInit {
   }
 
   onSelect(news: sf.entities.News) {
-    this.router.navigate(['feed/news/', news.id]);
+    this.router.navigate(['/en/admin/feed/news', news.id]);
   }
 
   onEdit(news: sf.entities.News) {
-    this.router.navigate(['feed/edit/news', news.id]);
+     this.router.navigate(['/en/admin/feed/news/edit', news.id]);
   }
 
   onDelete(news: sf.entities.News) {
