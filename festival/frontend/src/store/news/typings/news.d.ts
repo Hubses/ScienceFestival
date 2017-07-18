@@ -7,6 +7,7 @@ declare namespace sf.entities {
     id: number;
     createDate: number;
     header: string;
+    shortContent:string;
     content: string;
   }
   interface NewsParams {
