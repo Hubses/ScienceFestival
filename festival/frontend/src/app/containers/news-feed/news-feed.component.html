@@ -6,14 +6,14 @@
         <div class="searche-controller">
           <sf-common-input [placeholder]="'Search'"></sf-common-input>
           <sf-common-button>
-            <sf-common-icon class="icon__search" type="search"></sf-common-icon>
+            <sf-common-icon class="icon__search" [type]="'search'"></sf-common-icon>
           </sf-common-button>
         </div>
       </div>
     </div>
     <div class="news-feed__items">
       <div class="news-item" *ngFor="let feed of items">
-        <sf-news-item class="news-item__news" [news]="feed" (onViewDetail)="viewEditClick($event)"></sf-news-item>
+        <sf-news-item class="news-item__news" [news]="feed" (onViewEdit)="viewEditClick($event)"></sf-news-item>
       </div>
     </div>
   </div>

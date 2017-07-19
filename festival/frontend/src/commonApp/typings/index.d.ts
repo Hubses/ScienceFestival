@@ -1,5 +1,5 @@
-import { MdButton } from "@angular/material/typings";
-import { EventEmitter } from "@angular/core/src/event_emitter";
+// import { MdButton } from "@angular/material/typings";
+// import { EventEmitter } from "@angular/core/src/event_emitter";
 
 declare namespace sf.common {
     interface Tab {
@@ -74,6 +74,6 @@ declare namespace sf.common {
         isCollapsed: boolean;
     }
     interface Button {
-        onButtonClick: EventEmitter<MdButton>;
+        onButtonClick: any;
     }
 }
