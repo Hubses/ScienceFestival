@@ -13,14 +13,12 @@
         </div>
       </div>
     </div>
-  </card-title>
+  </card-title>s
   <card-content class="news-item__content">
     {{news.shortContent}}
   </card-content>
   <card-action class="news-item__action">
-    <div class="action">
-      <sf-common-button class="action__read-more" (click)="onSelect(news)"><span>Read more</span></sf-common-button>
-      <sf-common-button class="action__share"><span>Share</span></sf-common-button>
-    </div>
+    <sf-common-button class="action__read-more" (click)="viewDetail($event)"><span>Read more</span></sf-common-button>
+    <sf-common-button class="action__share"><span>Share</span></sf-common-button>
   </card-action>
 </sf-common-card>

@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter }  from '@angular/core';
 import {Router} from '@angular/router';
 
 @Component({
@@ -8,7 +8,8 @@ import {Router} from '@angular/router';
 })
 
 export class NewsItemComponent implements OnInit {
-    @Input() news: sf.entities.News;
+  @Input() news: sf.entities.News;
+  @Output() onViewDetail: EventEmitter<sf.entities.News> = new EventEmitter<sf.entities.News>()
 
   public flag: boolean = false;
 
@@ -18,14 +19,14 @@ export class NewsItemComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSelect(news: sf.entities.News) {
-    this.router.navigate(['/en/admin/feed/news', news.id]);
+  viewDetail(news: sf.entities.News) {
+    this.onViewDetail.emit(news);
   }
-
-  onEdit(news: sf.entities.News) {
-     this.router.navigate(['/en/admin/feed/news/edit/', news.id]);
-  }
-
-  onDelete(news: sf.entities.News) {
-  }
+  // onSelect(news: sf.entities.News) {
+  //   this.router.navigate(['/en/admin/feed/news', news.id]);
+  // }
+  //
+  // onEdit(news: sf.entities.News) {
+  //   this.router.navigate(['/en/admin/feed/news/edit/', news.id]);
+  // }
 }

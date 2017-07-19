@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AgmCoreModule } from '@agm/core';
-import { CalendarModule } from "ap-angular2-fullcalendar";
+import { CalendarModule } from 'ap-angular2-fullcalendar';
 
 import {
     InputComponent,
@@ -59,7 +59,8 @@ import {
         HeaderComponent,
         CalendarComponent,
         TextAreaComponent,
-        FileChooseComponent
+        FileChooseComponent,
+
     ],
     providers: [/* TODO: Providers go here */],
     exports: [
@@ -81,7 +82,8 @@ import {
         HeaderComponent,
         CalendarComponent,
         TextAreaComponent,
-        FileChooseComponent
+        FileChooseComponent,
+
     ],
     schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA]
 })
@@ -89,7 +91,7 @@ export class SFCommonModule {
     static forRoot(): ModuleWithProviders {
         return {
             ngModule: SFCommonModule,
-            //providers: [] // service
-        }
+            // providers: [] // service
+        };
     }
 }
