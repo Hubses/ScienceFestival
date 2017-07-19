@@ -24,7 +24,7 @@ export class NewsFeedComponent implements OnInit {
         this.store.dispatch(getNewsAction());
         console.log(this.items);
     }
-    viewDetailClick(news: sf.entities.News) {
+    viewEditClick(news: sf.entities.News) {
         this.store.dispatch(editNewsAction(news));
     }
 }

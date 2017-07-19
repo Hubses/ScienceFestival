@@ -13,7 +13,7 @@
     </div>
     <div class="news-feed__items">
       <div class="news-item" *ngFor="let feed of items">
-        <sf-news-item class="news-item__news" [news]="feed" (onViewDetail)="viewDetailClick($event)"></sf-news-item>
+        <sf-news-item class="news-item__news" [news]="feed" (onViewDetail)="viewEditClick($event)"></sf-news-item>
       </div>
     </div>
   </div>
