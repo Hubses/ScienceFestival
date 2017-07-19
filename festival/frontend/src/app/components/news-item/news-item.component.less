@@ -1,20 +1,39 @@
 .news-item {
+
   &__action {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
   }
+}
 
-  &__title {
+.title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 30px;
+
+  &__buttons {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 30px;
+  }
+}
+
+.title-buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+.action {
+  display: flex;
+  flex-direction: row;
+
+  &__read-more span {
+    margin: auto;
   }
 
-  &__title-buttons {
-    display: flex;
-    flex-direction: row;
+  &__share span {
+    margin: auto;
   }
 }

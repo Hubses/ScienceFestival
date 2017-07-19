@@ -1,20 +1,29 @@
 <sf-common-card class="news-item">
   <card-title class="news-item__title">
-    <div class="news-feed__title-text">{{news.header}}</div>
-    <div class="news-item__title-buttons">
-      <!--<sf-common-button class="button__edit"> title block-->
-      <sf-common-icon class="icon__edit" type="edit" (click)="viewDetail(news)"></sf-common-icon>
-      <!--</sf-common-button>-->
-      <!--<sf-common-button class="button__close">-->
-      <sf-common-icon class="icon__close" type="close"></sf-common-icon>
-      <!--</sf-common-button>-->
+
+    <div class="title">
+      <div class="title__text">{{news.header}}</div>
+      <div class="title__buttons">
+        <div class="title-buttons">
+          <sf-common-button class="title-buttons__edit" (click)="onEdit(news)">
+            <sf-common-icon class="icon__edit" type="edit"></sf-common-icon>
+          </sf-common-button>
+          <sf-common-button class="title-buttons__close" (click)="onDelete(news)">
+            <sf-common-icon class="icon__close" type="close"></sf-common-icon>
+          </sf-common-button>
+        </div>
+      </div>
+
     </div>
-  </card-title>
+  </card-title>s
   <card-content class="news-item__content">
-    {{news.description}}
+
+    {{news.shortContent}}
   </card-content>
   <card-action class="news-item__action">
-    <sf-common-button class="button__read-more">Read more</sf-common-button>
-    <sf-common-button class="buton__share">Share</sf-common-button>
+
+    <sf-common-button class="action__read-more" (click)="viewDetail($event)"><span>Read more</span></sf-common-button>
+    <sf-common-button class="action__share"><span>Share</span></sf-common-button>
   </card-action>
+
 </sf-common-card>

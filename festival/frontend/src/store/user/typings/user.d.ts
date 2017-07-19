@@ -3,7 +3,7 @@ declare namespace sf.entities {
         id?: number
         email: string;
         password: string;
-        lang?: sf.entities.Localization;
+        // lang?: sf.entities.Localization;
         name?: string;
         role?: string;
         isApproved?: boolean;

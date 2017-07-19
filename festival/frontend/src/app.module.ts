@@ -7,6 +7,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 // 3rd party libs
 import { VirtualScrollModule } from 'angular2-virtual-scroll';
+import {CKEditorModule} from 'ng2-ckeditor';
 // common module
 import { SFCommonModule } from './commonApp/common.module';
 // store
@@ -48,7 +49,10 @@ import {
   NewsItemComponent,
   AboutComponent,
   NavigationPanelComponent,
-  HeaderComponent
+  HeaderComponent,
+  NewsDetailComponent,
+  NewsEditorComponent,
+  NewsCreaterComponent
 } from './app/components';
 import { RouterStoreModule } from '@ngrx/router-store';
 import { EffectsModule } from "@ngrx/effects";
@@ -75,17 +79,21 @@ const ApplicationEffects = [
     // components
     NotFoundComponent,
     LoginComponent,
+    NewsDetailComponent,
     NewsItemComponent,
     RegisterComponent,
     AboutComponent,
     NavigationPanelComponent,
-    HeaderComponent
+    HeaderComponent,
+    NewsCreaterComponent,
+    NewsEditorComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    CKEditorModule,
     RouterStoreModule.connectRouter(),
     ...ApplicationEffects,
     StoreLogMonitorModule,

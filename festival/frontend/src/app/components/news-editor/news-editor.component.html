@@ -1,0 +1,21 @@
+<div class="news-editor">
+  <div class="news-editor__header">
+    <div class="header">
+      <div class="header__label">Name</div>
+      <div class="header__input">
+        <sf-common-input [value]="news.header"></sf-common-input>
+      </div>
+    </div>
+  </div>
+  <div class="news-editor__content">
+    <div>News text</div>
+    <ckeditor [(ngModel)]="content" debounce="800">>
+    </ckeditor>
+  </div>
+  <div class="news-editor__action">
+    <div class="action">
+      <sf-common-button class="action__save" (click)="onSave()">Save change</sf-common-button>
+      <sf-common-button class="action__cancle" (click)="onCancle()">Cancle</sf-common-button>
+    </div>
+  </div>
+</div>
