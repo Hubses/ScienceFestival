@@ -23,7 +23,7 @@ export class NewsItemComponent implements OnInit {
   }
 
   onEdit(news: sf.entities.News) {
-     this.router.navigate(['/en/admin/feed/news/edit', news.id]);
+     this.router.navigate(['/en/admin/feed/news/edit/', news.id]);
   }
 
   onDelete(news: sf.entities.News) {
