@@ -19,10 +19,10 @@ declare namespace sf.common {
         trigger
     }
 
-    interface DropdownOptions {
-        placeholder: string;
-        values: string[];
-        selectedValue?: string;
+    interface DropdownOptions<T> {
+        placeholder?: string;
+        values?: T[];
+        selectedValue?: T;
     }
 
     interface Coordinates {
@@ -37,5 +37,22 @@ declare namespace sf.common {
         start: string;
         end: string;
         url: string;
+    }
+    interface Input {
+        placeholder?: string;
+        value?: any;
+    }
+    interface StringInput extends Input {
+        isSecure?: boolean;
+        value?: string;
+    }
+    interface NumberInput extends Input {
+        value?: number;
+        minValue?: number;
+        maxValue?: number;
+    }
+    interface Dropdown<T> {
+        selectedValue: T;
+        dropdownOptions: sf.common.DropdownOptions<T>
     }
 }

@@ -1,3 +1,37 @@
-<div>
-    register form here
-</div>
+<sf-common-form>
+    <form-header>
+        Register
+    </form-header>
+    <form-body>
+        <form class="form">
+            <div class="form__group">
+                <label class="group__block"> email:
+                    <sf-common-input #email class="group__block__item" [placeholder]="'email'"></sf-common-input>
+                </label>
+                <label class="group__block"> password:
+                    <sf-common-input class="group__block__item" #password [placeholder]="'password'" [isSecure]="true"></sf-common-input>
+                </label>
+                <label class="group__block"> phone:
+                    <sf-common-inputNumb class="group__block__item" #phone></sf-common-inputNumb>
+                    </label>
+                <label class="group__block"> position:
+                        <sf-common-dropdown class="group__block__item" class="dropdown" #position [dropdownOptions]="positions" (selectedValueChange)="getPosition($event)"></sf-common-dropdown>
+                </label>
+            </div>
+        </form>
+    </form-body>
+    <form-actions>
+        <div class="actions">
+            <div class="actions__item">
+                <sf-common-button (click)="submit()">
+                    submit
+                </sf-common-button>
+            </div>
+            <div class="actions__item">
+                <sf-common-button (click)="reset()">
+                    reset
+                </sf-common-button>
+            </div>
+        </div>
+    </form-actions>
+</sf-common-form>
