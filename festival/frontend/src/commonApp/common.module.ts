@@ -25,7 +25,8 @@ import {
     MapComponent,
     HeaderComponent,
     TextAreaComponent,
-    FileChooseComponent
+    FileChooseComponent,
+    TableComponent
 } from './';
 
 
@@ -59,7 +60,8 @@ import {
         HeaderComponent,
         CalendarComponent,
         TextAreaComponent,
-        FileChooseComponent
+        FileChooseComponent,
+        TableComponent
     ],
     providers: [/* TODO: Providers go here */],
     exports: [
@@ -81,7 +83,8 @@ import {
         HeaderComponent,
         CalendarComponent,
         TextAreaComponent,
-        FileChooseComponent
+        FileChooseComponent,
+        TableComponent
     ],
     schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA]
 })
