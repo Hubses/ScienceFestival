@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpModule } from '@angular/http';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule, HttpHeaders } from '@angular/common/http';
 // 3rd party libs
 import { VirtualScrollModule } from 'angular2-virtual-scroll';
 // common module
@@ -139,6 +140,7 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    HttpClientModule,
     ...ApplicationEffects,
     StoreModule.provideStore({ newsReducer }),
     StoreDevtoolsModule.instrumentOnlyWithExtension({
