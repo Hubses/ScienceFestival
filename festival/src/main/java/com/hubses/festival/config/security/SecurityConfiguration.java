@@ -3,7 +3,6 @@ package com.hubses.festival.config.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -23,11 +22,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeRequests()
                 .antMatchers("/").permitAll()
-                .antMatchers(HttpMethod.OPTIONS, "/api/**").permitAll() //CORS related
                 .antMatchers("/**/*.html", "/**/*.css", "/**/*.js").permitAll()
                 .antMatchers("/api/*/customers/**", "/api/*/users/**", "/api/*/jury/**", "/api/*/committee/**").hasAuthority("ADMIN")
                 .anyRequest().authenticated()
                 .and()
+                .cors().and()
                 .httpBasic().realmName("Science")
                 .and()
                 .logout().logoutUrl("/logout");
