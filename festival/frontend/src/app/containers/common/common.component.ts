@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { MdMenu, MdMenuItem, MdAccordion } from "@angular/material";
+import { MdMenu, MdMenuItem, MdAccordion } from '@angular/material';
 @Component({
     selector: 'app-common',
     templateUrl: 'common.component.html'

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, Output, EventEmitter,ViewEncapsulation} from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'sf-common-calendar',

@@ -1,5 +1,5 @@
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 export const NEWS: sf.entities.News[] = [{
   id: 1,
@@ -39,12 +39,12 @@ export class NewsRepository {
   constructor() {
   }
 
-  getNews(): Observable<sf.entities.News[]> {
+  getAllNews(): Observable<sf.entities.News[]> {
     return Observable.of(NEWS);
   }
 
-  getNewsItemById(id: number): Observable<sf.entities.News> {
-    let newsItem: sf.entities.News = NEWS.find(n => n.id == id);
+  getNewsItemById(id: number): Observable<sf.entities.News> { // backend call for one news
+    const newsItem: sf.entities.News = NEWS.find(n => n.id === id);
     return Observable.of(newsItem);
   }
 }

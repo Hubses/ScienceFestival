@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from "@angular/router";
 import { Store } from '@ngrx/store';
 
 import { Observable } from 'rxjs';
 
 import { getNewsAction } from '../../../store/news/';
+import { LocalizeRouterService } from "localize-router";
 
 
 @Component({
@@ -12,8 +14,12 @@ import { getNewsAction } from '../../../store/news/';
   styleUrls: ['./app.component.less']
 })
 export class AppComponent implements OnInit {
+  public localization: sf.common.DropdownOptions<string>;
 
-  constructor() { }
+  constructor(
+    private localize: LocalizeRouterService
+  ) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+  }
 }

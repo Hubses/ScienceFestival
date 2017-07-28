@@ -1,6 +1,6 @@
 <div class="master-page">
-    <sf-header class="master-page__header" [isOpen]="navigationShow$ | async" (onTogledButton)="toggleSidenav($event)" (onLocalizationChange)="getLocalization($event)"
-        [currentLocalization]="currentLocalization$ | async" [localizationList]="localizationList$ | async"></sf-header>
+    <!-- <sf-header class="master-page__header" [isOpen]="navigationShow$ | async" (onTogledButton)="toggleSidenav($event)" (onLocalizationChange)="getLocalization($event)"
+        [currentLocalization]="currentLocalization$ | async" [localizationList]="localizationList$ | async"></sf-header> -->
 
     <md-sidenav-container class="master-page__sidenav">
         <md-sidenav mode="side" class="navigation-panel" [opened]="navigationShow$ | async">

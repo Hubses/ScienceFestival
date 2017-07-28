@@ -8,6 +8,7 @@ import { Store } from "@ngrx/store";
 import * as fromRoot from '../../../store';
 import * as layout from '../../../store/layout/layout.actions';
 import * as app from '../../../store/application/application.actions';
+import { getUserAction } from '../../../store/user';
 
 @Component({
     selector: 'sf-master-page',
@@ -23,11 +24,14 @@ export class MasterPageComponent implements OnInit, OnDestroy {
     public navigationCollapse$: Observable<boolean>;
     public localizationList$: Observable<sf.entities.Localization>;
     public currentLocalization$: Observable<sf.entities.Localization>;
+
+    public user$: Observable<sf.entities.User>;
     // subscriptions
     private navigationShowSubscriber: Subscription;
     private navigationCollapseSubscriber: Subscription;
     private localizationListSubscription: Subscription;
     private currentLocalizationSubscription: Subscription;
+    private userSubscription: Subscription;
 
     // variables
     private localizationList: sf.entities.Localization;
@@ -38,27 +42,30 @@ export class MasterPageComponent implements OnInit, OnDestroy {
     constructor(
         private store: Store<fromRoot.ApplicationState>
     ) {
-        this.navigationShow$ = this.store.select(s => s.layout.showSidenav);
-        this.navigationCollapse$ = this.store.select(s => s.layout.collapseSidenav);
-        this.localizationList$ = this.store.select(s => s.application.localizationList);
-        this.currentLocalization$ = this.store.select(s => s.application.currentLocalization);
+        // this.navigationShow$ = this.store.select(s => s.layout.showSidenav);
+        // this.navigationCollapse$ = this.store.select(s => s.layout.collapseSidenav);
+        // this.localizationList$ = this.store.select(s => s.application.localizationList);
+        // this.currentLocalization$ = this.store.select(s => s.application.currentLocalization);
+        // this.user$ = this.store.select(s => s.userReducer);
     }
 
     ngOnInit() {
-        this.store.dispatch(new app.GetLocalizationListAction());
+        // this.store.dispatch(new app.GetLocalizationListAction());
+        // this.store.dispatch(getUserAction('example@example.com'));
+        // this.userSubscription = this.user$.subscribe((user) => { });
 
-        this.navigationShowSubscriber = this.navigationShow$.subscribe((isShowNavigation) => {
-            this.isNavigationShow = isShowNavigation;
-        });
-        this.navigationCollapseSubscriber = this.navigationCollapse$.subscribe((isNavigationCollapse) => {
-            this.isNavigationCollapsed = isNavigationCollapse;
-        });
-        this.localizationListSubscription = this.localizationList$.subscribe((localizationList) => {
-            this.localizationList = localizationList;
-        });
-        this.currentLocalizationSubscription = this.currentLocalization$.subscribe((currentLocalization) => {
-            this.currentLocalization = currentLocalization;
-        });
+        // this.navigationShowSubscriber = this.navigationShow$.subscribe((isShowNavigation) => {
+        //     this.isNavigationShow = isShowNavigation;
+        // });
+        // this.navigationCollapseSubscriber = this.navigationCollapse$.subscribe((isNavigationCollapse) => {
+        //     this.isNavigationCollapsed = isNavigationCollapse;
+        // });
+        // this.localizationListSubscription = this.localizationList$.subscribe((localizationList) => {
+        //     this.localizationList = localizationList;
+        // });
+        // this.currentLocalizationSubscription = this.currentLocalization$.subscribe((currentLocalization) => {
+        //     this.currentLocalization = currentLocalization;
+        // });
 
     }
     ngOnDestroy(): void {
@@ -66,6 +73,7 @@ export class MasterPageComponent implements OnInit, OnDestroy {
         this.navigationCollapseSubscriber.unsubscribe();
         this.localizationListSubscription.unsubscribe();
         this.currentLocalizationSubscription.unsubscribe();
+        this.userSubscription.unsubscribe();
     }
     public toggleSidenav(): void {
         if (!this.isNavigationShow) {

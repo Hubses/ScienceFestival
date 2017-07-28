@@ -1,0 +1,35 @@
+<!-- <div class="calendar">
+    <div class="calendar__header">
+        <div class="calendar__month"></div>
+        <div class="calendar__year"></div>
+        <div class="calendar__actions">
+            <div class="calendar__prev"></div>
+            <div class="calendar__next"></div>
+        </div>
+    </div>
+    <div class="calendar__body">
+        <div class="calendar__weekname"></div>
+        
+    </div>
+    
+</div> -->
+<md-sidenav-container class="calendar">
+    <div class="calendar__header">
+        <div class="calendar__month">{{currentMonth | month:'MMMM'}}</div>
+        <div class="calendar__year">{{currentYear| year: 'YYYY'}}</div>
+        <div class="calendar__actions">
+            <div class="calendar__prev">prev</div>
+            <div class="calendar__next">next</div>
+        </div>
+    </div>
+    <div class="calendar__body">
+        <div class="calendar__cells">
+            <div class="calendar__cell__item" (click)="sidenav.open()">
+                calendar item
+            </div>
+        </div>
+    </div>
+    <md-sidenav #sidenav align="end" class="example-sidenav">
+        <sf-common-event></sf-common-event>
+    </md-sidenav>
+</md-sidenav-container>

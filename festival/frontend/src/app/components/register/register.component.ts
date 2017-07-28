@@ -9,12 +9,12 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 export class RegisterComponent implements OnInit { // registerForm
     public positions: sf.common.DropdownOptions<string>; //Input
-    public registerForm: sf.entities.User;
+    public registerForm: sf.entities.AuthUser;
     @ViewChild('email') public email: sf.common.StringInput;
     @ViewChild('password') public password: sf.common.StringInput;
     @ViewChild('phone') public phone: sf.common.NumberInput;
     @ViewChild('position') public position: sf.common.Dropdown<string>;
-    @Output() public onSubmitted: EventEmitter<sf.entities.User> = new EventEmitter<sf.entities.User>();
+    @Output() public onSubmitted: EventEmitter<sf.entities.AuthUser> = new EventEmitter<sf.entities.AuthUser>();
 
     constructor() { }
 
@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit { // registerForm
         console.log(position);
         return position;
     }
-    public submit(form: sf.entities.User): void {
+    public submit(form: sf.entities.AuthUser): void {
         this.registerForm = {
             id: 1,
             email: this.email.value,

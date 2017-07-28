@@ -6,12 +6,14 @@ declare namespace sf.store {
         entity: T
     }
     interface RemovableObject<T> {
+        isRemovable: boolean;
         isRemoving: boolean;
         isRemoved: boolean;
         isRemoveError: boolean;
         entity: T;
     }
     interface CreatableObject<T> {
+        isCreatable: boolean;
         isCreated: boolean;
         isCreating: boolean;
         isCreatingWithEror: boolean;
@@ -23,10 +25,9 @@ declare namespace sf.store {
         searchResult: T;
     }
     interface EditableObject<T> {
-        isEditing: boolean;
+        isEditable: boolean;
+        isEditSuccess: boolean;
         isEdited: boolean;
-        isEditStart: boolean;
-        isEditEnd: boolean;
         isEditError: boolean;
         entity: T;
     }

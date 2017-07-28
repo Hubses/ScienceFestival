@@ -22,11 +22,11 @@ export class HeaderComponent implements OnInit, OnChanges {
 
     ngOnChanges(changes: SimpleChanges): void {
         if (changes['localizationList'] && changes['currentLocalization']) {
-            this.localizationOption = {
-                placeholder: 'choose languadge',
-                values: this.disassembleLocalizationByValues(this.localizationList),
-                selectedValue: this.disassembleLocalizationByValues(this.localizationList, 0)
-            }
+            // this.localizationOption = {
+            //     placeholder: 'choose languadge',
+            //     values: this.disassembleLocalizationByValues(this.localizationList),
+            //     selectedValue: this.disassembleLocalizationByValues(this.localizationList, 0)
+            // }
         }
     }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter,ElementRef,ViewChild } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,13 +8,11 @@ import { Router } from '@angular/router';
 })
 
 export class NewsItemComponent implements OnInit {
-    @ViewChild('commonButton') public commonButton:sf.common.Button;
+    @ViewChild('commonButton') public commonButton: sf.common.Button;
     @Input() news: sf.entities.News;
-    @Output() onViewEdit: EventEmitter<sf.entities.News> = new EventEmitter<sf.entities.News>()
+    @Output() onViewEdit: EventEmitter<sf.entities.News> = new EventEmitter<sf.entities.News>();
 
-    public flag: boolean = false;
-
-    constructor(private router: Router) {
+    constructor() {
     }
 
     ngOnInit() {

@@ -8,10 +8,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 
 export class LoginComponent implements OnInit {
-    public loginForm: sf.entities.User;
+    public loginForm: sf.entities.AuthUser;
     @ViewChild('email') public email: sf.common.StringInput;
     @ViewChild('password') public password: sf.common.StringInput;
-    @Output() public onSubmitted: EventEmitter<sf.entities.User> = new EventEmitter<sf.entities.User>();
+    @Output() public onSubmitted: EventEmitter<sf.entities.AuthUser> = new EventEmitter<sf.entities.AuthUser>();
 
     constructor() { }
 

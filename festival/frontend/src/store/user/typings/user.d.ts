@@ -2,7 +2,6 @@ declare namespace sf.entities {
     interface User {
         id?: number
         email: string;
-        password: string;
         // lang?: sf.entities.Localization;
         name?: string;
         role?: string;
@@ -14,4 +13,7 @@ declare namespace sf.entities {
         code: string;
         number: string;
     }
+    // interface AuthUser extends User {
+    //     password: string
+    // }
 }

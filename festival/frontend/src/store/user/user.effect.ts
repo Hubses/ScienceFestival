@@ -15,8 +15,8 @@ export class UserEffect {
     @Effect() public getNews$: Observable<Action> = this.actions$
         .ofType(USER_ACTION_TYPES.GET)
         .map(toPayload)
-        .switchMap((payload: sf.entities.User) => this.userRepository.getUser(payload.id)
-            .map(results => getUserSuccessAction(results))
+        .switchMap((payload: string) => this.userRepository.getUser(payload)
+            .map(result => getUserSuccessAction(result))
             .catch(() => Observable.of(getUserFailureAction())));
 
     constructor(

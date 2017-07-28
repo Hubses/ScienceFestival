@@ -1,25 +1,23 @@
-import { StoreModule, combineReducers } from '@ngrx/store';
+import { StoreModule, combineReducers, Store } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { createSelector } from 'reselect';
-import newsReducer from './store/news/news.reducer';
-import { NewsEffect } from './store/news';
-import { UserEffect } from './store/user';
-import userReducer from './store/user/user.reducer';
 import * as fromRouter from '@ngrx/router-store';
-import { layout } from './store/layout';
-import * as fromApp from './store/application';
 
+import * as fromApplication from './app/core/reducers';
+
+// import * as fromNews from './app/news/reducers';
+// import { NewsEffect } from './store/news';
+// import { UserEffect } from './store/user';
+// import userReducer from './store/user/user.reducer';
+// 
+// import { layout } from './store/layout';
+// import * as fromApp from './store/application';
 export interface ApplicationState {
-    application: fromApp.State;
-    layout: any;
+    application: fromApplication.CoreStates;
     router: fromRouter.RouterState;
-    newsReducer: sf.entities.News[];
-    userReducer: sf.entities.User;
 }
 export const ApplicationReducers = {
-    newsReducer,
-    userReducer,
-    layout: layout,
+    application: fromApplication.reducers,
     router: fromRouter.routerReducer,
-    application: fromApp.reducer
 };
+
+export const store = Store.create(ApplicationReducers);

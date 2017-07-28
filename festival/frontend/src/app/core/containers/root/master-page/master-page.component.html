@@ -1,0 +1,7 @@
+<div class="master-page"> Hello MasterPageComponent! </div>
+<!-- <sf-common-dropdown [dropdownOptions]="localization" (selectedValueChange)="changeLocalization($event)"></sf-common-dropdown> -->
+<button class="changeLocalization" (click)="changeLocalization('en')" [routerLink]="'/en' | translate" [routerLinkActive]="'active'">en</button>
+<button class="changeLocalization" (click)="changeLocalization('ru')" [routerLink]="'/ru' | translate" [routerLinkActive]="'active'">ru</button>
+<div class="app-title">
+    {{'App.Title' | translate}}
+</div>

@@ -25,7 +25,16 @@ import {
     MapComponent,
     HeaderComponent,
     TextAreaComponent,
-    FileChooseComponent
+    FileChooseComponent,
+    /**
+     * @{calendar}
+     */
+    Calendar2Component,
+    Calendar2Service,
+    EventComponent,
+    // pipes
+    MonthPipe,
+    YearPipe
 } from './';
 
 
@@ -37,6 +46,7 @@ import {
         MaterialModule,
         BrowserAnimationsModule,
         CalendarModule,
+        CommonModule,
         AgmCoreModule.forRoot({
             apiKey: 'AIzaSyB_TXfNWY4Vw5b7kTwo--qgSqt_ERZ9BiY'
         })
@@ -60,9 +70,13 @@ import {
         CalendarComponent,
         TextAreaComponent,
         FileChooseComponent,
-
+        Calendar2Component,
+        EventComponent,
+        // pipes
+        MonthPipe,
+        YearPipe
     ],
-    providers: [/* TODO: Providers go here */],
+    providers: [Calendar2Service],
     exports: [
         MaterialModule,
         InputComponent,
@@ -83,7 +97,11 @@ import {
         CalendarComponent,
         TextAreaComponent,
         FileChooseComponent,
-
+        Calendar2Component,
+        EventComponent,
+        // pipes
+        MonthPipe,
+        YearPipe
     ],
     schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA]
 })
@@ -91,7 +109,7 @@ export class SFCommonModule {
     static forRoot(): ModuleWithProviders {
         return {
             ngModule: SFCommonModule,
-            // providers: [] // service
+            providers: [Calendar2Service] // service
         };
     }
 }

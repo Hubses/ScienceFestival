@@ -1,10 +1,10 @@
-<sf-common-card class="news-item">
+<sf-common-card class="news-item" *ngIf="news">
   <card-title class="news-item__title">
     <div class="title">
       <div class="title__text">{{news.header}}</div>
       <div class="title__buttons">
         <div class="title-buttons">
-          <sf-common-button class="title-buttons__edit" (onButtonClick)="viewEdit(news)">
+          <sf-common-button class="title-buttons__edit" (click)="viewEdit(news)">
             <sf-common-icon class="icon__edit" type="edit"></sf-common-icon>
           </sf-common-button>
           <sf-common-button class="title-buttons__close">

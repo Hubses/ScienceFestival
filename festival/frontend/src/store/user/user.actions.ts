@@ -4,7 +4,7 @@ export const USER_ACTION_TYPES = {
     GET_FAILURE: '[user] GET FAILURE'
 };
 
-export const getUserAction = (payload?) => ({
+export const getUserAction = (payload?: string) => ({
     type: USER_ACTION_TYPES.GET,
     payload
 });

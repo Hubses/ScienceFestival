@@ -76,4 +76,16 @@ declare namespace sf.common {
     interface Button {
         onButtonClick: any;
     }
+    interface Calendar2Options {
+        dateFormat: string;
+        locale: string;
+    }
+    interface Calendar2Event {
+        title: string;
+        description: string;
+        startDate: Date;
+        endDate: Date;
+        timeStart: Date;
+        timeEnd: Date;
+    }
 }

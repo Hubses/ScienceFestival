@@ -16,3 +16,4 @@ export * from './accordion';
 export * from './inputNumb';
 export * from './textarea';
 export * from './filechoose';
+export * from './calendar2/';

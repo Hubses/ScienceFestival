@@ -1,17 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 // backend users
-export const BACKENDUSERS: sf.entities.User[] = [{
+export const USERS: sf.entities.User[] = [{
     id: 1,
     email: 'example@example.com',
-    password: '123',
     isApproved: true,
     role: 'admin'
 },
 {
     id: 2,
-    email: 'example@example.com',
-    password: 'qwe',
+    email: 'example2@example.com',
     isApproved: true,
     role: 'user'
 }];
@@ -22,8 +20,8 @@ export class UserRepository {
     constructor() {
     }
 
-    getUser(userId: number): Observable<sf.entities.User> {
-        const user = BACKENDUSERS.find((user) => user.id === userId);
+    getUser(userEmail: string): Observable<sf.entities.User> {
+        const user = USERS.find((user) => user.email === userEmail);
         return Observable.of(user);
     }
     getUserRole(user: sf.entities.User): string {

@@ -1,7 +1,7 @@
 export * from './common';
 export * from './root';
-export * from './master-page';
-export * from './news-feed';
+// export * from './master-page';
+// export * from './news-feed';
 export * from './full-feed';
 export * from './events-feed';
 export * from './calendar';

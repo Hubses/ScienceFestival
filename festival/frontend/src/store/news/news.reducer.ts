@@ -17,26 +17,42 @@ const initialState: NewsStates = {
     isLoading: false,
     isError: false,
     entity: null,
-    isEdited: false,
+    isEditable: false,
     isSearching: false,
-    isCreated: false
+    isCreatable: false,
+    isRemovable: false
 };
 
 const newsReducer = (state: NewsStates = initialState, { type, payload }: Action): NewsStates => {
     switch (type) {
+        case NEWS_ACTION_TYPES.GET_ALL:
+            return Object.assign({}, state, {
+                isLoading: true,
+                isError: false,
+                entity: payload
+            });
+
+        case NEWS_ACTION_TYPES.GET_ALL_SUCCESS:
+            return Object.assign({}, state, {
+                isLoaded: true,
+                isLoading: false,
+                isError: false,
+                entity: payload
+            });
+
+        case NEWS_ACTION_TYPES.GET_ALL_FAILURE:
+            return Object.assign({}, state, {
+                isLoaded: false,
+                isLoading: false,
+                isError: true,
+            });
+
         case NEWS_ACTION_TYPES.GET:
-            if (payload) {
-                return Object.assign({}, state, {
-                    isLoading: true,
-                    isError: false
-                });
-            } else {
-                return Object.assign({}, state, {
-                    isLoading: true,
-                    isError: false,
-                    entity: payload
-                })
-            }
+            return Object.assign({}, state, {
+                isLoading: true,
+                isError: false,
+                entity: payload
+            });
 
         case NEWS_ACTION_TYPES.GET_SUCCESS:
             return Object.assign({}, state, {
@@ -51,12 +67,6 @@ const newsReducer = (state: NewsStates = initialState, { type, payload }: Action
                 isLoaded: false,
                 isLoading: false,
                 isError: true,
-            });
-        case NEWS_ACTION_TYPES.EDIT:
-            return Object.assign({}, state, {
-                isEdited: true,
-                isEditing: false,
-                entity: payload
             });
 
         default:

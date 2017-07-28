@@ -14,10 +14,9 @@ const initialState: State = {
 export function layout(state = initialState, action: layoutActions.SidenavActions): State {
     switch (action.type) {
         case layoutActions.CLOSE_SIDENAV:
-            return {
-                showSidenav: false,
-                collapseSidenav: undefined
-            };
+            return Object.assign({}, state, {
+                showSidenav: false
+            })
 
         case layoutActions.OPEN_SIDENAV:
             return {
