@@ -15,6 +15,7 @@ import { StoreModule } from '@ngrx/store';
 import { combineReducers } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreLogMonitorModule, useLogMonitor } from '@ngrx/store-log-monitor';
+import { RouterStoreModule } from "@ngrx/router-store";
 
 import { NewsRepository, NewsEffect } from './store/news';
 import { UserRepository, UserEffect } from './store/user';
@@ -54,7 +55,7 @@ import {
   NewsEditorComponent,
   NewsCreaterComponent
 } from './app/components';
-import { RouterStoreModule } from '@ngrx/router-store';
+
 import { EffectsModule } from "@ngrx/effects";
 // routes
 

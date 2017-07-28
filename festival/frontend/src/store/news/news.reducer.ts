@@ -25,10 +25,18 @@ const initialState: NewsStates = {
 const newsReducer = (state: NewsStates = initialState, { type, payload }: Action): NewsStates => {
     switch (type) {
         case NEWS_ACTION_TYPES.GET:
-            return Object.assign({}, state, {
-                isLoading: true,
-                isError: false
-            });
+            if (payload) {
+                return Object.assign({}, state, {
+                    isLoading: true,
+                    isError: false
+                });
+            } else {
+                return Object.assign({}, state, {
+                    isLoading: true,
+                    isError: false,
+                    entity: payload
+                })
+            }
 
         case NEWS_ACTION_TYPES.GET_SUCCESS:
             return Object.assign({}, state, {

@@ -1,3 +1,6 @@
+// import { MdButton } from "@angular/material/typings";
+// import { EventEmitter } from "@angular/core/src/event_emitter";
+
 declare namespace sf.common {
     interface Tab {
         id: number;
@@ -31,13 +34,13 @@ declare namespace sf.common {
         description: string;
     }
 
-    interface CalendarOptions{
-      aspectRatio?: number;
-      contentHeight?: number | string;
-      header?: any;
-      editable?: boolean;
-      eventLimit?: boolean;
-      events?: sf.common.Event[];
+    interface CalendarOptions {
+        aspectRatio?: number;
+        contentHeight?: number | string;
+        header?: any;
+        editable?: boolean;
+        eventLimit?: boolean;
+        events?: sf.common.Event[];
     }
 
     interface Event {
@@ -69,5 +72,8 @@ declare namespace sf.common {
     }
     interface Accordion {
         isCollapsed: boolean;
+    }
+    interface Button {
+        onButtonClick: any;
     }
 }

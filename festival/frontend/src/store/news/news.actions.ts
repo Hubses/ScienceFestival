@@ -45,8 +45,9 @@ export const createNewsSuccessAction = (payload: sf.entities.News) => ({
 export const createNewsFailureAction = () => ({
     type: NEWS_ACTION_TYPES.CREATE_FAILURE
 });
-export const editNewsAction = () => ({
-    type: NEWS_ACTION_TYPES.EDIT
+export const editNewsAction = (payload: sf.entities.News) => ({
+    type: NEWS_ACTION_TYPES.EDIT,
+    payload
 });
 export const editNewsSuccessAction = (payload: sf.entities.News) => ({
     type: NEWS_ACTION_TYPES.EDIT_SUCCESS,
