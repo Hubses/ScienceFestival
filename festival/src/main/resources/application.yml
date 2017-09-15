@@ -4,8 +4,22 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
+  datasource:
+    url: jdbc:h2:mem:scifest;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
 logging:
   level:
     org:
       hibernate:
         type: trace
+endpoints:
+  metrics:
+    sensitive: false
+server:
+  session:
+    cookie:
+      http-only: true

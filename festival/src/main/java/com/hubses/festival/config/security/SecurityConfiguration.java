@@ -15,20 +15,29 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+
+    private static final String API_PREFIX = "/api";
+    private static final String API_VERSION = "/v1";
+    private static final String REST_PREFIX = API_PREFIX + API_VERSION;
+    private static final String AUTHORITY_ADMIN = "ADMIN";
+
     @Autowired
     private CustomUserDetailService customUserDetailService;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable().authorizeRequests()
+        http
+                .csrf().disable()
+                .authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers("/**/*.html", "/**/*.css", "/**/*.js").permitAll()
-                .antMatchers("/api/*/customers/**", "/api/*/users/**", "/api/*/jury/**", "/api/*/committee/**").hasAuthority("ADMIN")
-                .anyRequest().authenticated()
-                .and()
+                .antMatchers(REST_PREFIX + "/customers/**").hasAuthority(AUTHORITY_ADMIN)
+                .antMatchers(REST_PREFIX + "/users/**").hasAuthority(AUTHORITY_ADMIN)
+                .antMatchers(REST_PREFIX + "/jury/**").hasAuthority(AUTHORITY_ADMIN)
+                .antMatchers(REST_PREFIX + "/committee/**").hasAuthority(AUTHORITY_ADMIN).and()
                 .cors().and()
-                .httpBasic().realmName("Science")
-                .and()
+                .httpBasic().realmName("Science").and()
+                .headers().frameOptions().sameOrigin().and()
                 .logout().logoutUrl("/logout");
     }
 
