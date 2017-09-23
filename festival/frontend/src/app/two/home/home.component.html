@@ -1,0 +1,15 @@
+<p *ngIf="loading$ | async">Loading...</p>
+<table *ngIf="loaded$ | async" class="table table-striped">
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Completed</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let todo of (todos$ | async)">
+    <td>{{todo.title}}</td>
+    <td>{{todo.completed}}</td>
+  </tr>
+  </tbody>
+</table>

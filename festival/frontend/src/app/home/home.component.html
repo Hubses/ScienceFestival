@@ -1,0 +1,21 @@
+<p *ngIf="loading$ | async">Loading...</p>
+<table *ngIf="loaded$ | async" class="table table-striped">
+  <thead>
+  <tr>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+    <th>name</th>
+    <th>email</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of (users$ | async)">
+    <td>
+      <a [routerLink]="['/one', user.id]">View User's Posts</a>
+      <a [routerLink]="['/two', user.id]">View User's Todos</a>
+    </td>
+    <td>{{user.name}}</td>
+    <td>{{user.email}}</td>
+  </tr>
+  </tbody>
+</table>
