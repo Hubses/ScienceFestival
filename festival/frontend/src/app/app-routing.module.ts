@@ -13,8 +13,8 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'one',
-    loadChildren: './one/one.module#OneModule'
+    path: 'login',
+    loadChildren: './auth/auth.module#AuthModule'
   },
   {
     path: 'two',
