@@ -46,15 +46,14 @@ export class AuthService {
         return findUser$;
     }
 
-    public register({ username, password }: Security): Observable<User> {
-        let newUser: User = { username: username, role: sf.auth.UserRoles.USER };
+    public register(secretUser: Security): Observable<User> {
+        let newUser: User = { username: secretUser.username, role: UserRoles.USER };
         if (this.isHaveUser(newUser)) {
             newUser = users.find((users: User) => users.username === newUser.username);
         }
         else {
             users.push(newUser);
         }
-        users.push(newUser);
         return of(newUser);
     }
 

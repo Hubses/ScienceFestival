@@ -4,10 +4,10 @@
     <button *ngIf="!(showSidebar$ | async)" type="button" class="btn btn-default" (click)="openSidebar()">Show sidebar</button>
     <ul *ngIf="showSidebar$ | async" class="nav nav-pills nav-stacked">
       <li role="presentation" [routerLinkActive]="['active']">
-        <a [routerLink]="['/login']">Login</a>
+        <a [routerLink]="['/auth/login']">Login</a>
       </li>
       <li role="presentation" [routerLinkActive]="['active']">
-        <a [routerLink]="['/one']">One</a>
+        <a [routerLink]="['/auth/register']">Register</a>
       </li>
       <li role="presentation" [routerLinkActive]="['active']">
         <a [routerLink]="['/two', 1]">Two</a>

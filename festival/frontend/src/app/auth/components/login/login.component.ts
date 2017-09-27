@@ -1,11 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
 
 import * as root from '../../reducers';
-import { Observable } from 'rxjs/Observable';
 import { User } from '@sf/auth';
 import * as auth from "../../actions/auth";
-import { Subscription } from 'rxjs';
 
 @Component({
 	selector: 'login',

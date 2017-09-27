@@ -13,12 +13,12 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'login',
+    path: 'auth',
     loadChildren: './auth/auth.module#AuthModule'
   },
   {
-    path: 'two',
-    loadChildren: './two/two.module#TwoModule'
+    path: 'auth',
+    loadChildren: './auth/auth.module#AuthModule'
   }
 ];
 
