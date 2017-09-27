@@ -1,5 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import { Router } from '@angular/router';
+
+import { Action } from '@ngrx/store';
+import { back, forward, go, replace, show, search } from "@ngrx/router-store";
+
 import { Observable } from 'rxjs/Observable';
 import { of } from "rxjs/Observable/of";
 import { environment } from '../../../environments/environment';
@@ -25,7 +30,9 @@ const users: User[] = [{
 export class AuthService {
     private _isAuthentificate = false;
 
-    constructor(private http: Http) { }
+    constructor(
+        private http: Http,
+        private router: Router) { }
 
     public loadUsers(): User[] {
         return users;
@@ -33,6 +40,9 @@ export class AuthService {
     private isHaveUser(user: User): boolean {
         const isHaveUser = (users.find((users: User) => users.username === user.username)) ? true : false;
         return isHaveUser;
+    }
+    private getUserByUsername(findUser: User): User {
+        return users.find((users: User) => users.username === findUser.username);
     }
     public login(securityUser: Security): Observable<User> {
         const findUser$ = of(users.find((users: User) => {
@@ -49,9 +59,8 @@ export class AuthService {
     public register(secretUser: Security): Observable<User> {
         let newUser: User = { username: secretUser.username, role: UserRoles.USER };
         if (this.isHaveUser(newUser)) {
-            newUser = users.find((users: User) => users.username === newUser.username);
-        }
-        else {
+            newUser = this.getUserByUsername(newUser);
+        } else {
             users.push(newUser);
         }
         return of(newUser);
@@ -60,5 +69,8 @@ export class AuthService {
     public logout(): Observable<boolean> {
         this._isAuthentificate = false;
         return of(this._isAuthentificate);
+    }
+    public redirect(url: string): Observable<boolean> {
+        return Observable.fromPromise(this.router.navigate([url]));
     }
 }

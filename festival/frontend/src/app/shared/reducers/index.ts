@@ -31,3 +31,5 @@ export const rootReducer = createReducer(); // prout
 export const getUIState = (state: State) => state.ui;
 export const getShowSidebar = createSelector(getUIState, ui.getShowSidebar);
 
+// export default createReducer;
+// export default rootReducer;

@@ -11,9 +11,6 @@ import * as Auth from '../actions/auth';
 import { Security, User } from '@sf/auth';
 
 export const REDIRECT_DEBOUNCE = new InjectionToken<number>('Redirect Debounce');
-// export const SEARCH_SCHEDULER = new InjectionToken<Scheduler>(
-//   'Search Scheduler'
-// );
 
 @Injectable()
 export class AuthEffectsService {
@@ -21,10 +18,16 @@ export class AuthEffectsService {
   login$: Observable<Action> = this.actions$
     .ofType(Auth.ActionTypes.LOGIN)
     .map(toPayload)
-    .switchMap((payload: Security) =>
-      this.authService.login(payload))
+    .switchMap((payload: Security) => this.authService.login(payload))
     .map((result: User) => new Auth.LoginSuccessAction(result))
     .catch((error) => of(new Auth.LoginFailureAction(error)));
+
+  @Effect({ dispatch: false })
+  loginSuccess$: Observable<Action> = this.actions$
+    .ofType(Auth.ActionTypes.LOGIN_SUCCESS)
+    .map(toPayload)
+    .debounceTime(this.redirectDebounce)
+    .do(() => this.router.navigate(['/']));
 
   @Effect()
   register$: Observable<Action> = this.actions$
@@ -35,25 +38,18 @@ export class AuthEffectsService {
     .catch((error) => of(new Auth.RegisterFailureAction(error)));
 
   @Effect({ dispatch: false })
-  loginSuccess$: Observable<Action> = this.actions$
-    .ofType(Auth.ActionTypes.LOGIN_SUCCESS)
-    .map(() => new Auth.LoginRedirectAction())
-    .do(() => this.router.navigate(['/login']));
+  registerSuccess$: Observable<Action> = this.actions$
+    .ofType(Auth.ActionTypes.REGISTER_SUCCESS)
+    .map(toPayload)
+    .debounceTime(this.redirectDebounce)
+    .do(() => this.router.navigate(['/']));
 
-  @Effect({ dispatch: false })
+  @Effect()
   logout$: Observable<Action> = this.actions$
     .ofType(Auth.ActionTypes.LOGOUT)
     .map(toPayload)
     .switchMap(() => this.authService.logout())
-    .map((result: boolean) => new Auth.LogoutAction(result))
-    .do(() => this.router.navigate(['/logout']));
-
-  @Effect({ dispatch: false })
-  logoutHome$: Observable<Action> = this.actions$
-    .ofType(Auth.ActionTypes.LOGOUT, Auth.ActionTypes.AUTH_REDIRECT)
-    .map(toPayload)
-    .debounceTime(500)
-    .map((result: boolean) => new Auth.LogoutAction(result))
+    .map((result) => new Auth.LogoutAction(result))
     .do(() => this.router.navigate(['/']));
 
   constructor(

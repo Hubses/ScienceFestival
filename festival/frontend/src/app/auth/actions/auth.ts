@@ -52,7 +52,7 @@ export class LogoutAction implements Action {
 
   constructor(public payload?: boolean) { }
 }
-export class LoginRedirectAction implements Action {
+export class RedirectAction implements Action {
   readonly type = ActionTypes.AUTH_REDIRECT;
 
   constructor(public payload?: string) { }
@@ -62,4 +62,8 @@ export type Actions
   = LoginAction |
   LoginSuccessAction |
   LoginFailureAction |
-  LoginRedirectAction;
+  LogoutAction |
+  RegisterAction |
+  RegisterSuccessAction |
+  RegisterFailureAction |
+  RedirectAction;
