@@ -44,4 +44,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 	login(): void {
 		this.store.dispatch(new auth.LoginAction({ username: 'test', password: '123' }));
 	}
+	logout():void{
+		this.store.dispatch(new auth.LogoutAction());
+	}
 }

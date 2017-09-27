@@ -32,7 +32,6 @@ export class AuthEffectsService {
   @Effect({ dispatch: false })
   loginSuccess$: Observable<Action> = this.actions$
     .ofType(Auth.ActionTypes.LOGIN_SUCCESS)
-    .map(toPayload)
     .do(() => this.router.navigate(['/']));
 
   @Effect({ dispatch: false })

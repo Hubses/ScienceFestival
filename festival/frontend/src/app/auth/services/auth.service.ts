@@ -30,13 +30,30 @@ export class AuthService {
     public loadUsers(): User[] {
         return users;
     }
+    private isHaveUser(user: User): boolean {
+        const isHaveUser = (users.find((users: User) => users.username === user.username)) ? true : false;
+        return isHaveUser;
+    }
     public login(securityUser: Security): Observable<User> {
-        const findUser$ = of(users.find((users: User) => users.username === securityUser.username ? this._isAuthentificate = true : this._isAuthentificate = false));
+        const findUser$ = of(users.find((users: User) => {
+            if (users.username === securityUser.username) {
+                this._isAuthentificate = true;
+            } else {
+                this._isAuthentificate = false;
+            }
+            return users.username === securityUser.username;
+        }));
         return findUser$;
     }
 
     public register({ username, password }: Security): Observable<User> {
-        const newUser: User = { username: username, role: sf.auth.UserRoles.USER };
+        let newUser: User = { username: username, role: sf.auth.UserRoles.USER };
+        if (this.isHaveUser(newUser)) {
+            newUser = users.find((users: User) => users.username === newUser.username);
+        }
+        else {
+            users.push(newUser);
+        }
         users.push(newUser);
         return of(newUser);
     }
