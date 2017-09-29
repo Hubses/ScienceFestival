@@ -50,6 +50,18 @@ export function reducer(state = initialState, action: auth.Actions): State {
                 error: _.clone(action.payload),
                 pending: false
             };
+        case auth.ActionTypes.USER_ROLES_FAILURE:
+            return {
+                ...state,
+                error: _.clone(action.payload),
+                pending: false
+            };
+        case auth.ActionTypes.USER_ROLES_SUCCESS:
+            return {
+                ...state,
+                error: null,
+                pending: false
+            };
         default:
             return state;
     }

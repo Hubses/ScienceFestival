@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { User, Security } from "@sf/auth";
+import { User, Security } from '@sf/auth';
 
 export const ActionTypes = {
   LOGIN: '[AUTH] login',
@@ -9,7 +9,9 @@ export const ActionTypes = {
   REGISTER_SUCCESS: '[AUTH] register success',
   REGISTER_FAILURE: '[AUTH] register failure',
   LOGOUT: '[AUTH] logout',
-  AUTH_REDIRECT: '[AUTH] auth redirect'
+  USER_ROLES: '[AUTH] user roles',
+  USER_ROLES_SUCCESS: '[AUTH] user roles success',
+  USER_ROLES_FAILURE: '[AUTH] user roles failure'
 };
 
 export class LoginAction implements Action {
@@ -52,8 +54,18 @@ export class LogoutAction implements Action {
 
   constructor(public payload?: boolean) { }
 }
-export class RedirectAction implements Action {
-  readonly type = ActionTypes.AUTH_REDIRECT;
+export class LoadRolesAction implements Action {
+  readonly type = ActionTypes.USER_ROLES;
+
+  constructor(public payload?: any) { }
+}
+export class LoadRolesSuccessAction implements Action {
+  readonly type = ActionTypes.USER_ROLES_SUCCESS;
+
+  constructor(public payload?: any) { }
+}
+export class LoadRolesFailureAction implements Action {
+  readonly type = ActionTypes.USER_ROLES_FAILURE;
 
   constructor(public payload?: string) { }
 }
@@ -66,4 +78,6 @@ export type Actions
   RegisterAction |
   RegisterSuccessAction |
   RegisterFailureAction |
-  RedirectAction;
+  LoadRolesAction |
+  LoadRolesSuccessAction |
+  LoadRolesFailureAction;

@@ -5,13 +5,17 @@ import { Actions, Effect, toPayload } from '@ngrx/effects';
 import { Observable } from 'rxjs/Rx';
 import { of } from 'rxjs/observable/of';
 import 'rxjs/add/operator/exhaust';
+import { async } from 'rxjs/scheduler/async';
 
 import { AuthService } from '../services/auth.service';
 import * as Auth from '../actions/auth';
 import { Security, User } from '@sf/auth';
+import { Scheduler } from 'rxjs/Scheduler';
 
 export const REDIRECT_DEBOUNCE = new InjectionToken<number>('Redirect Debounce');
-
+export const REDIRECT_SCHEDULER = new InjectionToken<Scheduler>(
+  'Redirect Scheduler'
+);
 @Injectable()
 export class AuthEffectsService {
   @Effect()
@@ -26,8 +30,13 @@ export class AuthEffectsService {
   loginSuccess$: Observable<Action> = this.actions$
     .ofType(Auth.ActionTypes.LOGIN_SUCCESS)
     .map(toPayload)
-    .debounceTime(this.redirectDebounce)
-    .do(() => this.router.navigate(['/']));
+    .do(() => this.router.navigate(['/']))
+    .debounceTime(this.redirectDebounce, this.scheduler || async);
+
+  @Effect({ dispatch: false })
+  loginFailure$: Observable<Action> = this.actions$
+    .ofType(Auth.ActionTypes.LOGIN_FAILURE)
+    .do((action: Auth.LoginFailureAction) => console.error(action.payload));
 
   @Effect()
   register$: Observable<Action> = this.actions$
@@ -38,19 +47,40 @@ export class AuthEffectsService {
     .catch((error) => of(new Auth.RegisterFailureAction(error)));
 
   @Effect({ dispatch: false })
-  registerSuccess$: Observable<Action> = this.actions$
-    .ofType(Auth.ActionTypes.REGISTER_SUCCESS)
-    .map(toPayload)
-    .debounceTime(this.redirectDebounce)
-    .do(() => this.router.navigate(['/']));
+  registerFailure$: Observable<Action> = this.actions$
+    .ofType(Auth.ActionTypes.REGISTER_FAILURE)
+    .do((action: Auth.RegisterFailureAction) => console.error(action.payload));
 
   @Effect()
   logout$: Observable<Action> = this.actions$
     .ofType(Auth.ActionTypes.LOGOUT)
     .map(toPayload)
     .switchMap(() => this.authService.logout())
-    .map((result) => new Auth.LogoutAction(result))
-    .do(() => this.router.navigate(['/']));
+    .map((result) => new Auth.LogoutAction(result));
+
+  @Effect({ dispatch: false })
+  logoutRedirect$: Observable<Action> = this.actions$
+    .ofType(Auth.ActionTypes.LOGOUT)
+    .debounceTime(this.redirectDebounce)
+    .do(() => this.router.navigate(['/auth/logout']));
+
+  @Effect({ dispatch: false })
+  redirectError$: Observable<Action> = this.actions$
+    .ofType(Auth.ActionTypes.LOGIN_FAILURE, Auth.ActionTypes.REGISTER_FAILURE)
+    .do(() => this.router.navigate(['/auth/error']));
+
+  @Effect()
+  loadUserRoles$: Observable<Action> = this.actions$
+    .ofType(Auth.ActionTypes.USER_ROLES)
+    .map(toPayload)
+    .switchMap(() => this.authService.getUserRoles())
+    .map((result) => new Auth.LoadRolesSuccessAction(result))
+    .catch((error: string) => of(new Auth.LoadRolesFailureAction(error)));
+
+  @Effect({ dispatch: false })
+  loadUserRolesFail$: Observable<Action> = this.actions$
+    .ofType(Auth.ActionTypes.USER_ROLES_FAILURE)
+    .do((action: Auth.LoadRolesFailureAction) => console.error(action.payload));
 
   constructor(
     private actions$: Actions,
@@ -58,6 +88,9 @@ export class AuthEffectsService {
     private router: Router,
     @Optional()
     @Inject(REDIRECT_DEBOUNCE)
-    private redirectDebounce: number = 300
+    private redirectDebounce: number = 1000,
+    @Optional()
+    @Inject(REDIRECT_SCHEDULER)
+    private scheduler: Scheduler
   ) { }
 }

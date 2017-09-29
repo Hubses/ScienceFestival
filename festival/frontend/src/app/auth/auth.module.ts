@@ -9,7 +9,8 @@ import { AuthEffectsService } from './effects/auth-effects.service';
 import {
   LoginComponent,
   LogoutComponent,
-  RegisterComponent
+  RegisterComponent,
+  ErrorComponent
 } from './components/';
 import { AuthService } from './services/auth.service';
 
@@ -25,7 +26,8 @@ import { AuthService } from './services/auth.service';
   declarations: [
     LoginComponent,
     LogoutComponent,
-    RegisterComponent
+    RegisterComponent,
+    ErrorComponent
   ],
   providers: [
     AuthService,

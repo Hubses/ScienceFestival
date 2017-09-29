@@ -20,3 +20,5 @@ export const getUser = createSelector(getStatusState, fromAuth.getUser);
 export const getLoggedIn = createSelector(getStatusState, fromAuth.getLoggedIn);
 export const getError = createSelector(getLoginPageState, fromLoginPage.getError);
 export const getPending = createSelector(getLoginPageState, fromLoginPage.getPending);
+
+export const getUserRoles = createSelector(getStatusState, fromAuth.getUserRoles);

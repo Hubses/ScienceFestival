@@ -5,11 +5,13 @@ import * as auth from "../actions/auth";
 export interface State {
   loggedIn: boolean;
   user: User | null;
+  userRoles: number | null;
 }
 
 const initialState: State = {
   loggedIn: false,
   user: null,
+  userRoles: null
 };
 
 export function reducer(state = initialState, action: auth.Actions): State {
@@ -18,7 +20,8 @@ export function reducer(state = initialState, action: auth.Actions): State {
       return {
         ...state,
         loggedIn: true,
-        user: _.clone(action.payload)
+        user: _.clone(action.payload),
+        userRoles: null
       };
     case auth.ActionTypes.REGISTER_SUCCESS:
       return {
@@ -29,6 +32,12 @@ export function reducer(state = initialState, action: auth.Actions): State {
     case auth.ActionTypes.LOGOUT:
       return initialState;
 
+    case auth.ActionTypes.USER_ROLES_SUCCESS:
+      return {
+        ...state,
+        userRoles: _.clone(action.payload)
+      }
+
     default:
       return state;
   }
@@ -37,3 +46,4 @@ export function reducer(state = initialState, action: auth.Actions): State {
 
 export const getLoggedIn = (state: State) => state.loggedIn;
 export const getUser = (state: State) => state.user;
+export const getUserRoles = (state: State) => state.userRoles;

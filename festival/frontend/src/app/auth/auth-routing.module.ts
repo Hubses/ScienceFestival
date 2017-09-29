@@ -4,7 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import {
   LoginComponent,
   LogoutComponent,
-  RegisterComponent
+  RegisterComponent,
+  ErrorComponent
 } from './components/';
 
 const routes: Routes = [
@@ -27,8 +28,12 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
+    path: 'error',
+    component: ErrorComponent
+  },
+  {
     path: '**',
-    component: LoginComponent
+    component: ErrorComponent
   }
 ];
 
