@@ -1,38 +1,37 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
 
 import {
   LoginComponent,
   LogoutComponent,
   RegisterComponent,
   ErrorComponent
-} from './components/';
+} from "./components/";
+import { HomeComponent } from "./containers";
 
 const routes: Routes = [
   {
-    path: '',
-    component: LoginComponent,
-    pathMatch: 'full',
-    redirectTo: 'login'
+    path: "",
+    component: HomeComponent
   },
   {
-    path: 'login',
-    component: LoginComponent,
+    path: "login",
+    component: LoginComponent
   },
   {
-    path: 'logout',
+    path: "logout",
     component: LogoutComponent
   },
   {
-    path: 'register',
+    path: "register",
     component: RegisterComponent
   },
   {
-    path: 'error',
+    path: "error",
     component: ErrorComponent
   },
   {
-    path: '**',
+    path: "**",
     component: ErrorComponent
   }
 ];
@@ -42,4 +41,4 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: []
 })
-export class AuthRoutingModule { }
+export class AuthRoutingModule {}

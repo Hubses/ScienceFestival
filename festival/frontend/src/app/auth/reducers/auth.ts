@@ -1,4 +1,4 @@
-import * as _ from 'lodash';
+import * as _ from "lodash";
 import { Security, User } from "@sf/auth";
 import * as auth from "../actions/auth";
 
@@ -28,7 +28,7 @@ export function reducer(state = initialState, action: auth.Actions): State {
         ...state,
         loggedIn: false,
         user: _.clone(action.payload)
-      }
+      };
     case auth.ActionTypes.LOGOUT:
       return initialState;
 
@@ -36,12 +36,11 @@ export function reducer(state = initialState, action: auth.Actions): State {
       return {
         ...state,
         userRoles: _.clone(action.payload)
-      }
+      };
 
     default:
       return state;
   }
-
 }
 
 export const getLoggedIn = (state: State) => state.loggedIn;
