@@ -20,8 +20,7 @@ export function reducer(state = initialState, action: auth.Actions): State {
       return {
         ...state,
         loggedIn: true,
-        user: _.clone(action.payload),
-        userRoles: null
+        user: _.clone(action.payload)
       };
     case auth.ActionTypes.REGISTER_SUCCESS:
       return {
@@ -30,7 +29,11 @@ export function reducer(state = initialState, action: auth.Actions): State {
         user: _.clone(action.payload)
       };
     case auth.ActionTypes.LOGOUT:
-      return initialState;
+      return {
+        ...state,
+        loggedIn: false,
+        user: null
+      };
 
     case auth.ActionTypes.USER_ROLES_SUCCESS:
       return {

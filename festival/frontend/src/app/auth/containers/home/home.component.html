@@ -1,10 +1,12 @@
 <div class="home"> Hello HomeComponent! </div>
-<ul class="link_list">
-    <li class="link_list-item" role="presentation" [routerLinkActive]="['active']">
+<ul class="link-list">
+    <li class="link-list_item" role="presentation" [routerLinkActive]="['active']">
         <a [routerLink]="['login']">login</a>
     </li>
-    <li class="link_list-item" role="presentation" [routerLinkActive]="['active']">
+    <li class="link-list_item" role="presentation" [routerLinkActive]="['active']">
         <a [routerLink]="['register']">register</a>
     </li>
+    <li class="link-list_item" role="presentation" [routerLinkActive]="['active']">
+        <a [routerLink]="['logout']">logout</a>
+    </li>
 </ul>
-<router-outlet></router-outlet>

@@ -15,11 +15,9 @@ export class LoginComponent implements OnInit, OnDestroy {
   getLoggedIn$: Observable<boolean>;
   getLoginPageState$: Observable<any>;
   getUser$: Observable<User>;
-
   getLoggedInSubscription: Subscription;
   getLoginPageStateSubscription: Subscription;
   getUserSubscription: Subscription;
-
   loggedIn: boolean;
   loginPageState: any;
   user: User;
@@ -50,8 +48,6 @@ export class LoginComponent implements OnInit, OnDestroy {
       new auth.LoginAction({ username: "test", password: "123" })
     );
   }
-  logout(): void {
-    this.store.dispatch(new auth.LogoutAction());
-  }
+ 
   // tslint:disable-next-line:eofline
 }

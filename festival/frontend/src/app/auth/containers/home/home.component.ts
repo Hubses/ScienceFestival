@@ -16,12 +16,14 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   getUserRolesSubscription: Subscription;
   constructor(private store: Store<root.AuthState>) {
     this.store.replaceReducer(root.extendedReducer);
-    this.getUserRoles$ = this.store.select(root.getUserRoles);
+    this.getUserRoles$ = this.store.select(root.getUserRoles).skip(1);
   }
   ngOnInit() {
-    this.getUserRolesSubscription = this.getUserRoles$.subscribe(val =>
-      console.log(val)
-    );
+    console.group("user roles");
+    this.getUserRolesSubscription = this.getUserRoles$.subscribe(val => {
+      console.log(val);
+    })
+    console.groupEnd();
   }
   ngOnDestroy(): void {
     this.getUserRolesSubscription.unsubscribe();
