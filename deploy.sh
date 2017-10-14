@@ -5,7 +5,7 @@ then
   cd ./festival/frontend
   npm run build-prod
   cd ..
-  ./mvnw com.heroku.sdk:heroku-maven-plugin:1.1.4:deploy-war -Pprod -DskipTests -Dheroku.appName=science-festival
+  ./mvnw com.heroku.sdk:heroku-maven-plugin:1.2.1:deploy-war -Pprod -DskipTests -Dheroku.appName=science-festival
   echo 'Master published successfully.'
 fi
 
@@ -14,6 +14,6 @@ then
   cd ./festival/frontend
   npm run build
   cd ..
-  ./mvnw com.heroku.sdk:heroku-maven-plugin:1.1.4:deploy-war -DskipTests -Dheroku.appName=science-festival-dev
+  ./mvnw com.heroku.sdk:heroku-maven-plugin:1.2.1:deploy-war -DskipTests -Dheroku.appName=science-festival-dev
   echo 'Dev published successfully.'
 fi
