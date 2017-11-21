@@ -38,7 +38,7 @@ export class AuthEffectsService {
   @Effect()
   login$: Observable<Action> = this.actions$
     .ofType(Auth.ActionTypes.LOGIN)
-    .map(toPayload)
+    .map(action => action.payload)
     .switchMap((payload: Security) => this.authService.login(payload))
     .map((result: User) => new Auth.LoginSuccessAction(result))
     .catch(error => of(new Auth.LoginFailureAction(error)));

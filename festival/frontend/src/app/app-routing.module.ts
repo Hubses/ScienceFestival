@@ -13,8 +13,8 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'auth',
-    loadChildren: './auth/auth.module#AuthModule'
+    path: 'event',
+    loadChildren: './event/event.module#EventModule'
   },
   {
     path: 'auth',
