@@ -1,4 +1,0 @@
-<md-input-container>
-  <input mdInput type="text" *ngIf="!isSecure" placeholder="{{placeholder}}" [ngModel]="value" (ngModelChange)="valueChange($event)">
-  <input mdInput type="password" *ngIf="isSecure" placeholder="{{placeholder}}" [ngModel]="value" (ngModelChange)="valueChange($event)">
-</md-input-container>

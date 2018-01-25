@@ -1,14 +1,14 @@
-import { ScienceFestivalPage } from './app.po';
+import { AppPage } from './app.po';
 
-describe('science-festival App', () => {
-  let page: ScienceFestivalPage;
+describe('frontend App', () => {
+  let page: AppPage;
 
   beforeEach(() => {
-    page = new ScienceFestivalPage();
+    page = new AppPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getParagraphText()).toEqual('Welcome to app!');
   });
 });

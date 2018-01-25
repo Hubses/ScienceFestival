@@ -1,7 +1,0 @@
-<div class="header"  (click)="isCollapsed = !isCollapsed">
-    <md-icon [@iconChange]="isCollapsed">keyboard_arrow_down</md-icon>
-    <ng-content select="accordion-header"></ng-content>
-</div>
-<div class="content" [@collapseChange]="isCollapsed">
-    <ng-content select="accordion-content"></ng-content>
-</div>
