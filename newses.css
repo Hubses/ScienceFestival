@@ -38,6 +38,8 @@
 .card__title {
     margin: 15px;
     font-size: 50px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .card__text {
@@ -72,4 +74,10 @@
     margin: 20px 0 0 0;     
     color: white;
     font-size: 25px; 
+}
+
+.edit-icon,
+.delete-icon {
+    width: 40px;
+    height: 40px;
 }

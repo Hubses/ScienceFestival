@@ -22,12 +22,6 @@ login.addEventListener('click', () => {
     window.location.replace("./login.html");
 });
 
-let eventsLinks = document.querySelectorAll('.edit-icon')
-for (let index = 0; index < eventsLinks.length; index++) {
-    eventsLinks[index].addEventListener('click', () => {
-        window.location.replace("./edit-news.html");
-    });
-};
 
 swap();
 function swap() {
@@ -37,20 +31,11 @@ function swap() {
         document.querySelector('#logout').hidden = false;
         document.querySelector('#setting').hidden = false;
         document.querySelector('.user_icon').hidden = false;
-        let buttons = document.querySelectorAll('.card__title-buttons')
-        for (let index = 0; index < buttons.length; index++) {
-            buttons[index].hidden = false;
-        }
-
     } else {
         document.querySelector('#login').hidden = false;
         document.querySelector('#logout').hidden = true;
         document.querySelector('#setting').hidden = true;
-        document.querySelector('.user_icon').hidden = true;
-        let buttons = document.querySelectorAll('.card__title-buttons')
-        for (let index = 0; index < buttons.length; index++) {
-            buttons[index].hidden = true;
-        }
+        document.querySelector('.user_icon').hidden = true;      
     }
 }
 

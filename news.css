@@ -1,0 +1,88 @@
+.header {
+    background-color: #7BD2FF;
+    font-size: 40px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__title {
+    margin: 10px;
+}
+
+.content {
+    display: flex;
+}
+
+.menu {
+    border-right: 1px solid black;
+    height: 111vh;
+}
+
+.menu__icon {
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+.menu__icon img {
+    width: 40px;
+    height: 40px;
+}
+
+.auth-page_actions {
+    display: inline-flex;
+    margin-right: 50px;
+}
+
+.user_icon {
+    margin: 10px;
+}
+
+#login {
+    margin: 10px 0 0 0;
+    color: white;
+    font-size: 25px;
+}
+
+#logout {
+    margin: 20px 0 0 0;
+    color: white;
+    font-size: 25px;
+}
+
+.tabs {
+    display: flex;
+}
+
+.tab {
+    height: 40px;
+    line-height: 40px;
+    width: 150px;
+    text-align: center;
+    border: 1px solid black;
+    font-size: 20px;
+}
+
+.select-tab {
+    color: white;
+    background-color: gray;
+}
+
+.into-text {
+    margin: 30px;
+}
+
+.into-text__header {
+    font-size: 40px;
+    margin: 10px;
+}
+
+.into-text__text {
+    margin: 10px;    
+    font-size: 18px;
+}
+
+.into-text__map{
+    margin: 35px 30%;
+}
