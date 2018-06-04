@@ -1,0 +1,19 @@
+.email{
+    margin: 25px;
+}
+.password{
+    margin: 25px;
+}
+.submit{
+    margin: 25px;
+}
+.into{
+    width: 95%;
+    text-align: center;
+}
+.email_text{
+    margin: 20px;
+}
+.password_text{
+    margin: 10px;
+}

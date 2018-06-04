@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mogilev Science Festival</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="header__title" id="title">
+            Mogilev Science Festival
+        </div>
+        <div class="header__auth-page">
+        </div>
+    </div>
+    <div class="content">
+        <div class="menu">
+            <div class="menu__icon">
+                <img src="./assets/science-icon.png" alt="events" id="events">
+            </div>
+            <div class="menu__icon">
+                <img src="./assets/news-icon.jpg" alt="newses" id="newses">
+            </div>
+            <div class="menu__icon">
+                <img src="./assets/gear-icon.png" alt="setting" id="setting">
+            </div>
+        </div>
+        <div class="into">
+            <form action="./index.html" method="post" class="login_form">
+                <div class="email">
+                    <span class="email_text">email</span>
+                    <input placeholder="example@example.com" type="email" name="email" id="email">
+                </div>
+                <div class="password">
+                    <span class="password_text">password</span>
+                    <input type="password" name="password" id="password">
+                </div>
+                <input class="submit" type="submit" value="Зарегестрироваться">
+            </form>
+        </div>
+        <script src="index.js"></script>
+        <script src="login.js"></script>
+</body>
+
+</html>

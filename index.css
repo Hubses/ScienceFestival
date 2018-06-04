@@ -3,6 +3,7 @@
     font-size: 40px;
     color: white;
     display: flex;
+    justify-content: space-between;
 }
 
 .header__title {
@@ -50,4 +51,8 @@
 
 .card__button {
     margin: 10px;
+}
+
+.auth-page_actions{
+    display: inline-flex;
 }
