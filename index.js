@@ -25,11 +25,15 @@ swap();
 function swap() {
     const isLoggined = localStorage.getItem('loggined') || false;
     if (isLoggined) {
-        document.querySelector('#login').type = 'hidden';
-        document.querySelector('#logout').type = 'button';
+        document.querySelector('#login').hidden = true;
+        document.querySelector('#logout').hidden = false;
+        document.querySelector('#setting').hidden = false;
+        document.querySelector('.user_icon').hidden = false;
     } else {
-        document.querySelector('#login').type = 'button';
-        document.querySelector('#logout').type = 'hidden';
+        document.querySelector('#login').hidden = false;
+        document.querySelector('#logout').hidden = true;
+        document.querySelector('#setting').hidden = true;
+        document.querySelector('.user_icon').hidden = true;      
     }
 }
 
