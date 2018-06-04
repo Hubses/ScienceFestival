@@ -14,25 +14,17 @@ let title = document.querySelector('#title');
 
 title.addEventListener('click', () => {
     window.location.replace("./index.html");
-});
+})
+
 let login = document.querySelector('#login');
 
 login.addEventListener('click', () => {
     window.location.replace("./login.html");
 });
 
-
-let eventsLinks = document.querySelectorAll('.event-link')
-for (let index = 0; index < eventsLinks.length; index++) {
-    eventsLinks[index].addEventListener('click', () => {
-        window.location.replace("./event.html");
-    });
-};
-
-
-// document.querySelectorAll('.news-link').addEventListener('click', () => {
-//     window.location.replace("./news.html");
-// });
+document.querySelector('#registration').addEventListener('click', () => {
+    window.location.replace("./registration.html");
+});
 
 swap();
 function swap() {
@@ -46,7 +38,7 @@ function swap() {
         document.querySelector('#login').hidden = false;
         document.querySelector('#logout').hidden = true;
         document.querySelector('#setting').hidden = true;
-        document.querySelector('.user_icon').hidden = true;
+        document.querySelector('.user_icon').hidden = true;      
     }
 }
 

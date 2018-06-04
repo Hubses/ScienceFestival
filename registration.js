@@ -14,25 +14,17 @@ let title = document.querySelector('#title');
 
 title.addEventListener('click', () => {
     window.location.replace("./index.html");
-});
+})
+
 let login = document.querySelector('#login');
 
 login.addEventListener('click', () => {
     window.location.replace("./login.html");
 });
 
-
-let eventsLinks = document.querySelectorAll('.event-link')
-for (let index = 0; index < eventsLinks.length; index++) {
-    eventsLinks[index].addEventListener('click', () => {
-        window.location.replace("./event.html");
-    });
-};
-
-
-// document.querySelectorAll('.news-link').addEventListener('click', () => {
-//     window.location.replace("./news.html");
-// });
+document.querySelector('#info').addEventListener('click', () => {
+    window.location.replace("./event.html");
+});
 
 swap();
 function swap() {

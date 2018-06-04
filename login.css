@@ -1,19 +1,30 @@
-.email{
+.login_form {
+    margin: 250px 180px;
+    border: 1px solid black;
+    font-size: 30px;
+}
+
+.email {
     margin: 25px;
 }
-.password{
+
+.password {
     margin: 25px;
 }
-.submit{
+
+.submit {
     margin: 25px;
 }
-.into{
+
+.into {
     width: 95%;
     text-align: center;
 }
-.email_text{
+
+.email_text {
     margin: 20px;
 }
-.password_text{
+
+.password_text {
     margin: 10px;
 }

@@ -34,7 +34,7 @@ function swap() {
         document.querySelector('#login').hidden = false;
         document.querySelector('#logout').hidden = true;
         document.querySelector('#setting').hidden = true;
-        document.querySelector('.user_icon').hidden = true;      
+        document.querySelector('.user_icon').hidden = true;
     }
 }
 
