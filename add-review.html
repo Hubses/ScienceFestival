@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Мераприятия</title>
+    <title>Добавление новости</title>
     <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="user-account.css">
+    <link rel="stylesheet" href="add-review.css">
 </head>
 
 <body>
@@ -38,24 +38,37 @@
             </div>
         </div>
         <div class="into">
-            <div class="into__title">
-                Список работ
-                <hr>
-            </div>
-            <div class="card">
-                <div class="card__title">
-                    <div class="card__title-text">
-                        Первая работа
+            <div class="into-text">
+                <div class="into-text__header">
+                    Добавление новости
+                </div>
+                <div class="into-text__text">
+                    <div class="into-text__form-header">
+                        <div class="form-title">
+                            Название новости
+                        </div>
+                        <div class="form-field">
+                            <input type="text" name="name" id="name">
+                        </div>
                     </div>
-                    <div class="card__title-buttons">
-                        <img src="./assets/edit-icon.jpg" alt="Изменить" class="edit-icon">
-                        <img src="./assets/delete-icon.jpg" alt="Удалить" class="delete-icon">
+                    <div class="into-text__form-work">
+                        <div class="form-title">
+                            Текст новости
+                        </div>
+                        <div class="form-field">
+                            <textarea name="work" id="work" cols="100" rows="35"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-button">
+                        <a href="./new-new-judge-account.html">
+                            <button>Сохранить</button>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="user-account.js"></script> s
+    <script src="add-review.js" id="send"></script>
 </body>
 
 </html>

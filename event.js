@@ -26,6 +26,14 @@ document.querySelector('#registration').addEventListener('click', () => {
     window.location.replace("./registration.html");
 });
 
+document.querySelector('#user-icon').addEventListener('click', () => {
+    if (localStorage.getItem('isJudge') === 'true') {
+        window.location.replace("./new-judge-account.html");
+    } else {
+        window.location.replace("./new-user-account.html");
+    }
+});
+
 swap();
 function swap() {
     const isLoggined = localStorage.getItem('loggined') || false;

@@ -22,23 +22,6 @@ login.addEventListener('click', () => {
     window.location.replace("./login.html");
 });
 
-document.querySelector('#info').addEventListener('click', () => {
-    window.location.replace("./event.html");
-});
-
-document.querySelector('#user-icon').addEventListener('click', () => {
-    if (localStorage.getItem('isJudge') === 'true') {
-        window.location.replace("./judge-account.html");
-    } else {
-        window.location.replace("./user-account.html");
-    }
-});
-
-document.querySelector('#registretion').addEventListener('click', () => {
-    window.location.replace("./event.html");
-    localStorage.setItem('isAdded', true);
-});
-
 swap();
 function swap() {
     const isLoggined = localStorage.getItem('loggined') || false;
@@ -58,4 +41,5 @@ function swap() {
 document.querySelector('#logout').addEventListener('click', () => {
     localStorage.clear();
     swap();
+    window.location.replace("./index.html");
 });

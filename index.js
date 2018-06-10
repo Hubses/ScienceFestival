@@ -30,7 +30,7 @@ for (let index = 0; index < eventsLinks.length; index++) {
 };
 
 document.querySelector('#user-icon').addEventListener('click', () => {
-    if (localStorage.getItem('isJudge')) {
+    if (localStorage.getItem('isJudge') === 'true') {
         window.location.replace("./judge-account.html");
     } else {
         window.location.replace("./user-account.html");
