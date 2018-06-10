@@ -1,0 +1,83 @@
+.header {
+    background-color: #7BD2FF;
+    font-size: 40px;
+    color: white;
+    display: flex;
+    justify-content: space-between;    
+}
+
+.header__title {
+    margin: 10px;
+}
+
+.content {
+    display: flex;
+}
+
+.menu {
+    border-right: 1px solid black;
+    height: 111vh;
+}
+
+.menu__icon {
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+.menu__icon img {
+    width: 40px;
+    height: 40px;
+}
+
+.card {
+    margin: 20px;
+    border: 1px solid black;
+}
+
+.card__title {
+    margin: 15px;
+    font-size: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card__text {
+    margin: 15px;
+    font-size: 20px;
+}
+
+.card__button {
+    font-size: 20px;
+}
+
+.card__button {
+    margin: 10px;
+}
+
+.auth-page_actions {
+    display: inline-flex;
+    margin-right: 50px;
+}
+
+.user_icon {
+    margin: 10px;
+}
+
+#login{
+    margin: 10px 0 0 0; 
+    color: white;
+    font-size: 25px;
+}
+
+#logout{
+    margin: 20px 0 0 0;     
+    color: white;
+    font-size: 25px; 
+}
+
+.edit-icon,
+.delete-icon {
+    width: 40px;
+    height: 40px;
+}
