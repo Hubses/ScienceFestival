@@ -41,4 +41,5 @@ function swap() {
 document.querySelector('#logout').addEventListener('click', () => {
     localStorage.clear();
     swap();
+    window.location.replace("./index.html");
 });

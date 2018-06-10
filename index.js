@@ -29,10 +29,13 @@ for (let index = 0; index < eventsLinks.length; index++) {
     });
 };
 
-
-// document.querySelectorAll('.news-link').addEventListener('click', () => {
-//     window.location.replace("./news.html");
-// });
+document.querySelector('#user-icon').addEventListener('click', () => {
+    if (localStorage.getItem('isJudge')) {
+        window.location.replace("./judge-account.html");
+    } else {
+        window.location.replace("./user-account.html");
+    }
+});
 
 swap();
 function swap() {
