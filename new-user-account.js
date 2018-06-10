@@ -22,6 +22,10 @@ login.addEventListener('click', () => {
     window.location.replace("./login.html");
 });
 
+document.querySelector('#edit-icon').addEventListener('click', () => {
+    window.location.replace("./edit-work.html");
+});
+
 swap();
 function swap() {
     const isLoggined = localStorage.getItem('loggined') || false;
